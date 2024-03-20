@@ -1,19 +1,25 @@
 # site properties and page defaults
-title: dwilliamsLab
-subtitle: 
-description: An engaging 1-3 sentence description of your lab.
-header: images/background.jpg
-footer: images/background.jpg
+# site properties and page defaults
+title: Drake Williams DDS, PhD
+description: A dentist scientist studying oral barrier immunity
+logo: images/logo.png
+header: 
+footer: 
+baseurl: ""
 proofer: false
 
 # site social media and other links
 links:
-  email: contact@dwilliamsLab.com
-  orcid: 0000-0001-8713-9213
-  google-scholar: ETJoidYAAAAJ
-  github: dwilliamsLab
-  twitter: dwilliamsLab
-  youtube: dwilliamsLab
+  email: drakewilliams@gmail.com
+  orcid: 0000-0002-7718-2098
+  google-scholar: 6SmnW4IAAAA
+  github: williamsdrake
+  twitter: drake_dds
+  dimensions: ur.01234462161.01
+  
+twitter:
+  username: drake_dds
+
 
 ### jekyll settings
 
@@ -42,6 +48,9 @@ collections:
   # generate page for each post
   posts:
     output: true
+
+# Google Analytics:
+google_analytics: UA-216067793-1
 
 # jekyll plugins
 plugins:
