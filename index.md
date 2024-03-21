@@ -1,9 +1,7 @@
 ---
 title: Home
 ---
-{% include section.html full=true %}
-
-{% include banner.html image="images/banner.jpeg" %}
+{% include section.html size=full background="images/banner.jpeg" %}
 
 {% include section.html %}
 # Understanding oral barrier immunity in human and murine health and disease
