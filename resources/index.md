@@ -11,7 +11,7 @@ nav:
 
 {% include section.html %}
 
-## Datasets
+<h2 style="text-align: center;">Datasets</h2>
 
 {% include list.html component="card" data="resources" filters="group: dataset" %}
 
