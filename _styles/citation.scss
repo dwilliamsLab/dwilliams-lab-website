@@ -14,13 +14,15 @@ $wrap: 800px;
   border-radius: var(--rounded);
   background: var(--background);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  //box-shadow: var(--shadow);
 }
 
 .citation-image {
   position: relative;
   width: $thumb-size;
   flex-shrink: 0;
+  justify-content: flex-start; //added to justify image to top left
+  align-items: flex-start; //added to justify image to top left
   // box-shadow: var(--shadow);
 }
 
