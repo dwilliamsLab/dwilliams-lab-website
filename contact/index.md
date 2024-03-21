@@ -8,7 +8,7 @@ nav:
 # <i class="fas fa-envelope"></i>Contact
 
 {%
-  include link.html
+  include button.html
   type="email"
   icon=""
   text="xxxxxx@umn.edu"
@@ -17,7 +17,7 @@ nav:
   style="button"
 %}
 {%
-  include link.html
+  include button.html
   type="phone"
   icon=""
   text="(612) xxx-xxxx" 
@@ -26,7 +26,7 @@ nav:
   style="button"
 %}
 {%
-  include link.html
+  include button.html
   type="address"
   icon=""
   text="Google Maps"
