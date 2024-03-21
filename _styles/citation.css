@@ -8,13 +8,14 @@
   border-radius: var(--rounded);
   background: var(--background);
   overflow: hidden;
-  box-shadow: var(--shadow);
 }
 
 .citation-image {
   position: relative;
   width: 120px;
   flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .citation-image img {
