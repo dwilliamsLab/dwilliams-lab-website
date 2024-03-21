@@ -59,4 +59,4 @@ Minneapolis, MN 55455
   caption="U of MN West Bank"
 %}
 {% endcapture %}
-{% include two-col.html col1=col1 col2=col2 %}
+{% include cols.html col1=col1 col2=col2 %}
