@@ -11,10 +11,6 @@
 
 {% for section in sections %}
   {% assign dark = section | regex_scan: "dark: (.*);" | default: "" %}
-  {% assign background = section
-    | regex_scan: "background: (.*);"
-    | default: nil
-  %}
   {% assign size = section | regex_scan: "size: (.*);" | default: "page" %}
 
   <section
