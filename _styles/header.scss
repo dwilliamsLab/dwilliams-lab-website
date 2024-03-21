@@ -111,23 +111,38 @@ nav > a:hover {
   color: var(--primary);
 }
 
+
+
 header:not([data-big]) {
-  @media (max-width: $collapse) {
-    justify-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    .nav-toggle {
-      display: flex;
-    }
+  @if $sticky {
+    top: unset;
+  }
 
-    .nav-toggle:not(:checked) + nav {
-      display: none;
-    }
+  .home {
+    flex-direction: column;
+    flex-grow: 0;
+  }
 
-    nav {
-      align-items: flex-end;
-      flex-direction: column;
-      width: 100%;
-    }
+  .logo {
+    height: $logo-big;
+  }
+
+  .title-text {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    font-size: var(--large);
+  }
+
+  .subtitle {
+    font-size: var(--med);
   }
 }
 
