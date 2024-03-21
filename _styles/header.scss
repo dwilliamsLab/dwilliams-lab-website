@@ -114,9 +114,9 @@ nav > a:hover {
 
 
 header:not([data-big]) {
-  justify-content: center;
+  display: flex;  /* Switch to flexbox for horizontal alignment */
+  justify-content: space-between;  /* Distribute logo and nav to edges */
   align-items: center;
-  flex-direction: column;
   padding: 20px;
 
   @if $sticky {
@@ -133,9 +133,8 @@ header:not([data-big]) {
   }
 
   .title-text {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex: 1;  /* Allow title to fill remaining space */
+    text-align: center;  /* Center title text */
   }
 
   .title {
