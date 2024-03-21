@@ -27,12 +27,13 @@ $wrap: 800px;
 }
 
 .citation-image img {
-  position: relative;
+  position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
   padding-left: 15px;
+  top: 0;
 }
 
 .citation-text {
