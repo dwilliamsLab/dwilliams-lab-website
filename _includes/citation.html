@@ -47,11 +47,11 @@
         {{
           citation.authors
           | join: ","
-        <!--  | split: ","
-          | array_carve: 5   
+          | split: ","
+          | array_carve: 200  <!--  changed from 5 to 200 to include all authors --> 
           | join: ", " 
           | markdownify
-          | remove: "<p>" | remove: "</p>" -->
+          | remove: "<p>" | remove: "</p>"
           | default: "[no author info]"
         }}
       </div>
