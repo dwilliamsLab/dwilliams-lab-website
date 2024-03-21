@@ -9,7 +9,7 @@ nav:
 
 {% include section.html %}
 
-### Principal Investigator 
+<h2 style="text-align: center;">Principal Investigator</h2> 
 
 {%
   include list.html
@@ -20,7 +20,7 @@ nav:
 
 {% include section.html %}
 
-### Current members
+<h2 style="text-align: center;">Current members</h2>
 
 {%
   include list.html
@@ -28,11 +28,11 @@ nav:
   component="portrait"
   filters="group: current"
 %}
-{:.center}
+
 
 {% include section.html %}
 
-### Lab alumni
+<h2 style="text-align: center;">Lab alumni</h2>
 
 {%
   include list.html
@@ -40,5 +40,5 @@ nav:
   component="portrait"
   filters="group: past"
 %}
-{:.center}
+
 

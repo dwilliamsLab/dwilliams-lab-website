@@ -34,7 +34,6 @@ nav:
   link="https://maps.app.goo.gl/BH2MUyAq6faHwtbC8"
   style="button"
 %}
-{:.center}
 
 {% include section.html %}
 
@@ -43,7 +42,6 @@ nav:
 Malcolm Moos Health Sciences Tower, Rm 17-175  
 515 Delaware St SE  
 Minneapolis, MN 55455
-{:.center}
 
 {% capture col1 %}
 {%
