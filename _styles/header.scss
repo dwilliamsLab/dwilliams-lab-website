@@ -113,7 +113,7 @@ nav > a:hover {
 
 header:not([data-big]) {
   @media (max-width: $collapse) {
-    justify-content: flex-end;
+    justify-content: center;
 
     .nav-toggle {
       display: flex;
