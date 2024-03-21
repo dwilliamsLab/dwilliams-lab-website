@@ -42,13 +42,16 @@
 
       <div
         class="citation-authors"
+        {% if citation.authors.size > 200 %} <!-- changed to 200 from 10 -->
+          data-tooltip="{{ citation.authors | join: ", " }} "
+        {% endif %}
         tabindex="0"
       >
         {{
           citation.authors
           | join: ","
           | split: ","
-          | array_carve: 5
+          | array_carve: 200 <!-- changed to 200 from 5 -->
           | join: ", "
           | markdownify
           | remove: "<p>" | remove: "</p>"
@@ -71,16 +74,7 @@
       </div>
 
       {% if include.style == "rich" %}
-        {% if citation.description %}
-          <div class="citation-description">
-            {{
-              citation.description
-              | markdownify
-              | remove: "<p>"
-              | remove: "</p>"
-            }}
-          </div>
-          <div class = "citation_badge">
+      <div class = "citation_badge">
     
           <span class="__dimensions_badge_embed__" 
             data-doi="{{ id | remove_first: 'doi:' }}" 
@@ -111,6 +105,16 @@
           </div>
           <script async type="application/javascript" src="https://cdn.scite.ai/badge/scite-badge-latest.min.js">
           </scipt>
+        {% if citation.description %}
+          <div class="citation-description">
+            {{
+              citation.description
+              | markdownify
+              | remove: "<p>"
+              | remove: "</p>"
+            }}
+          </div>
+          
           
         {% endif %}
 
