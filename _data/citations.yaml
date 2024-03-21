@@ -61,7 +61,7 @@
   stage: pd
   project: collab
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10558122/
     text: PMC Full Text
   - type: preprint
@@ -101,7 +101,7 @@
   stage: pd
   project: hostmicro
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10236943
     text: PMC Full Text
   - type: cme
@@ -141,7 +141,7 @@
   stage: pd
   project: collab
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9948959
     text: PMC Full Text
   plugin: sources.py
@@ -207,7 +207,7 @@
   stage: pd
   project: atlas
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9516614
     text: PMC Full Text
   plugin: sources.py
@@ -249,7 +249,7 @@
   stage: phd
   project: inflammation
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9386631/
     text: PMC Full Text
   plugin: sources.py
@@ -269,7 +269,7 @@
   stage: phd
   project: etiology
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9406235/
     text: PMC Full Text
   plugin: sources.py
@@ -298,7 +298,7 @@
   stage: phd
   project: inflammation
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8934872/
     text: PMC Full Text
   plugin: sources.py
@@ -318,7 +318,7 @@
   stage: pd
   project: atlas
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8551218/
     text: PMC Full Text
   plugin: sources.py
@@ -405,7 +405,7 @@
   stage: pd
   project: atlas
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8359928/
     text: PMC Full Text
   - type: preprint
@@ -518,7 +518,7 @@
   stage: pd
   project: hostmicro
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8326743/
     text: PMC Full Text
   - type: opinion
@@ -563,7 +563,7 @@
   stage: pd
   project: collab
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7554197/
     text: PMC Full Text
   - type: podcast
@@ -618,7 +618,7 @@
   stage: phd
   project: inflammation
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7243424/
     text: PMC Full Text
   - type: press
@@ -692,7 +692,7 @@
   preprint: n
   stage: other
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6328665/
     text: PMC Full Text
   plugin: sources.py
@@ -723,7 +723,7 @@
   stage: phd
   project: inflammation
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6169128/
     text: PMC Full Text
   - type: press
@@ -755,7 +755,7 @@
   stage: phd
   project: etiology
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642919/
     text: PMC Full Text
   plugin: sources.py
@@ -782,7 +782,7 @@
   stage: other
   project: null
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4568971/
     text: PMC Full Text
   plugin: sources.py
@@ -814,7 +814,7 @@
   stage: phd
   project: etiology
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4215026/
     text: PMC Full Text
   - type: press
@@ -850,7 +850,7 @@
   preprint: n
   stage: other
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3771400/
     text: PMC Full Text
   plugin: sources.py
@@ -877,7 +877,7 @@
   preprint: n
   stage: other
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3770841/
     text: PMC Full Text
   plugin: sources.py
@@ -904,7 +904,7 @@
   preprint: n
   stage: other
   buttons:
-  - type: preprint
+  - type: pmc
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144120/
     text: PMC Full Text
   plugin: sources.py
