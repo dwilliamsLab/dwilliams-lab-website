@@ -13,7 +13,7 @@ $wrap: 800px;
   margin: 20px 0;
   border-radius: var(--rounded);
   background: var(--background);
-  //overflow: hidden;
+  overflow: hidden;
   box-shadow: var(--shadow);
 }
 
@@ -26,10 +26,11 @@ $wrap: 800px;
 
 .citation-image img {
   position: absolute;
-  inset: 10;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  padding-left: 15px;
 }
 
 .citation-text {
