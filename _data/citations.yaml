@@ -34,7 +34,7 @@
   preprint: n
   stage: pd
   project: hostmicro
-  extra-links: null
+  buttons: null
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1126/sciadv.adk1887
@@ -60,7 +60,7 @@
   preprint: n
   stage: pd
   project: collab
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10558122/
     text: PMC Full Text
@@ -100,7 +100,7 @@
   preprint: n
   stage: pd
   project: hostmicro
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10236943
     text: PMC Full Text
@@ -140,7 +140,7 @@
   preprint: y
   stage: pd
   project: collab
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9948959
     text: PMC Full Text
@@ -206,7 +206,7 @@
   preprint: n
   stage: pd
   project: atlas
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9516614
     text: PMC Full Text
@@ -248,7 +248,7 @@
   preprint: n
   stage: phd
   project: inflammation
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9386631/
     text: PMC Full Text
@@ -268,7 +268,7 @@
   preprint: n
   stage: phd
   project: etiology
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9406235/
     text: PMC Full Text
@@ -297,7 +297,7 @@
   preprint: n
   stage: phd
   project: inflammation
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8934872/
     text: PMC Full Text
@@ -317,7 +317,7 @@
   preprint: n
   stage: pd
   project: atlas
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8551218/
     text: PMC Full Text
@@ -404,7 +404,7 @@
   preprint: n
   stage: pd
   project: atlas
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8359928/
     text: PMC Full Text
@@ -517,7 +517,7 @@
   preprint: n
   stage: pd
   project: hostmicro
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8326743/
     text: PMC Full Text
@@ -562,7 +562,7 @@
   preprint: n
   stage: pd
   project: collab
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7554197/
     text: PMC Full Text
@@ -617,7 +617,7 @@
   preprint: n
   stage: phd
   project: inflammation
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7243424/
     text: PMC Full Text
@@ -691,7 +691,7 @@
   tags: null
   preprint: n
   stage: other
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6328665/
     text: PMC Full Text
@@ -722,7 +722,7 @@
   preprint: n
   stage: phd
   project: inflammation
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6169128/
     text: PMC Full Text
@@ -754,7 +754,7 @@
   preprint: n
   stage: phd
   project: etiology
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5642919/
     text: PMC Full Text
@@ -781,7 +781,7 @@
   preprint: n
   stage: other
   project: null
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4568971/
     text: PMC Full Text
@@ -813,7 +813,7 @@
   preprint: n
   stage: phd
   project: etiology
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4215026/
     text: PMC Full Text
@@ -849,7 +849,7 @@
   tags: null
   preprint: n
   stage: other
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3771400/
     text: PMC Full Text
@@ -876,7 +876,7 @@
   tags: null
   preprint: n
   stage: other
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3770841/
     text: PMC Full Text
@@ -903,7 +903,7 @@
   tags: null
   preprint: n
   stage: other
-  extra-links:
+  buttons:
   - type: preprint
     link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144120/
     text: PMC Full Text
