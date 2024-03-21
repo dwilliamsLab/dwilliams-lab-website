@@ -17,12 +17,12 @@ nav:
 
 {% include section.html %}
 
-## Protocols
+<h2 style="text-align: center;">Protocols</h2>
 
 {% include list.html component="card" data="resources" filters="group: protocol" %}
 
 {% include section.html %}
 
-## More
+<h2 style="text-align: center;">More</h2>
 
 {% include list.html component="card" data="resources" filters="group: more" style="small" %}
