@@ -1,5 +1,4 @@
 ---
-title: Home
 ---
 {% include section.html size=full background="images/banner.jpeg" %}
 
