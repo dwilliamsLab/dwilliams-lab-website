@@ -1,81 +1,23 @@
 ---
+title: Home
 ---
+{% include section.html full=true %}
 
-# dwilliamsLab's Website
+{% include banner.html image="images/banner.jpeg" %}
 
-An engaging 1-3 sentence description of your lab.
+{% include section.html %}
+# Understanding oral barrier immunity in human and murine health and disease
+
+The relationship between the host and microbiota in barrier mucosal tissues is delicate and requires communication between microbes and host cells to initiate, adapt, and terminate responses in a manner that protects the host from infection and allows beneficial microbes to survive and thrive. Our lab is interested in understanding what governs host-microbe communication in health and disease at the oral barrier.
+
+We use a combination of systems immunology to probe and characterize the oral barrier in different disease contexts, in addition to developing and applying biologic tools that enable targeted study of host-microbe interactions. 
+
+[Read more](research)
 
 {% include section.html %}
 
-## Highlights
+# <i class="fas fa-bullhorn"></i>Lab News
 
-{% capture text %}
+{% include search-info.html %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-{%
-  include button.html
-  link="research"
-  text="See our publications"
-  icon="fa-solid fa-arrow-right"
-  flip=true
-  style="bare"
-%}
-
-{% endcapture %}
-
-{%
-  include feature.html
-  image="images/photo.jpg"
-  link="research"
-  title="Our Research"
-  text=text
-%}
-
-{% capture text %}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-{%
-  include button.html
-  link="projects"
-  text="Browse our projects"
-  icon="fa-solid fa-arrow-right"
-  flip=true
-  style="bare"
-%}
-
-{% endcapture %}
-
-{%
-  include feature.html
-  image="images/photo.jpg"
-  link="projects"
-  title="Our Projects"
-  flip=true
-  style="bare"
-  text=text
-%}
-
-{% capture text %}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-{%
-  include button.html
-  link="team"
-  text="Meet our team"
-  icon="fa-solid fa-arrow-right"
-  flip=true
-  style="bare"
-%}
-
-{% endcapture %}
-
-{%
-  include feature.html
-  image="images/photo.jpg"
-  link="team"
-  title="Our Team"
-  text=text
-%}
+{% include list.html data="posts" component="post-excerpt" %}
