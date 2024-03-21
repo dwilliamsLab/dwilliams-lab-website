@@ -103,6 +103,7 @@ header:not([data-big]) {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 20px;
   top: unset;
 }
 header:not([data-big]) .home {
@@ -110,7 +111,7 @@ header:not([data-big]) .home {
   flex-grow: 0;
 }
 header:not([data-big]) .logo {
-  height: 80px;
+  height: 40px;
 }
 header:not([data-big]) .title-text {
   flex-direction: column;
