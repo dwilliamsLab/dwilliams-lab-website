@@ -119,6 +119,12 @@ linkedin:
   text: LinkedIn
   tooltip: LinkedIn
   link: https://www.linkedin.com/in/$VALUE
+  
+dimensions:
+  icon: fas fa-university
+  text: Dimensions
+  tooltip: Dimensions
+  link: https://app.dimensions.ai/details/entities/publication/author/$VALUE
 
 # alerts
 
@@ -148,41 +154,41 @@ error:
 
 # publications
 
-paper:
-  icon: fa-solid fa-scroll
-  text: Paper
-  tooltip: Paper
-
-book:
-  icon: fa-solid fa-book
-  text: Book
-  tooltip: Book
-
-article:
-  icon: fa-solid fa-newspaper
-  text: Article
-  tooltip: Article
-
 journal:
   icon: fa-regular fa-newspaper
   text: Journal
   tooltip: Journal
-
+  
 preprint:
-  icon: fa-regular fa-eye
+  icon: fa-regular fa-file-alt
   text: Preprint
   tooltip: Preprint
-
-unpublished:
-  icon: fa-regular fa-eye
-  text: Unpublished
-  tooltip: Unpublished
-
-manubot:
-  icon: manubot.svg
-  text: Manubot
-  tooltip: Manubot
-
+  
+press:
+  icon: fa-regular fa-newspaper
+  text: Press
+  tooltip: Press
+  
+opinion:
+  icon: fa-regular fa-star
+  text: Faculty Opinion
+  tooltip: Faculty Opinion
+  
+video:
+  icon: fa-solid fa-tv
+  text: Video
+  tooltip: Video
+  
+cme:
+  icon: fa-solid fa-user-md
+  text: Continuing Medical Education
+  tooltip: CME
+  
+podcast:
+  icon: fa-solid fa-podcast
+  text: Podcast
+  tooltip: Podcast
+  
 # software
 
 docs:
