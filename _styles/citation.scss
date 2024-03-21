@@ -13,7 +13,7 @@ $wrap: 800px;
   margin: 20px 0;
   border-radius: var(--rounded);
   background: var(--background);
-  overflow: hidden;
+  //overflow: hidden;
   box-shadow: var(--shadow);
 }
 
@@ -42,7 +42,7 @@ $wrap: 800px;
   padding: 20px;
   padding-left: 30px;
   text-align: left;
-  //overflow-wrap: break-word;
+  overflow-wrap: break-word;
   z-index: 0;
 }
 

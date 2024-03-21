@@ -163,6 +163,11 @@ preprint:
   icon: fa-regular fa-file-alt
   text: Preprint
   tooltip: Preprint
+
+pmc:
+  icon: fa-regular fa-file-alt
+  text: PMC Full Text
+  tooltip: PMC
   
 press:
   icon: fa-regular fa-newspaper
