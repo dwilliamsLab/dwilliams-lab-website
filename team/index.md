@@ -4,7 +4,7 @@ nav:
   order: 2
   tooltip: About our team
 ---
-
+{% include section.html size=full background="images/banner.jpeg" %}
 # {% include icon.html icon="fa-solid fa-users" %}Team
 
 {% include section.html %}
