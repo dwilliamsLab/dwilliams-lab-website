@@ -124,7 +124,8 @@ header:not([data-big]) {
   }
 
   .home {
-    flex-direction: column;
+    flex-direction: row; //change from column to row
+    align-items: center; //add this
     flex-grow: 0;
   }
 
