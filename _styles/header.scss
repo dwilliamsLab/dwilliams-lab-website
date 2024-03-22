@@ -112,40 +112,41 @@ nav > a:hover {
 }
 
 
-
 header:not([data-big]) {
-  display: flex;  /* Switch to flexbox for horizontal alignment */
-  justify-content: space-between;  /* Distribute logo and nav to edges */
+  justify-content: center;
   align-items: center;
-  padding: 20px;
+  flex-direction: column;
+  padding: $big-padding 20px;
 
   @if $sticky {
     top: unset;
   }
 
   .home {
-    flex-direction: row; //change from column to row
-    align-items: center; //add this
+    flex-direction: column;
     flex-grow: 0;
   }
 
   .logo {
-    height: $logo;
+    height: $logo-big;
   }
 
   .title-text {
-    flex: 1;  /* Allow title to fill remaining space */
-    text-align: center;  /* Center title text */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .title {
-    font-size: var(--large);
+    font-size: var(--xxl);
   }
 
   .subtitle {
-    font-size: var(--med);
+    font-size: var(--large);
   }
 }
+
+
 
 header[data-big] {
   justify-content: center;
