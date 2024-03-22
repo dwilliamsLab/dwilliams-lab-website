@@ -114,12 +114,8 @@ nav > a:hover {
 header:not([data-big]) {
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   padding: $big-padding 20px;
-
-  @if $sticky {
-    top: unset;
-  }
 
   .home {
     flex-direction: column;
@@ -137,11 +133,11 @@ header:not([data-big]) {
   }
 
   .title {
-    font-size: var(--med);
+    font-size: var(--large);
   }
 
   .subtitle {
-    font-size: var(--sm);
+    font-size: var(--med);
   }
 }
 
