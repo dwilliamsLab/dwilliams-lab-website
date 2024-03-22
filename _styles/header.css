@@ -102,9 +102,8 @@ nav > a:hover {
 header:not([data-big]) {
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   padding: 100px 20px;
-  top: unset;
 }
 header:not([data-big]) .home {
   flex-direction: column;
@@ -119,10 +118,10 @@ header:not([data-big]) .title-text {
   text-align: center;
 }
 header:not([data-big]) .title {
-  font-size: var(--med);
+  font-size: var(--large);
 }
 header:not([data-big]) .subtitle {
-  font-size: var(--sm);
+  font-size: var(--med);
 }
 
 header[data-big] {
