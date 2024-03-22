@@ -4,7 +4,7 @@ nav:
   order: 6
   tooltip: Email, address, and location
 ---
-
+{% include section.html size=full background="images/banner.jpeg" %}
 # <i class="fas fa-envelope"></i>   Contact
 
 {%
