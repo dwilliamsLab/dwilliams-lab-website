@@ -112,22 +112,36 @@ nav > a:hover {
 }
 
 header:not([data-big]) {
-  @media (max-width: $collapse) {
-    justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: $big-padding 20px;
 
-    .nav-toggle {
-      display: flex;
-    }
+  @if $sticky {
+    top: unset;
+  }
 
-    .nav-toggle:not(:checked) + nav {
-      display: none;
-    }
+  .home {
+    flex-direction: column;
+    flex-grow: 0;
+  }
 
-    nav {
-      align-items: flex-end;
-      flex-direction: column;
-      width: 100%;
-    }
+  .logo {
+    height: $logo;
+  }
+
+  .title-text {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    font-size: var(--med);
+  }
+
+  .subtitle {
+    font-size: var(--sm);
   }
 }
 
