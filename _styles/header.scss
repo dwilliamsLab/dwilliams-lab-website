@@ -114,6 +114,7 @@ nav > a:hover {
 
 
 header:not([data-big]) {
+  width: 100%;
   display: flex;  /* Switch to flexbox for horizontal alignment */
   justify-content: space-between;  /* Distribute logo and nav to edges */
   align-items: center;
@@ -125,7 +126,7 @@ header:not([data-big]) {
 
   .home {
     flex-direction: row; //change from column to row
-    align-items: center; //add this
+    //align-items: center; //add this
     flex-grow: 0;
   }
 
