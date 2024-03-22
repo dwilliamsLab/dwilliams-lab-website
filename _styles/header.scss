@@ -111,40 +111,23 @@ nav > a:hover {
   color: var(--primary);
 }
 
-
-
 header:not([data-big]) {
-  width: 100%;
-  display: flex;  /* Switch to flexbox for horizontal alignment */
-  justify-content: space-between;  /* Distribute logo and nav to edges */
-  align-items: center;
-  padding: 20px;
+  @media (max-width: $collapse) {
+    justify-content: flex-end;
 
-  @if $sticky {
-    top: unset;
-  }
+    .nav-toggle {
+      display: flex;
+    }
 
-  .home {
-    flex-direction: row; //change from column to row
-    //align-items: center; //add this
-    flex-grow: 0;
-  }
+    .nav-toggle:not(:checked) + nav {
+      display: none;
+    }
 
-  .logo {
-    height: $logo;
-  }
-
-  .title-text {
-    flex: 1;  /* Allow title to fill remaining space */
-    text-align: center;  /* Center title text */
-  }
-
-  .title {
-    font-size: var(--large);
-  }
-
-  .subtitle {
-    font-size: var(--med);
+    nav {
+      align-items: flex-end;
+      flex-direction: column;
+      width: 100%;
+    }
   }
 }
 
