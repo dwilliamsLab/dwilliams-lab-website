@@ -2,7 +2,7 @@
 ---
 
 $page: 1000px;
-$padding: 10px;
+$padding: 0px;
 
 section {
   padding: $padding max($padding, calc((100% - $page) / 2));
