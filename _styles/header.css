@@ -107,7 +107,8 @@ header:not([data-big]) {
   top: unset;
 }
 header:not([data-big]) .home {
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   flex-grow: 0;
 }
 header:not([data-big]) .logo {
