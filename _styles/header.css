@@ -36,7 +36,7 @@ header a {
 
 .title-text {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   align-items: baseline;
   flex-wrap: wrap;
   gap: 5px;
@@ -99,29 +99,21 @@ nav > a:hover {
   color: var(--primary);
 }
 
-header:not([data-big]) {
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  padding: 100px 20px;
-}
-header:not([data-big]) .home {
-  flex-direction: column;
-  flex-grow: 0;
-}
-header:not([data-big]) .logo {
-  height: 40px;
-}
-header:not([data-big]) .title-text {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-header:not([data-big]) .title {
-  font-size: var(--large);
-}
-header:not([data-big]) .subtitle {
-  font-size: var(--med);
+@media (max-width: 700px) {
+  header:not([data-big]) {
+    justify-content: flex-end;
+  }
+  header:not([data-big]) .nav-toggle {
+    display: flex;
+  }
+  header:not([data-big]) .nav-toggle:not(:checked) + nav {
+    display: none;
+  }
+  header:not([data-big]) nav {
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 header[data-big] {
