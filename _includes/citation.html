@@ -105,13 +105,11 @@
       {% endif %}
     </div>
   </div>
-  {%- if include.style == rich -%}
-  {%- assign id = citation.id -%}
   <div class = "citation_badge">
     
     <span 
       class="__dimensions_badge_embed__" 
-      data-doi="{{ id | remove_first: 'doi:' }}" 
+      data-doi="{{ citation.id | remove_first: 'doi:' }}" 
       data-style="large_rectangle" 
       data-legend="hover-right">
     </span>
