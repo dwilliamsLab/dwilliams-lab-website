@@ -113,13 +113,25 @@
       data-style="large_rectangle" 
       data-legend="hover-right">
     </span>
-    <br>
     <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
   </div>
+    <br>
   <div 
-    data-badge-type="2" 
+    data-badge-type="1"
+    data-badge-popover='right'
     data-doi="{{ citation.id | remove_first: 'doi:' }}" 
     class="altmetric-embed">
   </div>
+  <br>
+  <div class="scite-badge"
+     data-doi="{{ id | remove_first: 'doi:' }}"
+     data-layout="horizontal"
+     data-show-zero="true"
+     data-small="true"
+     data-show-labels="false"
+     data-tally-show="true">
+</div>
+<script async type="application/javascript" src="https://cdn.scite.ai/badge/scite-badge-latest.min.js">
+</script>
 </div>
 </div>
