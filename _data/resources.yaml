@@ -12,6 +12,13 @@
   description: Code used to analyze datasets and generate figures from the Oral Atlas paper (Cell 2021)
   repo: 
   
+- name: Kim et al. (2024) - Code
+  group: dataset
+  image: images/epIL23.jpg
+  link: https://github.com/williamsdrake/epithelial-IL23
+  description: Code used to analyze CZI datasets and generate figures in Kim et al., 2024.
+  repo:
+  
 - name: Oral mucosa dissociation
   group: protocol
   image: images/dissociation.jpg
