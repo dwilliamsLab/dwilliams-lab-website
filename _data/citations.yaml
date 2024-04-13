@@ -38,6 +38,9 @@
   - type: press
     link: https://www.nidcr.nih.gov/news-events/nidcr-news/2024/gum-cells-detect-shift-mouth-microbes-may-trigger-inflammation-gum-disease
     text: NIDCR News
+  - type: press
+    link: https://www.sciencedirect.com/science/article/abs/pii/S1074761324001304
+    text: Immunity Preview
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1126/sciadv.adk1887
