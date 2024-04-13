@@ -104,7 +104,7 @@
         {% endif %}
       {% endif %}
     </div>
-  </div>
+  
   <div class = "citation_badge">
     
     <span 
@@ -116,4 +116,10 @@
     <br>
     <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
   </div>
+  <div 
+    data-badge-type="2" 
+    data-doi="{{ citation.id | remove_first: 'doi:' }}" 
+    class="altmetric-embed">
+  </div>
+</div>
 </div>
