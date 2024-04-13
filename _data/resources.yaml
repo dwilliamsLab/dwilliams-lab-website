@@ -2,14 +2,14 @@
   group: dataset
   image: images/atlas.jpg
   link: https://oral.cellatlas.io/
-  description: An interactive data viewer for datasets from the Oral Atlas paper (Cell 2021)
+  description: An interactive data viewer for datasets from Williams et al., 2021
   repo: 
 
 - name: Oral Atlas (2021) - Code
   group: dataset
-  image: images/github.jpg
+  image: images/oaGithub.png
   link: https://github.com/williamsdrake/oralAtlas
-  description: Code used to analyze datasets and generate figures from the Oral Atlas paper (Cell 2021)
+  description: Code used to analyze datasets and generate figures from  Williams et al., 2021
   repo: 
   
 - name: Kim et al. (2024) - Code
