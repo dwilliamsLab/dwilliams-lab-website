@@ -14,7 +14,7 @@
   
 - name: Kim et al. (2024) - Code
   group: dataset
-  image: images/epIL23.jpg
+  image: images/epIL23.png
   link: https://github.com/williamsdrake/epithelial-IL23
   description: Code used to analyze CZI datasets and generate figures in Kim et al., 2024.
   repo:
