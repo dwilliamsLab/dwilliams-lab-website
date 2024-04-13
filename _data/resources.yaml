@@ -7,7 +7,7 @@
 
 - name: Oral Atlas (2021) - Code
   group: dataset
-  image: images/oaGithub.png
+  image: images/oaGitub.png
   link: https://github.com/williamsdrake/oralAtlas
   description: Code used to analyze datasets and generate figures from  Williams et al., 2021
   repo: 
