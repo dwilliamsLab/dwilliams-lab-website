@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 28.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 254.89 226.59" style="enable-background:new 0 0 254.89 226.59;" xml:space="preserve">
+	 viewBox="0 0 333 212" style="enable-background:new 0 0 333 212;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
 	.st1{font-family:'ArialMT';}
 	.st2{font-size:9.1192px;}
 	.st3{fill:none;stroke:#000000;stroke-miterlimit:10;}
 </style>
-<path class="st0" d="M81.49-287.03"/>
+<path class="st0" d="M120.54-294.32"/>
 <g>
 	
 		<image style="overflow:visible;" width="2460" height="4276" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACYwAABCmCAYAAAAUZMUlAAAACXBIWXMAAOyuAADsrgGdDxL6AAAg
@@ -27215,72 +27215,72 @@ aLzjHpRSfoo8//LyUmspb1JK0TIGANChFWfAGsYAgOoExgDoTeimsnagS2AMAICtrQiMlY8fP36p
 sZbKog1jzVOLAmMAwCNyxnldtGk25ywwBgBUJzAGQG92dXrhMAUAgK2NY3iCzT9rrOMGQg1j4zge
 WzfdGUsJANCf6EsDpRSBMQCgOoExAHqzq4SWwBgA0IvWQZ2erAiM/VBjHbWVUkJjNMdxfNf691DD
 GADwiJxxXhf9+eScwxt6AAAAAAAAAAAAAAAAAAAAAAAAAABNHXMhAAAACElEQVSgZ/8ChWJfl1aM
-LvcAAAAASUVORK5CYII=" transform="matrix(0.0468 0 0 0.0468 59.745 13.2943)">
+LvcAAAAASUVORK5CYII=" transform="matrix(0.0468 0 0 0.0468 98.7981 6)">
 	</image>
 	<g>
-		<circle cx="104.39" cy="39.53" r="1.01"/>
+		<circle cx="143.44" cy="32.24" r="1.01"/>
 	</g>
 	<g>
-		<circle cx="111.48" cy="55.24" r="1.01"/>
+		<circle cx="150.53" cy="47.94" r="1.01"/>
 	</g>
 	<g>
-		<circle cx="124.95" cy="52.2" r="1.01"/>
+		<circle cx="164" cy="44.9" r="1.01"/>
 	</g>
-	<circle cx="103.37" cy="98.81" r="1.01"/>
+	<circle cx="142.43" cy="91.51" r="1.01"/>
 	<g>
-		<circle cx="116.54" cy="147.44" r="1.01"/>
-	</g>
-	<g>
-		<circle cx="108.44" cy="195.57" r="1.01"/>
+		<circle cx="155.6" cy="140.15" r="1.01"/>
 	</g>
 	<g>
-		<circle cx="111.48" cy="200.64" r="1.01"/>
-	</g>
-	<text transform="matrix(1 0 0 1 20.6436 175.7273)" class="st1 st2">Bladder</text>
-	<text transform="matrix(1 0 0 1 36.4893 28.7918)" class="st1 st2">Eye</text>
-	<text transform="matrix(1 0 0 1 24.3203 119.5623)" class="st1 st2">Kidney</text>
-	<text transform="matrix(1 0 0 1 31.917 91.4798)" class="st1 st2">Lung</text>
-	<text transform="matrix(1 0 0 1 13.6787 147.6448)" class="st1 st2">Pancreas</text>
-	<text transform="matrix(1 0 0 1 18.2422 210.3333)" class="st1 st2">Prostate</text>
-	<text transform="matrix(1 0 0 1 22.2862 63.3973)" class="st1 st2">Tongue</text>
-	<text transform="matrix(1 0 0 1 180.8848 149.4607)" class="st1 st2">Large Intestine</text>
-	<text transform="matrix(1 0 0 1 180.8848 120.9993)" class="st1 st2">Liver</text>
-	<text transform="matrix(1 0 0 1 180.8848 28.7918)" class="st1 st2">Salivary Gland</text>
-	<text transform="matrix(1 0 0 1 180.8848 92.5384)" class="st1 st2">Skin</text>
-	<text transform="matrix(1 0 0 1 180.8848 177.9222)" class="st1 st2">Small Intestine</text>
-	<text transform="matrix(1 0 0 1 180.8848 64.0765)" class="st1 st2">Trachea</text>
-	<text transform="matrix(1 0 0 1 180.8848 210.3333)" class="st1 st2">Uterus</text>
-	<g>
-		<circle cx="99.32" cy="140.35" r="1.01"/>
+		<circle cx="147.49" cy="188.28" r="1.01"/>
 	</g>
 	<g>
-		<circle cx="115.53" cy="75" r="1.01"/>
+		<circle cx="150.53" cy="193.34" r="1.01"/>
+	</g>
+	<text transform="matrix(1 0 0 1 59.6967 168.433)" class="st1 st2">Bladder</text>
+	<text transform="matrix(1 0 0 1 75.5424 21.4974)" class="st1 st2">Eye</text>
+	<text transform="matrix(1 0 0 1 63.3735 112.268)" class="st1 st2">Kidney</text>
+	<text transform="matrix(1 0 0 1 70.9701 84.1854)" class="st1 st2">Lung</text>
+	<text transform="matrix(1 0 0 1 52.7319 140.3505)" class="st1 st2">Pancreas</text>
+	<text transform="matrix(1 0 0 1 57.2953 203.0389)" class="st1 st2">Prostate</text>
+	<text transform="matrix(1 0 0 1 61.3393 56.1029)" class="st1 st2">Tongue</text>
+	<text transform="matrix(1 0 0 1 219.9379 142.1664)" class="st1 st2">Large Intestine</text>
+	<text transform="matrix(1 0 0 1 219.9379 113.705)" class="st1 st2">Liver</text>
+	<text transform="matrix(1 0 0 1 219.9379 21.4974)" class="st1 st2">Salivary Gland</text>
+	<text transform="matrix(1 0 0 1 219.9379 85.244)" class="st1 st2">Skin</text>
+	<text transform="matrix(1 0 0 1 219.9379 170.6278)" class="st1 st2">Small Intestine</text>
+	<text transform="matrix(1 0 0 1 219.9379 56.7821)" class="st1 st2">Trachea</text>
+	<text transform="matrix(1 0 0 1 219.9379 203.0389)" class="st1 st2">Uterus</text>
+	<g>
+		<circle cx="138.37" cy="133.06" r="1.01"/>
 	</g>
 	<g>
-		<circle cx="120.09" cy="174.8" r="1.01"/>
+		<circle cx="154.58" cy="67.7" r="1.01"/>
 	</g>
 	<g>
-		<circle cx="125.66" cy="153.52" r="1.01"/>
+		<circle cx="159.14" cy="167.51" r="1.01"/>
 	</g>
 	<g>
-		<circle cx="122.12" cy="198.1" r="1.01"/>
+		<circle cx="164.72" cy="146.23" r="1.01"/>
 	</g>
 	<g>
-		<circle cx="110.97" cy="127.39" r="1.01"/>
+		<circle cx="161.17" cy="190.81" r="1.01"/>
 	</g>
-	<polyline class="st3" points="59.74,26.18 86.15,26.18 104.39,39.53 	"/>
-	<polyline class="st3" points="59.74,60.29 86.15,60.39 111.48,55.24 	"/>
-	<polyline class="st3" points="174.81,26.18 145.42,26.18 124.95,52.2 	"/>
-	<polyline class="st3" points="59.74,88.67 86.15,88.67 103.37,98.81 	"/>
-	<polyline class="st3" points="174.81,60.74 145.42,60.74 115.53,75 	"/>
-	<line class="st3" x1="174.81" y1="89.41" x2="164.55" y2="89.41"/>
-	<polyline class="st3" points="59.74,117.03 86.15,117.03 99.32,140.35 	"/>
-	<polyline class="st3" points="174.81,117.03 145.42,117.03 110.97,127.39 	"/>
-	<polyline class="st3" points="59.74,145.22 86.15,145.22 116.54,147.44 	"/>
-	<polyline class="st3" points="59.74,172.38 86.15,172.38 108.44,195.57 	"/>
-	<polyline class="st3" points="59.74,207.27 86.15,207.27 111.48,200.64 	"/>
-	<polyline class="st3" points="174.81,145.22 145.42,145.22 125.66,153.52 	"/>
-	<polyline class="st3" points="174.81,173.96 145.42,173.96 120.09,174.8 	"/>
-	<polyline class="st3" points="174.81,207.04 145.42,207.04 122.12,198.1 	"/>
+	<g>
+		<circle cx="150.02" cy="120.09" r="1.01"/>
+	</g>
+	<polyline class="st3" points="98.8,18.89 125.2,18.89 143.44,32.24 	"/>
+	<polyline class="st3" points="98.8,53 125.2,53.1 150.53,47.94 	"/>
+	<polyline class="st3" points="213.86,18.89 184.47,18.89 164,44.9 	"/>
+	<polyline class="st3" points="98.8,81.37 125.2,81.37 142.43,91.51 	"/>
+	<polyline class="st3" points="213.86,53.45 184.47,53.45 154.58,67.7 	"/>
+	<line class="st3" x1="213.86" y1="82.12" x2="203.6" y2="82.12"/>
+	<polyline class="st3" points="98.8,109.74 125.2,109.74 138.37,133.06 	"/>
+	<polyline class="st3" points="213.86,109.74 184.47,109.74 150.02,120.09 	"/>
+	<polyline class="st3" points="98.8,137.93 125.2,137.93 155.6,140.15 	"/>
+	<polyline class="st3" points="98.8,165.09 125.2,165.09 147.49,188.28 	"/>
+	<polyline class="st3" points="98.8,199.98 125.2,199.98 150.53,193.34 	"/>
+	<polyline class="st3" points="213.86,137.93 184.47,137.93 164.72,146.23 	"/>
+	<polyline class="st3" points="213.86,166.66 184.47,166.66 159.14,167.51 	"/>
+	<polyline class="st3" points="213.86,199.74 184.47,199.74 161.17,190.81 	"/>
 </g>
 </svg>
