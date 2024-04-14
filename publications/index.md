@@ -5,7 +5,7 @@ nav:
   tooltip: Published works
 ---
 
-# <i class="fa-regular fa-book-open"></i>&nbsp;&nbsp;Publications
+# <i class="far fa-book-open"></i> &nbsp;&nbsp;Publications
 
 {% include section.html %}
 
