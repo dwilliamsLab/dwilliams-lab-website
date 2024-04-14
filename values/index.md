@@ -61,4 +61,5 @@ We welcome individuals from all walks of life and at any career stage. If you ar
 If you are struggling, please reach out to me and/or take advantage of the following resources:
 
 [Mental health resources](https://hr.umn.edu/Benefits/Mental-Health-Resources)
+
 [Wellbeing resources](https://recwell.umn.edu/wellbeing)
