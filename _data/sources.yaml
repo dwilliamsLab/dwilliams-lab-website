@@ -33,7 +33,7 @@
       text: UCLA Newsroom
 
 - id: doi:10.1084/jem.20221751
-  image: images/jem.png
+  image: images/jem.svg
   tags:
   preprint: n
   stage: pd
