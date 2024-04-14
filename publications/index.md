@@ -5,7 +5,7 @@ nav:
   tooltip: Published works
 ---
 
-# <i class="fas fa-book-open"></i>     Publications
+# {% include icon.html icon="fa-regular fa-book-open" %}Publications
 
 {% include section.html %}
 

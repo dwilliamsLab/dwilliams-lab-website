@@ -5,7 +5,7 @@ nav:
   tooltip: Email, address, and location
 ---
 {% include section.html size=wide %}
-# <i class="fas fa-envelope"></i>   Contact
+# {% include icon.html icon="fa-regular fa-envelope" %}Contact
 
 {%
   include button.html
