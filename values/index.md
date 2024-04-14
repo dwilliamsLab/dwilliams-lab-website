@@ -25,6 +25,8 @@ Scientific Integrity:
 {:.center}
 ---
 
+# <i class="fa-solid fa-hand-holding-heart"></i>Expectations
+
 {% capture col1 %}
 #### What you can expect from Drake
 Drake's goal as a mentor is to guide each trainee to achieve their goals and challenge each mentee to expand their own vision of success. As a member of the lab, you can expect:
@@ -54,8 +56,9 @@ We welcome individuals from all walks of life and at any career stage. If you ar
 ---
 
 ### Science (and life) can be tough - but you are not alone.
+{:.center}
+
 If you are struggling, please reach out to me and/or take advantage of the following resources:
 
 [Mental health resources](https://hr.umn.edu/Benefits/Mental-Health-Resources)
-
 [Wellbeing resources](https://recwell.umn.edu/wellbeing)
