@@ -5,7 +5,7 @@ nav:
   tooltip: Datasets, protocols, and more
 ---
 
-# {% include icon.html icon="fa-regular fa-tools" %}Resources
+# <i class="fas fa-tools"></i>&nbsp;&nbsp;Resources
 
 {% include search-info.html %}
 

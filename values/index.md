@@ -5,7 +5,7 @@ nav:
   tooltip: Lab values
 ---
 
-# {% include icon.html icon="fa-regular fa-hands-helping" %}Lab values
+# <i class="fas fa-hands-helping"></i>&nbsp;&nbsp;Lab values
 
 #### In the Laboratory of Oral Mucosal Immunity, we believe that science is for everybody.
 {:.center}
@@ -25,7 +25,7 @@ Scientific Integrity:
 {:.center}
 ---
 
-# {% include icon.html icon="fa-regular fa-hand-holding-heart" %}Expectations
+# <i class="fa-solid fa-hand-holding-heart"></i>&nbsp;&nbsp;Expectations
 
 {% capture col1 %}
 #### What you can expect from Drake

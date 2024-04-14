@@ -5,7 +5,7 @@ nav:
   tooltip: Email, address, and location
 ---
 {% include section.html size=wide %}
-# {% include icon.html icon="fa-regular fa-envelope" %}Contact
+# <i class="fas fa-envelope"></i>&nbsp;&nbsp;Contact
 
 {%
   include button.html
@@ -37,7 +37,7 @@ nav:
 
 {% include section.html %}
 
-# {% include icon.html icon="fa-regular fa-mail-bulk" %}Mailing Address
+# <i class="fas fa-mail-bulk"></i>&nbsp;&nbsp;Mailing Address
 
 Malcolm Moos Health Sciences Tower, Rm 17-175  
 515 Delaware St SE  
