@@ -37,7 +37,7 @@ nav:
 
 {% include section.html %}
 
-# <i class="fas fa-mail-bulk"></i>   Mailing Address
+# {% include icon.html icon="fa-regular fa-mail-bulk" %}Mailing Address
 
 Malcolm Moos Health Sciences Tower, Rm 17-175  
 515 Delaware St SE  
