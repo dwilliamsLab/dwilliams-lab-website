@@ -24,7 +24,7 @@ Scientific Integrity:
 #### Recognizing that science builds upon existing knowledge, we prioritize open access to our research, citation of previous discoveries, and transparency throughout the research process. 
 {:.center}
 ---
-
+{% include section.html %}
 # <i class="fa-solid fa-hand-holding-heart"></i>&nbsp;&nbsp;Expectations
 
 {% capture col1 %}
@@ -54,7 +54,7 @@ We welcome individuals from all walks of life and at any career stage. If you ar
 %}
 
 ---
-
+{% include section.html %}
 ### Science (and life) can be tough - but you are not alone.
 {:.center}
 
