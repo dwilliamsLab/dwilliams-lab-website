@@ -5,7 +5,7 @@ nav:
   tooltip: Published works
 ---
 
-# <i class="far fa-book-open"></i> &nbsp;&nbsp;Publications
+# <i class="fas fa-book-open"></i>&nbsp;&nbsp;Publications
 
 {% include section.html %}
 
@@ -17,7 +17,7 @@ nav:
 
 {% include section.html %}
 
-# <i class="fas fa-book-open"></i>     Preprints
+# <i class="fas fa-book-open"></i>&nbsp;&nbsp;Preprints
 
 {% include section.html %}
 
