@@ -29,6 +29,7 @@ Scientific Integrity:
 
 {% capture col1 %}
 #### What you can expect from Drake
+{:.center}
 Drake's goal as a mentor is to guide each trainee to achieve their goals and challenge each mentee to expand their own vision of success. As a member of the lab, you can expect:
 - Respect and compassion
 - Open lines of communication
@@ -39,6 +40,7 @@ Drake's goal as a mentor is to guide each trainee to achieve their goals and cha
 
 {% capture col2 %}
 #### What we expect from you
+{:.center}
 We welcome individuals from all walks of life and at any career stage. If you are interested in learning more about barrier immunity in the context of the oral mucosa, we expect:
 - Respect and compassion
 - Open lines of communication
