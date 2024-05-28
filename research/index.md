@@ -49,7 +49,7 @@ Thus, we are applying culture-independent flow-cytometry-based oral microbe cell
 
 {% include section.html %}
 
-## <i class="fas fa-laptop-medical"></i> Molecular architecture and deep immunophenotyping of the oral barrier 
+### Molecular architecture and deep immunophenotyping of the oral barrier 
 {% capture text %}
 We employ a systems biology approach to better understand homeostasis at the oral barrier, and importantly, how homeostasis is disrupted in inflammatory disease (periodontitis).
 We are actively working to expand our understanding of processes that govern disease using a combination of next generation single cell and histology approaches, including: 
