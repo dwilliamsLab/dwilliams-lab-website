@@ -5,7 +5,7 @@ nav:
   tooltip: Areas of Focus
 ---
 
-# <i class="fas fa-flask"></i>Core Research Areas
+# <i class="fas fa-flask"></i>  Research Topics
 
 {% include section.html %}
 ### Antigen-specific T cell responses at the oral barrier
