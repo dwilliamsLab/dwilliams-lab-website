@@ -1,6 +1,6 @@
 ---
 name: Drake Williams
-image: images/drake.jpg
+image: images/drake.png
 description: Principal Investigator
 role: pi
 aliases:
