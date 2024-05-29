@@ -28,9 +28,20 @@
   {{ site.url }}{{ site.baseurl }}
 {%- endcapture %}
 
-{% assign png = "images/icon.png" | file_exists %}
-{% assign jpg = "images/icon.jpg" | file_exists %}
-{% assign icon = png | default: jpg | relative_url %}
+{% assign png = "images/favicon-32x32.png" | file_exists %}
+{% assign icon = png | relative_url %}
+
+{% assign png = "images/apple-touch-icon.png" | file_exists %}
+{% assign apple-touch-icon = png | relative_url %}
+
+{% assign svg = "images/safari-pinned-tab.svg" | file_exists %}
+{% assign mask-icon = svg | relative_url %}
+
+{% assign ico = "images/favicon.ico" | file_exists %}
+{% assign shortcut icon = ico | relative_url %}
+
+{% assign mani = "images/site.webmanifest" | file_exists %}
+{% assign manifest = mani | relative_url %}
 
 {% assign jpg = "images/share.jpg" | file_exists %}
 {% assign png = "images/share.png" | file_exists %}
@@ -46,10 +57,10 @@
 <title>{{ fulltitle }}</title>
 
 <link rel="apple-touch-icon" sizes="180x180" href="{{ apple-touch-icon }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ favicon-32x32.png }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ favicon-16x16.png }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ icon }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ icon }}">
 <link rel="manifest" href="{{ site.webmanifest }}">
-<link rel="mask-icon" href="{{ safari-pinned-tab.svg }}" color="#5bbad5">
+<link rel="mask-icon" href="{{ safari-pinned-tab }}" color="#5bbad5">
 <link rel="shortcut icon" href="{{ favicon.ico }}">
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="msapplication-config" content="/images/browserconfig.xml">
