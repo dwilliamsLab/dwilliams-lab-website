@@ -35,6 +35,9 @@
   stage: pd
   project: hostmicro
   buttons:
+  - type: pmc
+    link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11058479/
+    text: PMC Full Text
   - type: press
     link: https://www.nidcr.nih.gov/news-events/nidcr-news/2024/gum-cells-detect-shift-mouth-microbes-may-trigger-inflammation-gum-disease
     text: NIDCR News
