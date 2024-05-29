@@ -50,7 +50,7 @@ We are actively working to expand our understanding of processes that govern dis
 %}
 
 {% include section.html %}
-### Improved identification of disease-associated oral microbes
+### Improved identification of health- and disease-associated oral microbes
 {% capture text %}
 Microbe relative abundance shifts do not necessarily indicate a causal role in disease pathogenesis. However, antibody response to microbes may better identify microbes that confer protection and/or microbes that enhance disease pathogenesis. 
 
