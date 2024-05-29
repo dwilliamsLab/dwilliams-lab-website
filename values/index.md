@@ -21,8 +21,7 @@ Scientific Integrity:
 - We believe in the power of collaboration and strive for open communication within the lab
 - We advocate for promoting science through various platforms to share our findings with the broader community.
 
-### Science builds upon existing knowledge.  
-#### We prioritize open access to our research, citation of previous discoveries, and transparency throughout the research process. 
+#### Science builds upon existing knowledge. We prioritize open access to our research, citation of previous discoveries, and transparency throughout the research process. 
 {:.center}
 ---
 {% include section.html %}
