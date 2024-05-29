@@ -7,7 +7,7 @@
 
 The relationship between the host and microbiota in barrier mucosal tissues is delicate and requires communication between microbes and host cells to initiate, adapt, and terminate responses in a manner that protects the host from infection and allows beneficial microbes to survive and thrive. Our lab is interested in understanding what governs host-microbe communication in health and disease at the oral barrier.
 
-We use a combination of systems immunology to probe and characterize the oral barrier in different disease contexts, in addition to developing and applying biologic tools that enable targeted study of host-microbe interactions. 
+We develop and apply biologic tools that enable targeted study of host-microbe interactions at the oral barrier. Additionally, we use systems immunology to probe and characterize the oral barrier in different disease contexts. 
 
 [Read more](research)
 
