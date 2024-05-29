@@ -43,9 +43,8 @@
 {% assign mani = "images/site.webmanifest" | file_exists %}
 {% assign manifest = mani | relative_url %}
 
-{% assign jpg = "images/share.jpg" | file_exists %}
 {% assign png = "images/share.png" | file_exists %}
-{% assign share = jpg | default: png | relative_url %}
+{% assign share = png | relative_url %}
 
 {% assign published = page.date | date_to_xmlschema %}
 {% assign updated = page.last_modified_at | date_to_xmlschema %}
