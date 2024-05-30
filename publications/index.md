@@ -15,8 +15,6 @@ nav:
 
 # <i class="fas fa-book-open"></i>&nbsp;&nbsp;Published works
 
-{% include section.html %}
-
 {% include list.html data="citations" component="citation" style="rich" filters="preprint: n"%}
 
 
