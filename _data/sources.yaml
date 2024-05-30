@@ -58,17 +58,6 @@
       link: https://doi.org/10.1084/jem.20230783
       text: JEM Insights
 
-- id: doi:10.1101/2023.02.15.528712
-  image: images/biorxiv.svg
-  tags:
-  preprint: y
-  stage: pd
-  project: collab
-  buttons:
-    - type: pmc
-      link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9948959
-      text: PMC Full Text
-
 - id: doi:10.1177/00220345221110768
   image: images/jdr.svg
   tags:
@@ -176,13 +165,6 @@
     - type: press
       link: https://www.dentistrytoday.com/oral-cell-census-reveals-insight-into-periodontal-disease/
       text: Dentistry Today
-
-- id: doi:10.1101/2021.04.06.438702
-  image: images/biorxiv.svg
-  tags:
-  preprint: y
-  stage: pd
-  project: atlas
 
 - id: doi:10.1126/science.aay5731
   image: images/science.svg
