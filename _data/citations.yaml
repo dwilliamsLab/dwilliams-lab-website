@@ -127,34 +127,6 @@
     text: JEM Insights
   plugin: sources.py
   file: sources.yaml
-- id: doi:10.1101/2023.02.15.528712
-  title: The maternal microbiome promotes placental development in mice
-  authors:
-  - Geoffrey N. Pronovost
-  - Sahil S. Telang
-  - Angela S. Chen
-  - Elena J.L. Coley
-  - Helen E. Vuong
-  - Drake W. Williams
-  - Kristie B. Yu
-  - Tomiko K. Rendon
-  - Jorge Paramo
-  - Reuben H. Kim
-  - Elaine Y. Hsiao
-  publisher: Cold Spring Harbor Laboratory
-  date: '2023-02-15'
-  link: https://doi.org/grvc4p
-  image: images/biorxiv.svg
-  tags: null
-  preprint: y
-  stage: pd
-  project: collab
-  buttons:
-  - type: pmc
-    link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9948959
-    text: PMC Full Text
-  plugin: sources.py
-  file: sources.yaml
 - id: doi:10.1177/00220345221110768
   title: A Roadmap for the Human Oral and Craniofacial Cell Atlas
   authors:
@@ -444,33 +416,6 @@
   - type: press
     link: https://www.dentistrytoday.com/oral-cell-census-reveals-insight-into-periodontal-disease/
     text: Dentistry Today
-  plugin: sources.py
-  file: sources.yaml
-- id: doi:10.1101/2021.04.06.438702
-  title: Single-cell atlas of human oral mucosa reveals a stromal-neutrophil axis
-    regulating tissue immunity in health and inflammatory disease
-  authors:
-  - DW Williams
-  - T Greenwell- Wild
-  - L Brenchley
-  - N Dutzan
-  - A Overmiller
-  - AP Sawaya
-  - S Webb
-  - D Martin
-  - G Hajishengallis
-  - K Divaris
-  - M Morasso
-  - M Haniffa
-  - NM Moutsopoulos
-  publisher: Cold Spring Harbor Laboratory
-  date: '2021-04-07'
-  link: https://doi.org/gsm66f
-  image: images/biorxiv.svg
-  tags: null
-  preprint: y
-  stage: pd
-  project: atlas
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1126/science.aay5731
