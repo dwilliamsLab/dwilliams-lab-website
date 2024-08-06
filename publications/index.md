@@ -9,9 +9,9 @@ nav:
 
 {% include search-info.html %}
 
-# <i class="fas fa-book-open"></i>&nbsp;&nbsp;Preprints (under review)
+[comment]: # <i class="fas fa-book-open"></i>&nbsp;&nbsp;Preprints (under review)
 
-{% include list.html data="citations" component="citation" style="rich" filters="preprint: y" %}
+[comment]: {% include list.html data="citations" component="citation" style="rich" filters="preprint: y" %}
 
 # <i class="fas fa-book-open"></i>&nbsp;&nbsp;Published works
 
