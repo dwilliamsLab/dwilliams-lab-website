@@ -29,16 +29,3 @@ nav:
   filters="group: current"
 %}
 
-
-{% include section.html %}
-
-<h2 style="text-align: center;">Lab alumni</h2>
-
-{%
-  include list.html
-  data="members"
-  component="portrait"
-  filters="group: past"
-%}
-
-
