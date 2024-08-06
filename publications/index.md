@@ -11,7 +11,7 @@ nav:
 
 [comment]: # <i class="fas fa-book-open"></i>&nbsp;&nbsp;Preprints (under review)
 
-[comment]: {% include list.html data="citations" component="citation" style="rich" filters="preprint: y" %}
+{% include list.html data="citations" component="citation" style="rich" filters="preprint: y" %}
 
 # <i class="fas fa-book-open"></i>&nbsp;&nbsp;Published works
 
