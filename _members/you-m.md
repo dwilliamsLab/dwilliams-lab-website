@@ -20,6 +20,6 @@ Please also include your CV summarizing past academic, professional and research
   icon=""
   text="Contact Dr. Williams"
   tooltip=""
-  link="mailto:drakewilliams@umn.edu?subject=Interested in a PhD position&body=Include CV, cover letter and 2 references" text="Contact Dr. Williams"
+  link="drakewilliams@umn.edu?subject=Interested in a PhD position&body=Include CV, cover letter and 2 references" text="Contact Dr. Williams"
   style="button"
 %}
