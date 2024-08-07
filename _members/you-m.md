@@ -6,8 +6,6 @@ role: phd
 group: current
 ---
 
-#### Graduate Students
-
 Our lab welcomes interested graduate students to join us in the winter/spring of 2025 for a rotation. We expect to recruit 1-2 Ph.D. students to join the lab in the 2025/2026 academic year. If you are a prospective graduate student who would like to rotate in our laboratory, please send Dr. Williams an email expressing your interest. Attached to this email, please also include a short cover letter detailing the following:
 
 - Your research interests
@@ -25,5 +23,3 @@ Please also include your CV summarizing past academic, professional and research
   link="mailto:drakewilliams@umn.edu?subject=Interested in a PhD position&body=Include CV, cover letter and 2 references" text="Contact Dr. Williams"
   style="button"
 %}
-{% include button.html type="external" link="mailto:drakewilliams@umn.edu?subject=Interested in a PhD position&body=Include CV, cover letter and 2 references" text="Contact Dr. Vuong" icon="" style="button" %}
-{:.center}
