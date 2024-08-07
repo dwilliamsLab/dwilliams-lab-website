@@ -16,8 +16,6 @@ nav:
   filters="role: pi"
 %}
 
-<h2 style="text-align: center;">Current members</h2>
-
 {%
   include list.html
   data="members"
