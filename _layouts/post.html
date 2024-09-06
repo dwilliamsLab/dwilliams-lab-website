@@ -19,7 +19,11 @@ layout: default
 
 {{ content }}
 
-{{ page.image }}
+{%
+  include figure.html
+  image={{ page.image }}
+  width="75%"
+%}
 
 {% include section.html %}
 
