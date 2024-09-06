@@ -1,6 +1,7 @@
 ---
+title: Home
 ---
-{% include section.html size=full background="images/banner.jpeg" %}
+{% include section.html %}
 
 {% include section.html %}
 # Unraveling oral barrier immunity in mammalian health and disease
