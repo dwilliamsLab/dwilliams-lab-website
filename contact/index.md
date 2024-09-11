@@ -11,18 +11,18 @@ nav:
   include button.html
   type="email"
   icon=""
-  text="xxxxxx@umn.edu"
+  text="drakew[at]umn[dot]edu"
   tooltip=""
-  link="xxxxxx@umn.edu"
+  link="drakew@umn.edu"
   style="button"
 %}
 {%
   include button.html
   type="phone"
   icon=""
-  text="(612) xxx-xxxx" 
+  text="(612) 625-3974" 
   tooltip=""
-  link="+1-612-xxx-xxxx"
+  link="+1-612-625-3974"
   style="button"
 %}
 {%

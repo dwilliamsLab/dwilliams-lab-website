@@ -22,6 +22,6 @@ Please also include your CV summarizing past academic, professional and research
   icon=""
   text="Contact Dr. Williams for Post-Doc"
   tooltip=""
-  link="drakewilliams@umn.edu?subject=Interested in a Post-Doc position&body=Include CV, cover letter and 3 references" text="Contact Dr. Williams"
+  link="drakew@umn.edu?subject=Interested in a Post-Doc position&body=Include CV, cover letter and 3 references" text="Contact Dr. Williams"
   style="button"
 %}
