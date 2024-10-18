@@ -63,8 +63,12 @@ We are interested in studying how different microbial environments influence ora
 
 {%
   include feature.html
-  image="images/research_igg.png"
+  image="images/research_mbio.png"
   link=""
   headline=""
   text=text
 %}
+
+
+
+{% include section.html %}
