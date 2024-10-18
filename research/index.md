@@ -11,6 +11,7 @@ nav:
 ### Antigen-specific T cell responses at the oral barrier
 {% capture text %}
 Broadly, we are interested in the delicate interplay between host cells and microbes in barrier tissue. Relatively little is known how host cells respond to specific bacterial antigen and non-specific bacterial stimuli at the oral barrier.
+
 We are generating the following tools in order to understand how antigen-specific responses to oral microbes contributes to disease pathogenesis:
 - transgenic and retrogenic mice expressing a T cell receptor that recognizes *Aggregatibacter actinomycetemcomitans (Aa)*
 - MHC tetramers that identify *Aa*-specific T cells
@@ -34,11 +35,13 @@ Additionally, we will utilize the tool development pipeline to study the role of
 
 ### Molecular architecture and deep immunophenotyping of the oral barrier 
 {% capture text %}
-We employ a systems biology approach to better understand homeostasis at the oral barrier, and importantly, how homeostasis is disrupted in inflammatory disease (periodontitis).
-We are actively working to expand our understanding of processes that govern disease using a combination of next generation single cell and histology approaches, including: 
+We employ a systems biology approach to better understand homeostasis at the oral barrier, and importantly, how homeostasis is disrupted during wound healing and periodontal disease.
+
+We are actively working to expand our understanding of processes that govern disease in human and mouse models using a combination of approaches, including: 
  - spatial transcriptomics
- - spatial proteomics
- - multi-modal single cell sequencing 
+ - multiplex immunostaining
+ - multi-modal single cell sequencing
+ - full spectrum flow cytometry
 {% endcapture %}
 
 {%
@@ -50,11 +53,12 @@ We are actively working to expand our understanding of processes that govern dis
 %}
 
 {% include section.html %}
-### Improved identification of health- and disease-associated oral microbes
+### Role of microbiome in development, homeostasis, and disease pathogenesis
 {% capture text %}
-Microbe relative abundance shifts do not necessarily indicate a causal role in disease pathogenesis. However, antibody response to microbes may better identify microbes that confer protection and/or microbes that enhance disease pathogenesis. 
+The human body contains trillions of microbes, referred to as the microbiome. The microbiome can be beneficial or detrimental to host health depending on its complex composition and host-intrinsic factors. Despite this, laboratory animals that are used to mimic human disease are generally bred in sterile environments free from pathogens, leading to immature immune systems that are closer to newborn humans rather than the adults they are meant to imitate. 
 
-Thus, we are applying culture-independent flow-cytometry-based oral microbe cell sorting and 16S/ITS sequencing to characterize the anti-microbiota IgA/IgG repertoire in severe human periodontitis
+We are interested in studying how different microbial environments influence oral mucosal immune development, homeostasis and disease pathogenesis. To test this, we utilize germ free (GF), specific pathogen free (SPF), and 'dirty' mice (DM; mice that have been cohoused with pet store mice).
+
 {% endcapture %}
 
 {%
