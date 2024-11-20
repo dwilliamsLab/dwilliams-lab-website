@@ -57,7 +57,7 @@ We are actively working to expand our understanding of processes that govern dis
 {% capture text %}
 The human body contains trillions of microbes, referred to as the microbiome. The microbiome can be beneficial or detrimental to host health depending on its complex composition and host-intrinsic factors. Despite this, laboratory animals that are used to mimic human disease are generally bred in sterile environments free from pathogens, leading to immature immune systems that are closer to newborn humans rather than the adults they are meant to imitate. 
 
-We are interested in studying how different microbial environments influence oral mucosal immune development, homeostasis and disease pathogenesis. To test this, we utilize germ free (GF), specific pathogen free (SPF), and 'dirty' mice (DM; mice that have been cohoused with pet store mice).
+We are interested in studying how different microbial environments influence oral mucosal immune development, wound healing, and disease pathogenesis. To test this, we utilize germ free (GF), specific pathogen free (SPF), and mice with exposure to diverse natural pathogens (DNP).
 
 {% endcapture %}
 
