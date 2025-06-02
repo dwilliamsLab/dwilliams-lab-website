@@ -11,7 +11,7 @@ nav:
   include button.html
   type="email"
   icon=""
-  text="drakew[at]umn[dot]edu"
+  text="drakew@umn.edu"
   tooltip=""
   link="drakew@umn.edu"
   style="button"
@@ -50,11 +50,4 @@ Minneapolis, MN 55455
   caption="U of MN East Bank"
 %}
 {% endcapture %}
-{% capture col2 %}
-{%
-  include figure.html
-  image="images/west.jpg"
-  caption="U of MN West Bank"
-%}
-{% endcapture %}
-{% include cols.html col1=col1 col2=col2 %}
+{% include cols.html col1=col1 %}
