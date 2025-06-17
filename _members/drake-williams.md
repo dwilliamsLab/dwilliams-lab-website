@@ -16,7 +16,6 @@ links:
   orcid: 0000-0002-7718-2098
   google-scholar: 6SmnW4IAAAA
   github: williamsdrake
-  twitter: drake_dds
   dimensions: ur.01234462161.01
   
 
