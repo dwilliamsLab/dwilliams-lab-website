@@ -8,7 +8,7 @@ aliases:
   - Shashwata Biswas
 links:
   email: biswa176@umn.edu
-  orcid: 
+  orcid: 0009-0008-2822-8433
   google-scholar: gc2E5n8AAAAJ
 ---
 
