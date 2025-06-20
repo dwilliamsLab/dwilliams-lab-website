@@ -1,6 +1,6 @@
 ---
 name: Shashwata Biswas
-image: images/shashwata.jpg
+image: images/people/shashwata.jpg
 description: Postdoctoral Researcher
 role: postdoc
 group: current
