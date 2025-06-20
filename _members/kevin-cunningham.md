@@ -1,6 +1,6 @@
 ---
 name: Kevin Cunningham
-image: images/people/kevin.jepg
+image: images/people/kevin.jpeg
 description: BICB PhD Student
 role: phd
 group: current
