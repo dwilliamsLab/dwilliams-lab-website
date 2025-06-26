@@ -1,7 +1,7 @@
 ---
 title: New Member
 category: news
-image: images/shashwata.jpg
+image: images/people/shashwata.jpg
 last_modified_at: ""
 ---
 
