@@ -1,7 +1,7 @@
 ---
 title: New Member
 category: news
-image: images/people/kevin.jpg
+image: images/people/kevin.jpeg
 last_modified_at: ""
 ---
 
