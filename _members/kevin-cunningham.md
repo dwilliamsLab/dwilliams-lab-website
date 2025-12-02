@@ -7,7 +7,7 @@ group: current
 aliases:
   - Kevin Cunningham
 links:
-  email: cunni319@morris.umn.edu
+  email: cunni319@umn.edu
   orcid: 0000-0002-9501-3132
   google-scholar: 3JKIYOwAAAAJ
 ---
