@@ -31,6 +31,7 @@
   link: https://doi.org/gtnmh5
   image: images/immunity.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: hostmicro
@@ -66,6 +67,7 @@
   link: https://doi.org/gstzjd
   image: images/sciadv.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: collab
@@ -106,6 +108,7 @@
   link: https://doi.org/gsbrs5
   image: images/jem.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: hostmicro
@@ -184,6 +187,7 @@
   link: https://doi.org/gqwrsk
   image: images/jdr.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: atlas
@@ -226,6 +230,7 @@
   link: https://doi.org/gp9tkn
   image: images/jbmr.svg
   tags: null
+  preumn: y
   preprint: n
   stage: phd
   project: inflammation
@@ -246,6 +251,7 @@
   link: https://doi.org/gp9tkp
   image: images/bbrc.svg
   tags: null
+  preumn: y
   preprint: n
   stage: phd
   project: etiology
@@ -275,6 +281,7 @@
   link: https://doi.org/gps8wq
   image: images/ijos.svg
   tags: null
+  preumn: y
   preprint: n
   stage: phd
   project: inflammation
@@ -295,6 +302,7 @@
   link: https://doi.org/gntwq7
   image: images/starProtocols.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: atlas
@@ -355,6 +363,7 @@
   link: https://doi.org/gsb5np
   image: images/science.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: hostmicro
@@ -382,6 +391,7 @@
   link: https://doi.org/gk9ngf
   image: images/cell.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: atlas
@@ -468,6 +478,7 @@
   link: https://doi.org/ghzfr2
   image: images/science.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: hostmicro
@@ -513,6 +524,7 @@
   link: https://doi.org/gj29x8
   image: images/nature.svg
   tags: null
+  preumn: y
   preprint: n
   stage: pd
   project: collab
@@ -568,6 +580,7 @@
   link: https://doi.org/gntwvp
   image: images/jdr.svg
   tags: null
+  preumn: y
   preprint: n
   stage: phd
   project: inflammation
@@ -643,6 +656,7 @@
   link: https://doi.org/gntwvq
   image: images/mra.svg
   tags: null
+  preumn: y
   preprint: n
   stage: other
   buttons:
@@ -673,6 +687,7 @@
   link: https://doi.org/gntwvr
   image: images/ajp.svg
   tags: null
+  preumn: y
   preprint: n
   stage: phd
   project: inflammation
@@ -705,6 +720,7 @@
   link: https://doi.org/f9n48q
   image: images/jbmr.svg
   tags: null
+  preumn: y
   preprint: n
   stage: phd
   project: etiology
@@ -732,6 +748,7 @@
   link: https://doi.org/gcbq4d
   image: images/agingCell.svg
   tags: null
+  preumn: y
   preprint: n
   stage: other
   project: null
@@ -764,6 +781,7 @@
   link: https://doi.org/gntwvs
   image: images/ajp.svg
   tags: null
+  preumn: y
   preprint: n
   stage: phd
   project: etiology
@@ -801,6 +819,7 @@
   link: https://doi.org/f49rtt
   image: images/joe.svg
   tags: null
+  preumn: y
   preprint: n
   stage: other
   buttons:
@@ -828,6 +847,7 @@
   link: https://doi.org/f5k99m
   image: images/joe.svg
   tags: null
+  preumn: y
   preprint: n
   stage: other
   buttons:
@@ -855,6 +875,7 @@
   link: https://doi.org/bcszws
   image: images/jdr.svg
   tags: null
+  preumn: y
   preprint: n
   stage: other
   buttons:
