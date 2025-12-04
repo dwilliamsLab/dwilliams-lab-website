@@ -15,7 +15,7 @@ nav:
 
 # <i class="fas fa-book-open"></i>&nbsp;&nbsp; Pre-UMN publication highlights
 
-{% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: pd"%}
+{% include list.html data="citations" component="citation" filters="highlight: y, stage: pd"%}
 {% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: phd"%}
 
 
