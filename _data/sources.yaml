@@ -1,7 +1,7 @@
 - id: doi:10.1016/j.immuni.2024.02.020
   image: images/immunity.svg
   tags:
-  preumn: y
+  highlight: y
   preprint: n
   stage: pd
   project: hostmicro
@@ -19,7 +19,7 @@
 - id: doi:10.1126/sciadv.adk1887
   image: images/sciadv.svg
   tags:
-  preumn: y
+  highlight: y
   preprint: n
   stage: pd
   project: collab
@@ -40,7 +40,7 @@
 - id: doi:10.1084/jem.20221751
   image: images/jem.svg
   tags:
-  preumn: y
+  highlight: y
   preprint: n
   stage: pd
   project: hostmicro
@@ -64,7 +64,7 @@
 - id: doi:10.1177/00220345221110768
   image: images/jdr.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: pd
   project: atlas
@@ -76,6 +76,7 @@
 - id: doi:10.1126/sciimmunol.abp8632
   image: images/scienceImmunology.svg
   tags:
+  highlight: n
   preprint: n
   stage: pd
   project: hostmicro
@@ -84,7 +85,7 @@
 - id: doi:10.1002/jbmr.4614
   image: images/jbmr.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: phd
   project: inflammation
@@ -96,7 +97,7 @@
 - id: doi:10.1016/j.bbrc.2022.02.088
   image: images/bbrc.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: phd
   project: etiology
@@ -108,7 +109,7 @@
 - id: doi:10.1038/s41368-022-00166-4
   image: images/ijos.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: phd
   project: inflammation
@@ -120,7 +121,7 @@
 - id: doi:10.1016/j.xpro.2021.100908
   image: images/starProtocols.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: pd
   project: atlas
@@ -132,7 +133,7 @@
 - id: doi:10.1126/science.abi8835
   image: images/science.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: pd
   project: hostmicro
@@ -140,7 +141,7 @@
 - id: doi:10.1016/j.cell.2021.05.013
   image: images/cell.svg
   tags:
-  preumn: y
+  highlight: y
   preprint: n
   stage: pd
   project: atlas
@@ -179,7 +180,7 @@
 - id: doi:10.1126/science.aay5731
   image: images/science.svg
   tags:
-  preumn: y
+  highlight: y
   preprint: n
   stage: pd
   project: hostmicro
@@ -210,7 +211,7 @@
   image: images/nature.svg
   date: 2020-9-23
   tags:
-  preumn: y
+  highlight: y
   preprint: n
   stage: pd
   project: collab
@@ -252,7 +253,7 @@
 - id: doi:10.1177/0022034520908594
   image: images/jdr.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: phd
   project: inflammation
@@ -267,7 +268,7 @@
 - id: doi:10.1128/MRA.01481-18
   image: images/mra.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: other
   buttons:
@@ -278,7 +279,7 @@
 - id: doi:10.1016/j.ajpath.2018.06.019
   image: images/ajp.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: phd
   project: inflammation
@@ -293,7 +294,7 @@
 - id: doi:10.1002/jbmr.2985
   image: images/jbmr.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: phd
   project: etiology
@@ -305,7 +306,7 @@
 - id: doi:10.1111/acel.12364
   image: images/agingCell.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: other
   project:
@@ -317,7 +318,7 @@
 - id: doi:10.1016/j.ajpath.2014.07.010
   image: images/ajp.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: phd
   project: etiology
@@ -341,7 +342,7 @@
 - id: doi:10.1016/j.joen.2013.06.004
   image: images/joe.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: other
   buttons:  
@@ -351,7 +352,7 @@
 - id: doi:10.1016/j.joen.2012.09.006
   image: images/joe.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: other
   buttons:  
@@ -361,7 +362,7 @@
 - id: doi:10.1177/0022034511402995
   image: images/jdr.svg
   tags:
-  preumn: y
+  highlight: n
   preprint: n
   stage: other
   buttons:  
