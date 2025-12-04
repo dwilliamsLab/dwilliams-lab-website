@@ -16,8 +16,20 @@
   group: dataset
   image: images/epIL23.png
   link: https://github.com/williamsdrake/epithelial-IL23
-  description: Code used to analyze CZI datasets and generate figures in Kim et al., 2024.
+  description: Code used to analyze CZI datasets and generate figures in Kim et al., 2024
   repo:
+  
+- name: Theofilou et al., (2026) - Data
+  group: dataset
+  image: images/atlas2.jpg
+  link: https://dataverse.harvard.edu/dataverse/gingiva2025
+  description: Raw and processed data from Theofilou et al., 2026
+  
+- name: Theofilou et al., (2026) - Code
+  group: dataset
+  image: images/oa2Github.png
+  link: https://github.com/dwilliamsLab/gingiva-2025
+  description: Code used to analyze datasets and generate figures in Theofilou et al., 2026
   
 - name: Oral mucosa dissociation
   group: protocol
