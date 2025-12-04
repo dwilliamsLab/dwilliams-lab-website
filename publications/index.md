@@ -13,8 +13,8 @@ nav:
 
 {% include list.html data="citations" component="citation" style="rich" filters="preprint: y" %}
 
-# <i class="fas fa-book-open"></i>&nbsp;&nbsp;Published works
+# <i class="fas fa-book-open"></i>&nbsp;&nbsp; Pre-UMN publication highlights
 
-{% include list.html data="citations" component="citation" style="rich" filters="preprint: n"%}
+{% include list.html data="citations" component="citation" style="rich" filters="preprint: n, preumn: y"%}
 
 
