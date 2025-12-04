@@ -1,6 +1,6 @@
 ---
 name: Justin Lehtinen
-image: images/people/justin.jpeg
+image: images/people/placeholder_M.png
 description: Bioengineering PhD Student
 role: phd
 group: current
