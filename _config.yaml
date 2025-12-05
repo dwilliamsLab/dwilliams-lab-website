@@ -10,7 +10,8 @@ proofer: false
 
 # site social media and other links
 links:
-  email: drakewilliams@gmail.com
+  email: drakew@umn.edu
+  github: dwilliamslab
 
 ### jekyll settings
 
