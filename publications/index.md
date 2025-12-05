@@ -13,7 +13,7 @@ nav:
 
 {% include list.html data="citations" component="citation" style="rich" filters="preprint: y" %}
 
-<p align="center">#### To view the full list of publications for any team member, please click the Google Scholar link in their [profile](../team) </p>
+<p align="center">#### To view a full list of publications for an individual, please click the Google Scholar link in their [profile](../team) </p>
 
 # <i class="fas fa-book-open"></i>&nbsp;&nbsp; Pre-UMN publication highlights
 
