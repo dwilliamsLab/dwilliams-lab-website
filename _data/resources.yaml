@@ -1,6 +1,6 @@
 - name: Oral Atlas (2021) - Data
   group: dataset
-  image: images/atlas.jpg
+  image: images/resource/atlas.jpg
   link: https://oral.cellatlas.io/
   description: An interactive data viewer for datasets from Williams et al., 2021
   repo: 
@@ -21,7 +21,7 @@
   
 - name: Theofilou et al., (2026) - Data
   group: dataset
-  image: images/atlas2.jpg
+  image: images/resource/dataverse.png
   link: https://dataverse.harvard.edu/dataverse/gingiva2025
   description: Raw and processed data from Theofilou et al., 2026
   
@@ -33,35 +33,35 @@
   
 - name: Oral mucosa dissociation
   group: protocol
-  image: images/dissociation.jpg
+  image: images/resource/dissociation.jpg
   link: https://doi.org/10.1016/j.xpro.2021.100908
   description: A detailed method to dissociate oral mucosal tissues into single cell suspensions
   repo: 
 
 - name: R for Data Science
   group: more
-  image: images/r.jpg
+  image: images/resource/r.jpg
   link: https://r4ds.had.co.nz/index.html
   description: Useful introduction to R programming language for scientists.
   repo: 
 
 - name: Adobe Illustrator Guide
   group: more
-  image: images/ai.jpg
+  image: images/resource/ai.jpg
   link: http://rajlaboratory.blogspot.com/2019/08/i-adobe-illustrator-for-scientific.html
   description: Fantastic guide to using Adobe Illustrator for scientific work from Raj Lab
   repo: 
 
 - name: Academic CV
   group: more
-  image: images/overleaf.jpg
+  image: images/resource/overleaf.jpg
   link: https://www.overleaf.com/read/gptprjgkgzvq
   description: This is a read-only version of my academic CV made in LaTeX from the Awesome-CV template. Download to create your own easily modified CV!
   repo: 
 
 - name: Lab website template
   group: more
-  image: images/website.jpg
+  image: images/resource/lab-website-template.svg
   link: https://github.com/greenelab/lab-website-template
   description: An incredible template from Greene Lab used to make this website. Fork it on github for your own use!
   repo: 
