@@ -7,14 +7,14 @@
 
 - name: Oral Atlas (2021) - Code
   group: dataset
-  image: images/oaGitub.png
+  image: images/resource/oralAtlas.svg
   link: https://github.com/williamsdrake/oralAtlas
   description: Code used to analyze datasets and generate figures from  Williams et al., 2021
   repo: 
   
 - name: Kim et al. (2024) - Code
   group: dataset
-  image: images/epIL23.png
+  image: images/resource/epithelial-IL23.svg
   link: https://github.com/williamsdrake/epithelial-IL23
   description: Code used to analyze CZI datasets and generate figures in Kim et al., 2024
   repo:
@@ -27,7 +27,7 @@
   
 - name: Theofilou et al., (2026) - Code
   group: dataset
-  image: images/oa2Github.png
+  image: images/resource/gingiva-2025.svg
   link: https://github.com/dwilliamsLab/gingiva-2025
   description: Code used to analyze datasets and generate figures in Theofilou et al., 2026
   
