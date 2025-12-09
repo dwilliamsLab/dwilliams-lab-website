@@ -11,15 +11,15 @@ nav:
 
 {% include section.html %}
 
-<h2 style="text-align: center;">Datasets</h2>
-
-{% include list.html component="card" data="resources" filters="group: dataset" style="small" %}
-
-{% include section.html %}
-
 <h2 style="text-align: center;">Code</h2>
 
 {% include list.html component="card" data="resources" filters="group: code" %}
+
+{% include section.html %}
+
+<h2 style="text-align: center;">Datasets</h2>
+
+{% include list.html component="card" data="resources" filters="group: dataset" style="small" %}
 
 {% include section.html %}
 
