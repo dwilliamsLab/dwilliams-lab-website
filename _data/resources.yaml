@@ -6,14 +6,14 @@
   repo: 
 
 - name: Oral Atlas (2021) - Code
-  group: dataset
+  group: code
   image: https://githubcard.com/williamsdrake/oralAtlas.svg?d=YFhHtS-j
   link: https://github.com/williamsdrake/oralAtlas
   description: Code used to analyze datasets and generate figures from  Williams et al., 2021
   repo: 
   
 - name: Kim et al. (2024) - Code
-  group: dataset
+  group: code
   image: https://githubcard.com/williamsdrake/epithelial-IL23.svg?d=jWxn7Ohm
   link: https://github.com/williamsdrake/epithelial-IL23
   description: Code used to analyze CZI datasets and generate figures in Kim et al., 2024
@@ -26,7 +26,7 @@
   description: Raw and processed data from Theofilou et al., 2026
   
 - name: Theofilou et al., (2026) - Code
-  group: dataset
+  group: code
   image: https://githubcard.com/dwilliamsLab/gingiva-2025.svg?d=ixCYYYdZ
   link: https://github.com/dwilliamsLab/gingiva-2025
   description: Code used to analyze datasets and generate figures in Theofilou et al., 2026
