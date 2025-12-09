@@ -1,7 +1,7 @@
 ---
 title: Values
 nav:
-  order: 5
+  order: 6
   tooltip: Lab values
 ---
 
