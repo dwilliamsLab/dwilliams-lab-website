@@ -28,24 +28,21 @@ layout: default
   | array_filter
 %}
 
-{% capture search -%}
-  publications/?search={% for alias in aliases %}"{{ alias }}" {% endfor %}
-{%- endcapture %}
+<hr>
+<h3>Publications</h3>
 
-<p class="center">
-  <a href="{{ search | relative_url }}">
-    Search for papers by {{ page.name | default: page.title }}
-  </a>
-</p>
+{% for pub in site.data.citations %}
+  
+  {% assign is_author = false %}
 
-{% capture search -%}
-  blog/?search={{ page.name }}
-{%- endcapture %}
+  {% for alias in aliases %}
+    {% if pub.authors contains alias %}
+      {% assign is_author = true %}
+    {% endif %}
+  {% endfor %}
 
-<!--
-<p class="center">
-  <a href="{{ search | relative_url }}">
-    See {{ page.name | default: page.title }}'s posts on the Blog page
-  </a>
-</p>
--->
+  {% if is_author %}
+    {% include citation.html item=pub style="rich" %}
+  {% endif %}
+
+{% endfor %}
