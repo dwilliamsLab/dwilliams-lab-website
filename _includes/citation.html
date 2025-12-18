@@ -4,6 +4,8 @@
       "citation.id == include.lookup or citation.title contains include.lookup"
     | first
   %}
+{% elsif include.entry %}
+  {% assign citation = include.entry %}
 {% else %}
   {% assign citation = include %}
 {% endif %}

@@ -29,7 +29,7 @@ layout: default
 %}
 
 <hr>
-<h3>Publications</h3>
+<h3>{{ page.name | default: page.title | split: " " | first }}'s Publications</h3>
 
 {% for pub in site.data.citations %}
   
@@ -42,7 +42,7 @@ layout: default
   {% endfor %}
 
   {% if is_author %}
-    {% include citation.html item=pub style="rich" %}
+    {% include citation.html entry=pub style="rich" %}
   {% endif %}
 
 {% endfor %}
