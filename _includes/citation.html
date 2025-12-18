@@ -97,9 +97,7 @@
           <div class="citation-description">
             {{
               citation.description
-              | markdownify
-              | remove: "<p>"
-              | remove: "</p>"
+              | strip_html
             }}
           </div>
         {% endif %}
