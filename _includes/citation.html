@@ -105,6 +105,7 @@
         {% if citation.buttons.size > 0 %}
           <div class="citation-buttons">
             {% for button in citation.buttons %}
+              {% comment %}
               {%
                 include button.html
                 type=button.type
@@ -113,6 +114,7 @@
                 link=button.link
                 style="bare"
               %}
+              {% endcomment %}
             {% endfor %}
             <br>
           </div>
