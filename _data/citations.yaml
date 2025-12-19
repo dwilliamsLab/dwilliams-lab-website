@@ -1,5 +1,60 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
+- id: doi:10.1371/journal.pone.0328459
+  title: Early cellular events of osteomucosal healing in the tooth extraction socket
+  authors:
+  - Sol Kim
+  - Minju Song
+  - Drake Williams
+  - Wen Du
+  - Inwoo Cho
+  - Eunbin Bae
+  - Joey Kim
+  - Ahana Goswami
+  - Ki-Hyuk Shin
+  - No-Hee Park
+  - Reuben H. Kim
+  publisher: PLOS One
+  date: '2025-08-14'
+  link: https://doi.org/hbf68q
+  image: images/pone.svg
+  tags: null
+  highlight: n
+  preprint: n
+  stage: phd
+  project: null
+  buttons:
+  - type: pmc
+    link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC
+    text: PMC Full Text
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1177/00220345251383827
+  title: CD69 Regulates Gingival Inflammation and Microbiome in Periodontitis
+  authors:
+  - F.M. Saavedra
+  - L. Fischer
+  - P.D. Bittner-Eddy
+  - K.F. Johnstone
+  - J.M. Stolley
+  - D.W. Williams
+  - M.C. Herzberg
+  - M. Costalonga
+  publisher: Journal of Dental Research
+  date: '2025-11-26'
+  link: https://doi.org/hbf68r
+  image: images/jdr.svg
+  tags: null
+  highlight: n
+  preprint: n
+  stage: pd
+  project: atlas
+  buttons:
+  - type: pmc
+    link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC
+    text: PMC Full Text
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1016/j.immuni.2024.02.020
   title: Epithelial-derived interleukin-23 promotes oral mucosal immunopathology
   authors:
@@ -45,6 +100,34 @@
   - type: press
     link: https://www.sciencedirect.com/science/article/abs/pii/S1074761324001304
     text: Immunity Preview
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.jim.2023.113605
+  title: Dissociation of murine oral mucosal tissues for single cell applications
+  authors:
+  - Tomoko Ikeuchi
+  - Ramin Akhi
+  - Belmaliz Cardona Rodriguez
+  - David Fraser
+  - Drake Williams
+  - Tae Sung Kim
+  - Teresa Greenwell-Wild
+  - Andrew Overmiller
+  - Maria Morasso
+  - Niki Moutsopoulos
+  publisher: Journal of Immunological Methods
+  date: '2024-02-01'
+  link: https://doi.org/hbf68s
+  imgage: images/jim.jpg
+  tags: null
+  highlight: n
+  preprint: n
+  stage: pd
+  project: atlas
+  buttons:
+  - type: pmc
+    link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10842481/
+    text: PMC Full Text
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1126/sciadv.adk1887
