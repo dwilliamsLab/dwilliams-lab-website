@@ -18,4 +18,5 @@ nav:
 {% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: pd"%}
 {% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: phd"%}
 
+{% include list.html data="citations" component="citation" style="rich"%}
 
