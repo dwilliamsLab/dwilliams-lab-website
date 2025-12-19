@@ -36,3 +36,7 @@ $wrap: 600px;
     max-width: unset;
   }
 }
+
+.content-column {
+  display: flow-root; 
+}
