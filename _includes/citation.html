@@ -46,15 +46,26 @@
         class="citation-authors"
         tabindex="0"
       >
-        {{
-          citation.authors
-          | join: ","
-          | split: ","
-          | array_carve: 200
-          | join: ", " 
-          | markdownify
-          | remove: "<p>" | remove: "</p>"
-          | default: "[no author info]"
+        {% capture author_list_temp %}
+        {{ citation.authors | join: "," | split: "," | array_carve: 200 | join: ", " }}
+        {% endcapture %}
+
+        {% assign author_list_final = author_list_temp %}
+  
+        {% for member in site.members %}
+          {% if member.aliases %}
+            {% for alias in member.aliases %}
+              {% assign bold_alias = "<strong>" | append: alias | append: "</strong>" %}
+              {% assign author_list_final = author_list_final | replace: alias, bold_alias %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        {{ 
+          author_list_final 
+          | markdownify 
+          | remove: "<p>" 
+          | remove: "</p>" 
+          | default: "[no author info]" 
         }}
       </div>
 
