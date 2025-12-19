@@ -5,11 +5,9 @@ nav:
   tooltip: Published works
 ---
 
-<div style="text-align: center;" markdown="1">
-
-##### A full list of publications for each team member can be found on their [profile](../team) page
-
-</div>
+<h5 style="text-align: center;">
+  A full list of publications for each team member can be found on their <a href="../team">profile</a> page
+</h5>
 
 {% include search-box.html %}
 
