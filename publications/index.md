@@ -5,7 +5,7 @@ nav:
   tooltip: Published works
 ---
 
-##### For the full list of publications of an individual, please click the Google Scholar link in their [profile](../team)
+##### A full list of publications for each team member can be found on their [profile](../team) page
 
 {% include search-box.html %}
 
