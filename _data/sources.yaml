@@ -41,7 +41,7 @@
       text: Immunity Preview      
 
 - id: doi:10.1016/j.jim.2023.113605
-  imgage: images/jim.jpg
+  image: images/jim.jpg
   tags:
   highlight: n
   preprint: n
