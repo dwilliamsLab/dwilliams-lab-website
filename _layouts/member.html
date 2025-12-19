@@ -19,9 +19,6 @@ layout: default
 
 {% include float.html content=floatcontent %}
 
-
-<hr>
-
 {{ content }}
 
 {% assign aliases = page.aliases
@@ -32,7 +29,8 @@ layout: default
   | array_filter
 %}
 
-<h3 style="clear: both; text-align: center; padding-top: 20px;">{{ page.name | default: page.title | split: " " | first }}'s Publications</h3>
+<hr style="clear: both">
+<h3 style="text-align: center; padding-top: 20px;">{{ page.name | default: page.title | split: " " | first }}'s Publications</h3>
 
 {% for pub in site.data.citations %}
   
