@@ -16,6 +16,9 @@ nav:
 {% include list.html data="citations" component="citation" style="rich" filters="preprint: y" %}
 
 # <i class="fas fa-book-open"></i>&nbsp;&nbsp; Highlighted Publications
+<h6 style="text-align: center;">
+  Current or past LOMI members are <strong>bolded</strong> in the author list
+</h6>
 
 {% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: pd"%}
 {% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: phd"%}
