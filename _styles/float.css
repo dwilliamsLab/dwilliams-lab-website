@@ -31,5 +31,8 @@
     max-width: unset;
   }
 }
+.content-column {
+  display: flow-root;
+}
 
 /*# sourceMappingURL=float.css.map */
