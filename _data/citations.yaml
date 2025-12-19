@@ -1,5 +1,149 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
+- id: doi:10.1136/ard-2024-225868
+  title: Plasma proteome profiling in giant cell arteritis
+  authors:
+  - Kevin Y Cunningham
+  - Benjamin Hur
+  - Vinod K Gupta
+  - Matthew J Koster
+  - Cornelia M Weyand
+  - David Cuthbertson
+  - Nader A Khalidi
+  - Curry L Koening
+  - Carol A Langford
+  - Carol A McAlear
+  - Paul A Monach
+  - Larry W Moreland
+  - Christian Pagnoux
+  - Rennie L Rhee
+  - Philip Seo
+  - Peter A Merkel
+  - Kenneth J Warrington
+  - Jaeyun Sung
+  publisher: Annals of the Rheumatic Diseases
+  date: '2024-12-01'
+  link: https://doi.org/hbgbpw
+  orcid: 0000-0002-9501-3132
+  kevin: true
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1038/s41467-024-51651-9
+  title: Gut Microbiome Wellness Index 2 enhances health status prediction from gut
+    microbiome taxonomic profiles
+  authors:
+  - Daniel Chang
+  - Vinod K. Gupta
+  - Benjamin Hur
+  - "Sergio Cobo-L\xF3pez"
+  - Kevin Y. Cunningham
+  - Nam Soo Han
+  - Insuk Lee
+  - Vanessa L. Kronzer
+  - Levi M. Teigen
+  - Lioudmila V. Karnatovskaia
+  - Erin E. Longbrake
+  - John M. Davis
+  - Heidi Nelson
+  - Jaeyun Sung
+  publisher: Nature Communications
+  date: '2024-08-28'
+  link: https://doi.org/hbgbpx
+  orcid: 0000-0002-9501-3132
+  kevin: true
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1038/s41598-023-32428-4
+  title: Patients with ACPA-positive and ACPA-negative rheumatoid arthritis show different
+    serological autoantibody repertoires and autoantibody associations with disease
+    activity
+  authors:
+  - Kevin Y. Cunningham
+  - Benjamin Hur
+  - Vinod K. Gupta
+  - Courtney A. Arment
+  - Kerry A. Wright
+  - Thomas G. Mason
+  - Lynne S. Peterson
+  - Delamo I. Bekele
+  - Daniel E. Schaffer
+  - Marissa L. Bailey
+  - Kara E. Delger
+  - Cynthia S. Crowson
+  - Elena Myasoedova
+  - Hu Zeng
+  - Moses Rodriguez
+  - Cornelia M. Weyand
+  - John M. Davis
+  - Jaeyun Sung
+  publisher: Scientific Reports
+  date: '2023-04-01'
+  link: https://doi.org/hbgbpz
+  orcid: 0000-0002-9501-3132
+  kevin: true
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1186/s13073-021-00957-0
+  title: Gut microbial determinants of clinically important improvement in patients
+    with rheumatoid arthritis
+  authors:
+  - Vinod K. Gupta
+  - Kevin Y. Cunningham
+  - Benjamin Hur
+  - Utpal Bakshi
+  - Harvey Huang
+  - Kenneth J. Warrington
+  - Veena Taneja
+  - Elena Myasoedova
+  - John M. Davis
+  - Jaeyun Sung
+  publisher: Genome Medicine
+  date: '2021-09-14'
+  link: https://doi.org/gqx95n
+  orcid: 0000-0002-9501-3132
+  kevin: true
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1038/s41467-020-18476-8
+  title: A predictive index for health status using species-level gut microbiome profiling
+  authors:
+  - Vinod K. Gupta
+  - Minsuk Kim
+  - Utpal Bakshi
+  - Kevin Y. Cunningham
+  - John M. Davis
+  - Konstantinos N. Lazaridis
+  - Heidi Nelson
+  - Nicholas Chia
+  - Jaeyun Sung
+  publisher: Nature Communications
+  date: '2020-09-15'
+  link: https://doi.org/ghd8jr
+  orcid: 0000-0002-9501-3132
+  kevin: true
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1038/s41598-020-69358-4
+  title: Single-cell mass cytometry on peripheral blood identifies immune cell subsets
+    associated with primary biliary cholangitis
+  authors:
+  - Jin Sung Jang
+  - Brian D. Juran
+  - Kevin Y. Cunningham
+  - Vinod K. Gupta
+  - Young Min Son
+  - Ju Dong Yang
+  - Ahmad H. Ali
+  - Elizabeth Ann L. Enninga
+  - Jaeyun Sung
+  - Konstantinos N. Lazaridis
+  publisher: Scientific Reports
+  date: '2020-07-28'
+  link: https://doi.org/gk6pc9
+  orcid: 0000-0002-9501-3132
+  kevin: true
+  plugin: orcid.py
+  file: orcid.yaml
 - id: doi:10.1371/journal.pone.0328459
   title: Early cellular events of osteomucosal healing in the tooth extraction socket
   authors:
