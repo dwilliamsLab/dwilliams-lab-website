@@ -1,3 +1,15 @@
+- id: doi:10.1038/s41467-024-51651-9
+  image: images/natComms.svg
+  
+- id: doi:10.1038/s41598-023-32428-4
+  image: images/natSciRep.svg
+  
+- id: doi:10.1038/s41467-020-18476-8
+  image: images/natComms.svg
+
+- id: doi:10.1038/s41598-020-69358-4
+  image: images/natSciRep.svg
+  
 - id: doi:10.1371/journal.pone.0328459
   image: images/pone.svg
   tags:
