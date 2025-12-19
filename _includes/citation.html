@@ -55,7 +55,7 @@
         {% for member in site.members %}
           {% if member.aliases %}
             {% for alias in member.aliases %}
-              {% assign bold_alias = "<strong>" | append: alias | append: "</strong>" %}
+              {% assign bold_alias = "**" | append: alias | append: "**" %}
               {% assign author_list_final = author_list_final | replace: alias, bold_alias %}
             {% endfor %}
           {% endif %}
