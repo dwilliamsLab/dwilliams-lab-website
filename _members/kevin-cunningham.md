@@ -6,6 +6,8 @@ role: phd
 group: current
 aliases:
   - Kevin Cunningham
+  - Kevin Y Cunningham
+  - Kevin Y. Cunningham
 links:
   email: cunni319@umn.edu
   orcid: 0000-0002-9501-3132
