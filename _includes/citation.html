@@ -31,7 +31,8 @@
 
     <div class="citation-text">
       {% assign type = site.data.types[citation.type] %}
-    
+      {% include icon.html icon=type.icon %}
+
       <a
         {% if citation.link %}
           href="{{ citation.link | relative_url }}"
@@ -96,11 +97,28 @@
           <div class="citation-description">
             {{
               citation.description
-              | strip_html
+              | markdownify
+              | remove: "<p>"
+              | remove: "</p>"
             }}
           </div>
         {% endif %}
 
+        {% if citation.buttons.size > 0 %}
+          <div class="citation-buttons">
+            {% for button in citation.buttons %}
+              {%
+                include button.html
+                type=button.type
+                icon=button.icon
+                text=button.text
+                link=button.link
+                style="bare"
+              %}
+            {% endfor %}
+            <br>
+          </div>
+        {% endif %}
 
         
       {% endif %} </div> </div> </div>
