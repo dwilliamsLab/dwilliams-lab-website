@@ -1,3 +1,27 @@
+- id: doi:10.1371/journal.pone.0328459
+  image: images/pone.svg
+  tags:
+  highlight: n
+  preprint: n
+  stage: phd
+  project: 
+  buttons:
+    - type: pmc
+      link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC
+      text: PMC Full Text
+
+- id: doi:10.1177/00220345251383827
+  image: images/jdr.svg
+  tags:
+  highlight: n
+  preprint: n
+  stage: pd
+  project: atlas
+  buttons:
+    - type: pmc
+      link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC
+      text: PMC Full Text
+
 - id: doi:10.1016/j.immuni.2024.02.020
   image: images/immunity.svg
   tags:
@@ -16,6 +40,18 @@
       link: https://www.sciencedirect.com/science/article/abs/pii/S1074761324001304
       text: Immunity Preview      
 
+- id: doi:10.1016/j.jim.2023.113605
+  imgage: images/jim.jpg
+  tags:
+  highlight: n
+  preprint: n
+  stage: pd
+  project: atlas
+  buttons:
+    - type: pmc
+      link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10842481/
+      text: PMC Full Text  
+      
 - id: doi:10.1126/sciadv.adk1887
   image: images/sciadv.svg
   tags:
