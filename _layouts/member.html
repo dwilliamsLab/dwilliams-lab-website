@@ -19,8 +19,6 @@ layout: default
 
 {% include float.html content=floatcontent %}
 
-<div style="display: flow-root;">
-  
 {{ content }}
 
 {% assign aliases = page.aliases
@@ -32,7 +30,7 @@ layout: default
 %}
 
 <hr>
-<h3>{{ page.name | default: page.title | split: " " | first }}'s Publications</h3>
+<h3 style="clear: both; padding-top: 20px;">{{ page.name | default: page.title | split: " " | first }}'s Publications</h3>
 
 {% for pub in site.data.citations %}
   
@@ -49,4 +47,3 @@ layout: default
   {% endif %}
 
 {% endfor %}
-</div>
