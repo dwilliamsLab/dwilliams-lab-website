@@ -42,7 +42,9 @@ layout: default
   {% endfor %}
 
   {% if is_author %}
-    {% include citation.html entry=pub %}
-  {% endif %}
+       <div class="citation-wrapper">
+         {% include citation.html entry=pub %}
+       </div>
+    {% endif %}
 
 {% endfor %}
