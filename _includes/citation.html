@@ -46,9 +46,7 @@
         class="citation-authors"
         tabindex="0"
       >
-        {% capture author_list_temp %}
-        {{ citation.authors | join: "," | split: "," | array_carve: 200 | join: ", " }}
-        {% endcapture %}
+        {% capture author_list_temp %}{{ citation.authors | join: "," | split: "," | array_carve: 200 | join: ", " }}{% endcapture %}
 
         {% assign author_list_final = author_list_temp %}
   
@@ -62,10 +60,11 @@
         {% endfor %}
         {{ 
           author_list_final 
+          | strip
           | markdownify 
           | remove: "<p>" 
           | remove: "</p>" 
-          | default: "[no author info]" 
+          | remove: "\n" 
         }}
       </div>
 
