@@ -417,24 +417,24 @@
   plugin: sources.py
   file: sources.yaml
   image: images/natSciRep.svg
-- id: pubmed:41663813
-  title: Distinct spatial organization governs oral mucosal immunity.
+- id: doi:10.1038/s41590-025-02398-y
+  title: Distinct spatial organization governs oral mucosal immunity
   authors:
-  - Vasileios I Theofilou
+  - Vasileios I. Theofilou
   - David Fraser
   - Eleni Kanasi
   - Laurie Brenchley
   - Teresa Greenwell-Wild
-  - Emmanuel E Adade
-  - Alex M Valm
+  - Emmanuel E. Adade
+  - Alex M. Valm
   - Iyadh Douagi
   - Yasmine Belkaid
-  - Duy T Tran
-  - Drake W Williams
-  - Niki M Moutsopoulos
-  publisher: Nature immunology
+  - Duy T. Tran
+  - Drake W. Williams
+  - Niki M. Moutsopoulos
+  publisher: Nature Immunology
   date: '2026-02-09'
-  link: https://www.ncbi.nlm.nih.gov/pubmed/41663813
+  link: https://doi.org/hbn4mp
   image: images/natIm.svg
   highlight: y
   stage: pr
