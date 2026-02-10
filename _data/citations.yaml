@@ -417,6 +417,29 @@
   plugin: sources.py
   file: sources.yaml
   image: images/natSciRep.svg
+- id: doi:10.1038/s41590-025-02398-y
+  title: Distinct spatial organization governs oral mucosal immunity
+  authors:
+  - Vasileios I. Theofilou
+  - David Fraser
+  - Eleni Kanasi
+  - Laurie Brenchley
+  - Teresa Greenwell-Wild
+  - Emmanuel E. Adade
+  - Alex M. Valm
+  - Iyadh Douagi
+  - Yasmine Belkaid
+  - Duy T. Tran
+  - Drake W. Williams
+  - Niki M. Moutsopoulos
+  publisher: Nature Immunology
+  date: '2026-02-09'
+  link: https://doi.org/hbn4mp
+  image: images/natIm.svg
+  highlight: y
+  project: atlas
+  plugin: sources.py
+  file: sources.yaml
 - id: doi:10.1371/journal.pone.0328459
   title: Early cellular events of osteomucosal healing in the tooth extraction socket
   authors:
