@@ -20,6 +20,7 @@ nav:
   Current or past LOMI members are <strong>bolded</strong> in the author list
 </h6>
 
+{% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: pr"%}
 {% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: pd"%}
 {% include list.html data="citations" component="citation" style="rich" filters="highlight: y, stage: phd"%}
 
