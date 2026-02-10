@@ -437,6 +437,7 @@
   link: https://doi.org/hbn4mp
   image: images/natIm.svg
   highlight: y
+  stage: pr
   project: atlas
   plugin: sources.py
   file: sources.yaml
