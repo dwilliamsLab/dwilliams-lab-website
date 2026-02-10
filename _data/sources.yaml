@@ -1,6 +1,7 @@
 - id: doi:10.1038/s41590-025-02398-y
   image: images/natIm.svg
   highlight: y
+  stage: pr
   project: atlas
 
 - id: doi:10.1016/j.celrep.2021.109385
