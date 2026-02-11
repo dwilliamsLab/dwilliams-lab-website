@@ -439,6 +439,10 @@
   highlight: y
   stage: pr
   project: atlas
+  buttons:
+  - type: press
+    link: https://www.nature.com/articles/s41590-025-02410-5
+    text: Research Briefing
   plugin: sources.py
   file: sources.yaml
 - id: doi:10.1371/journal.pone.0328459
