@@ -5,8 +5,8 @@
   project: atlas
   buttons:
     - type: press
-    link: https://www.nature.com/articles/s41590-025-02410-5
-    text: Research Briefing
+      link: https://www.nature.com/articles/s41590-025-02410-5
+      text: Research Briefing
 
 - id: doi:10.1016/j.celrep.2021.109385
   image: images/cellRep.svg
