@@ -1,5 +1,5 @@
 ---
-title: New student
+title: New member
 category: news
 image: images/people/melanie.jpeg
 last_modified_at: ""

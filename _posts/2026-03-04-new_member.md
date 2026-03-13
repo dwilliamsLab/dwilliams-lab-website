@@ -1,5 +1,5 @@
 ---
-title: New undergraduate
+title: New member
 category: news
 image: images/people/bria.jpg
 last_modified_at: ""
