@@ -1,5 +1,162 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
+- id: doi:10.1055/a-2595-7004
+  title: Synthesis of a 5,6-Dihydropyran-2-one Derivative with Dual Anti-Cell-Migration
+    and Anticancer Activity
+  authors:
+  - Ahmed K. Hamdy
+  - Masami Otsuka
+  - Hiroshi Araki
+  - Hiroshi Tateishi
+  - Tsugumasa Toma
+  - Mohamed O. Radwan
+  - Shashwata Biswas
+  - Takeo Kuwata
+  - Shuzo Matsushita
+  - Mikako Fujita
+  - Shin-ichiro Niwa
+  publisher: Synlett
+  date: '2025-04-28'
+  link: https://doi.org/hbgbwd
+  orcid: 0009-0008-2822-8433
+  shashwata: true
+  plugin: orcid.py
+  file: orcid.yaml
+- id: doi:10.1016/j.ebiom.2024.105439
+  title: Induction of IGHV3-53 public antibodies with broadly neutralising activity
+    against SARS-CoV-2 including Omicron subvariants in a Delta breakthrough infection
+    case
+  authors:
+  - Takeo Kuwata
+  - Yu Kaku
+  - Shashwata Biswas
+  - Kaho Matsumoto
+  - Mikiko Shimizu
+  - Yoko Kawanami
+  - Ryuta Uraki
+  - Kyo Okazaki
+  - Rumi Minami
+  - Yoji Nagasaki
+  - Mami Nagashima
+  - Isao Yoshida
+  - Kenji Sadamasu
+  - Kazuhisa Yoshimura
+  - Mutsumi Ito
+  - Maki Kiso
+  - Seiya Yamayoshi
+  - Masaki Imai
+  - Terumasa Ikeda
+  - Kei Sato
+  - Mako Toyoda
+  - Takamasa Ueno
+  - Takako Inoue
+  - Yasuhito Tanaka
+  - Kanako Tarakado Kimura
+  - Takao Hashiguchi
+  - Yukihiko Sugita
+  - Takeshi Noda
+  - Hiroshi Morioka
+  - Yoshihiro Kawaoka
+  - Shuzo Matsushita
+  - Jumpei Ito
+  - Naoko Misawa
+  - Arnon Plianchaisuk
+  - Ziyi Guo
+  - Alfredo Hina
+  - Keiya Uriu
+  - Kaoru Usui
+  - Wilaiporn Saikruang
+  - Spyridon Lytras
+  - Ryo Yoshimura
+  - Shusuke Kawakubo
+  - Luca Nishimura
+  - Yusuke Kosugi
+  - Shigeru Fujita
+  - Luo Chen
+  - Jarel Elgin M. Tolentino
+  - Lin Pan
+  - Wenye Li
+  - Maximilian Stanley Yo
+  - Kio Horinaka
+  - Mai Suganami
+  - Adam P. Strange
+  - Mika Chiba
+  - Keiko Iida
+  - Naomi Ohsumi
+  - Kaho Okumura
+  - Shiho Tanaka
+  - Eiko Ogawa
+  - Kyoko Yasuda
+  - Tsuki Fukuda
+  - Rina Osujo
+  - Takasuke Fukuhara
+  - Tomokazu Tamura
+  - Rigel Suzuki
+  - Saori Suzuki
+  - Hayato Ito
+  - Keita Matsuno
+  - Hirofumi Sawa
+  - Naganori Nao
+  - Shinya Tanaka
+  - Masumi Tsuda
+  - Lei Wang
+  - Yoshikata Oda
+  - Zannatul Ferdous
+  - Kenji Shishido
+  - Keita Mizuma
+  - Isshu Kojima
+  - Jingshu Li
+  - Tomoya Tsubo
+  - Shuhei Tsujino
+  - So Nakagawa
+  - Kotaro Shirakawa
+  - Akifumi Takaori-Kondo
+  - Kayoko Nagata
+  - Ryosuke Nomura
+  - Yoshihito Horisawa
+  - Yusuke Tashiro
+  - Yugo Kawai
+  - Kazuo Takayama
+  - Rina Hashimoto
+  - Sayaka Deguchi
+  - Yukio Watanabe
+  - Ayaka Sakamoto
+  - Naoko Yasuhara
+  - Tateki Suzuki
+  - Kanako Kimura
+  - Jiei Sasaki
+  - Yukari Nakajima
+  - Hisano Yajima
+  - Yoshitaka Nakata
+  - Hiroki Futatsusako
+  - Takashi Irie
+  - Ryoko Kawabata
+  - Kaori Tabata
+  - Hesham Nasser
+  - Ryo Shimizu
+  - MST Monira Begum
+  - Michael Jonathan
+  - Yuka Mugita
+  - Otowa Takahashi
+  - Kimiko Ichihara
+  - Chihiro Motozono
+  - Sharee Leong
+  - Akatsuki Saito
+  - Maya Shofa
+  - Yuki Shibatani
+  - Tomoko Nishiuchi
+  - Hiroyuki Asakura
+  - Jiri Zahradnik
+  - Prokopios Andrikopoulos
+  - Miguel Padilla-Blanco
+  - Aditi Konar
+  publisher: eBioMedicine
+  date: '2024-12-01'
+  link: https://doi.org/hbgbwf
+  orcid: 0009-0008-2822-8433
+  shashwata: true
+  plugin: orcid.py
+  file: orcid.yaml
 - id: doi:10.1111/imm.13742
   title: "Idiotopes of antibodies against <scp>HIV</scp>\u20101 <scp>CD4</scp>\u2010\
     induced epitope shared with those against microorganisms"
