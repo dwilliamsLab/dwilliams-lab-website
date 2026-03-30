@@ -1,7 +1,7 @@
 ---
 name: Melanie Barksdale
 image: images/people/melanie.jpeg
-description: MICaB PhD Student (rotating)
+description: MICaB PhD Student
 role: phd
 group: current
 aliases:
