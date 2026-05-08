@@ -71,7 +71,7 @@ This theme extends our work from local tissue organization to whole-body communi
   text=text
 %}
 
-<h7 style="text-align: center; font-style: italic;">
+<p style="text-align: center; font-size: 0.6rem; font-style: italic;">
   Visuals on this page use AI-generated art. The ideas and data are our own.
-</h7>
+</p>
 
