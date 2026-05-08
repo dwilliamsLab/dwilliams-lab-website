@@ -40,7 +40,7 @@ Our research asks how the oral mucosa recognizes specific microbial challenge, h
 %}
 
 {% include section.html %}
-### Regeneration, wound healing, and environmental exposure
+### Regeneration and wound healing
 {% capture text %}
 In contrast to many adult tissues, the oral mucosa can heal rapidly while preserving barrier integrity and limiting scar formation. We study this regenerative capacity as a window into the tissue features that promote effective repair, with particular interest in how local stromal, immune, and neural programs help maintain a pro-healing environment.
 
