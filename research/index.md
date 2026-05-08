@@ -17,7 +17,7 @@ This work has led us to a major interest in how the oral mucosa builds organized
 
 {%
   include feature.html
-  image="images/research_omics.png"
+  image="images/imm-org.png"
   link=""
   headline=""
   text=text
@@ -33,7 +33,7 @@ Our research asks how the oral mucosa recognizes specific microbial challenge, h
 
 {%
   include feature.html
-  image="images/research.png"
+  image="images/hostmicro.png"
   link=""
   headline=""
   text=text
@@ -49,7 +49,7 @@ Our goal is to understand why some injuries resolve through regeneration while o
 
 {%
   include feature.html
-  image="images/research.png"
+  image="images/wh.png"
   link=""
   headline=""
   text=text
@@ -65,7 +65,7 @@ This theme extends our work from local tissue organization to whole-body communi
 
 {%
   include feature.html
-  image="images/research_.png"
+  image="images/oral-systemic.png"
   link=""
   headline=""
   text=text
