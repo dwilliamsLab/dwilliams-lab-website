@@ -1,0 +1,84 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import MemberCard from '@/components/MemberCard.astro';
+import { getCollection } from 'astro:content';
+
+const allMembers = await getCollection('members');
+
+const roleOrder = ['pi', 'postdoc', 'phd', 'ms', 'undergrad', 'staff'];
+const currentMembers = allMembers
+  .filter(m => m.data.group !== 'alumni')
+  .sort((a, b) => roleOrder.indexOf(a.data.role) - roleOrder.indexOf(b.data.role));
+
+const alumni = allMembers.filter(m => m.data.group === 'alumni');
+---
+
+<BaseLayout title="Team" description="Meet the members of the Laboratory of Oral Mucosal Immunity.">
+  <div class="container">
+    <div class="page-header">
+      <h1>Team</h1>
+    </div>
+
+    <section class="section section--sm">
+      <ul role="list" class="member-grid">
+        {currentMembers.map(member => (
+          <li>
+            <MemberCard
+              name={member.data.name}
+              image={member.data.image}
+              description={member.data.description}
+              role={member.data.role}
+              links={member.data.links}
+              slug={member.slug}
+            />
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    {alumni.length > 0 && (
+      <section class="section section--sm">
+        <h2 class="alumni-heading">Alumni</h2>
+        <ul role="list" class="alumni-list">
+          {alumni.map(member => (
+            <li class="alumni-item">
+              <a href={`/team/${member.slug}`}>{member.data.name}</a>
+              <span class="alumni-role">{member.data.description}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+    gap: var(--space-10);
+  }
+
+  .alumni-heading {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-6);
+  }
+
+  .alumni-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .alumni-item {
+    display: flex;
+    gap: var(--space-3);
+    align-items: baseline;
+    font-size: var(--text-sm);
+    padding-block: var(--space-2);
+    border-bottom: 1px solid var(--color-divider);
+  }
+  .alumni-role {
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+  }
+</style>

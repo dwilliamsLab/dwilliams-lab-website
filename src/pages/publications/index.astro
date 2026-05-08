@@ -1,0 +1,35 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+// citations.yaml is read directly — no Jekyll _data magic needed
+// Uncomment when you have yaml parsing set up (see README in src/data/)
+// import { load } from 'js-yaml';
+// import { readFileSync } from 'fs';
+// const citations = load(readFileSync('./src/data/citations.yaml', 'utf8')) as any[];
+---
+
+<BaseLayout title="Publications" description="Publications from the Laboratory of Oral Mucosal Immunity.">
+  <div class="container">
+    <div class="page-header">
+      <h1>Publications</h1>
+      <p>
+        See also:
+        <a
+          href="https://scholar.google.com/citations?user=6SmnW4IAAAAJ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Google Scholar</a>
+        &nbsp;·&nbsp;
+        <a
+          href="https://orcid.org/0000-0002-7718-2098"
+          target="_blank"
+          rel="noopener noreferrer"
+        >ORCID</a>
+      </p>
+    </div>
+
+    {/* Citation list will be rendered here once data loading is wired up */}
+    <p style="color: var(--color-text-muted); padding-block: var(--space-8);">
+      Citation data loading coming soon — wire up <code>src/data/citations.yaml</code>.
+    </p>
+  </div>
+</BaseLayout>

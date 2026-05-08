@@ -1,0 +1,97 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const members = await getCollection('members');
+  return members.map(member => ({
+    params: { slug: member.slug },
+    props: { member },
+  }));
+};
+
+const { member } = Astro.props;
+const { Content } = await member.render();
+---
+
+<BaseLayout title={member.data.name} description={member.data.description}>
+  <div class="container">
+    <div class="member-profile">
+      {member.data.image && (
+        <img
+          src={`/${member.data.image}`}
+          alt={member.data.name}
+          class="member-photo"
+          width="240"
+          height="240"
+          loading="eager"
+        />
+      )}
+      <div class="member-details">
+        <h1>{member.data.name}</h1>
+        <p class="member-title">{member.data.description}</p>
+        {member.data.links && (
+          <div class="member-external-links">
+            {member.data.links.email && (
+              <a href={`mailto:${member.data.links.email}`}>Email</a>
+            )}
+            {member.data.links.orcid && (
+              <a href={`https://orcid.org/${member.data.links.orcid}`} target="_blank" rel="noopener noreferrer">ORCID</a>
+            )}
+            {member.data.links['google-scholar'] && (
+              <a href={`https://scholar.google.com/citations?user=${member.data.links['google-scholar']}`} target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            )}
+            {member.data.links.github && (
+              <a href={`https://github.com/${member.data.links.github}`} target="_blank" rel="noopener noreferrer">GitHub</a>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+    <div class="member-bio prose">
+      <Content />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .member-profile {
+    display: flex;
+    gap: var(--space-10);
+    align-items: flex-start;
+    padding-block: clamp(var(--space-10), 6vw, var(--space-16));
+    flex-wrap: wrap;
+  }
+  .member-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    flex-shrink: 0;
+  }
+  .member-details h1 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+  }
+  .member-title {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+  .member-external-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .member-external-links a {
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+  .member-bio {
+    max-width: 70ch;
+    padding-bottom: var(--space-16);
+  }
+  .prose p { margin-bottom: var(--space-4); }
+  .prose a { color: var(--color-primary); }
+</style>

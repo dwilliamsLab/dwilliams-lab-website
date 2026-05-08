@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Laboratory of Oral Mucosal Immunity',
+  description = 'Website for the Laboratory of Oral Mucosal Immunity at the University of Minnesota',
+} = Astro.props;
+
+const siteName = 'Laboratory of Oral Mucosal Immunity';
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+
+    <!-- Fonts: Instrument Serif (display) + Work Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="/" class="site-logo" aria-label="Laboratory of Oral Mucosal Immunity — home">
+          <span class="logo-name">Laboratory of Oral Mucosal Immunity</span>
+          <span class="logo-sub">at U of MN</span>
+        </a>
+        <ul role="list" class="nav-links">
+          <li><a href="/research">Research</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/values">Values</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div id="mobile-nav" class="mobile-nav" hidden>
+        <ul role="list">
+          <li><a href="/research">Research</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/resources">Resources</a></li>
+          <li><a href="/values">Values</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>&copy; {new Date().getFullYear()} Laboratory of Oral Mucosal Immunity</p>
+        <div class="footer-links">
+          <a href="mailto:drakew@umn.edu" aria-label="Email">Email</a>
+          <a href="https://github.com/dwilliamslab" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile nav toggle
+      const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement;
+      const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
+      if (toggle && mobileNav) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          mobileNav.hidden = expanded;
+        });
+      }
+    </script>
+  </body>
+</html>

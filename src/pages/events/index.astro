@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Events" description="Upcoming events from the Laboratory of Oral Mucosal Immunity.">
+  <div class="container">
+    <div class="page-header">
+      <h1>Events</h1>
+    </div>
+    <section class="section section--sm">
+      {/* Event list from _data/events.yaml will go here */}
+      <p style="color: var(--color-text-muted);">No upcoming events.</p>
+    </section>
+  </div>
+</BaseLayout>

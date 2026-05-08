@@ -1,0 +1,112 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Feature from '@/components/Feature.astro';
+---
+
+<BaseLayout title="Research" description="Research areas of the Laboratory of Oral Mucosal Immunity.">
+  <div class="container">
+    <div class="page-header">
+      <h1>Research Topics</h1>
+      <p>Four interconnected themes guide our work at the oral barrier.</p>
+    </div>
+  </div>
+
+  <div class="container research-sections">
+    <section class="research-section">
+      <h2>Immune organization at the oral barrier</h2>
+      <Feature image="/images/imm-org.png" imageAlt="Immune organization diagram">
+        <p>
+          A central goal of our lab is to understand how the oral mucosa organizes immune responses
+          in a tissue that is constantly exposed to microbes, mechanical stress, and environmental
+          change. We study how epithelial, stromal, vascular, and immune cells assemble into
+          specialized neighborhoods that support barrier defense in health and are reshaped during
+          chronic inflammation.
+        </p>
+        <p>
+          This work has led us to a major interest in how the oral mucosa builds organized immune
+          structures near the tooth surface and how these local environments coordinate adaptive
+          immunity. More broadly, we think the unique organization of the oral mucosa is what drives
+          the distinctive immune responses we observe here.
+        </p>
+      </Feature>
+    </section>
+
+    <section class="research-section">
+      <h2>Host-microbe interactions and adaptive immunity</h2>
+      <Feature image="/images/hostmicro.png" imageAlt="Host-microbe interactions diagram" flip>
+        <p>
+          The oral barrier is home to dense and diverse microbial communities, yet many of the rules
+          governing how the immune system interprets these signals remain unclear. We are interested
+          in how microbial exposure shapes T cell responses, how protective surveillance is
+          established, and how protective responses transition to pathologic inflammation during
+          chronic disease.
+        </p>
+        <p>
+          Our research asks how the oral mucosa recognizes specific microbial challenge, how local
+          adaptive immune responses are organized, and how tissue-resident immune activity
+          contributes to both oral disease and broader systemic consequences.
+        </p>
+      </Feature>
+    </section>
+
+    <section class="research-section">
+      <h2>Regeneration and wound healing</h2>
+      <Feature image="/images/wh.png" imageAlt="Wound healing diagram">
+        <p>
+          In contrast to many adult tissues, the oral mucosa can heal rapidly while preserving
+          barrier integrity and limiting scar formation. We study this regenerative capacity as a
+          window into the tissue features that promote effective repair, with particular interest in
+          how local stromal, immune, and neural programs help maintain a pro-healing environment.
+        </p>
+        <p>
+          Our goal is to understand why some injuries resolve through regeneration while others
+          progress toward fibrosis, and to define the shared principles that underlie privileged
+          healing across species, tissues, and disease contexts.
+        </p>
+      </Feature>
+    </section>
+
+    <section class="research-section">
+      <h2>Oral-systemic communication</h2>
+      <Feature image="/images/oral-systemic.png" imageAlt="Oral-systemic communication diagram" flip>
+        <p>
+          Our lab is interested in how local inflammatory events at the oral barrier influence
+          physiology beyond the mouth. We investigate how oral immune responses intersect with
+          systemic processes including chronic inflammatory disease, autoimmunity, and
+          maternal-fetal biology.
+        </p>
+        <p>
+          This theme extends our work from local tissue organization to whole-body communication,
+          asking how the mouth functions not only as a barrier surface but also as a signaling hub
+          with consequences for distant tissues.
+        </p>
+      </Feature>
+    </section>
+  </div>
+
+  <p class="ai-note">Visuals on this page use AI-generated art. The ideas are our own.</p>
+</BaseLayout>
+
+<style>
+  .research-sections {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(var(--space-16), 10vw, var(--space-24));
+    padding-block: var(--space-12);
+  }
+
+  .research-section h2 {
+    font-size: var(--text-xl);
+    font-family: var(--font-display);
+    font-weight: 400;
+    margin-bottom: var(--space-8);
+  }
+
+  .ai-note {
+    text-align: center;
+    font-size: var(--text-xs);
+    font-style: italic;
+    color: var(--color-text-faint);
+    padding: var(--space-8);
+  }
+</style>
