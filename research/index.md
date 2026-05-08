@@ -70,3 +70,8 @@ This theme extends our work from local tissue organization to whole-body communi
   headline=""
   text=text
 %}
+
+<h7 style="text-align: center;">
+  Visuals on this page use AI-generated art. The ideas and data are our own.
+</h7>
+
