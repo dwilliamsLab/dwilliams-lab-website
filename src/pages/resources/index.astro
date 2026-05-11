@@ -73,6 +73,13 @@ const more = [
     image: 'https://githubcard.com/greenelab/lab-website-template.svg?d=_CbCZW1b',
   },
 ];
+
+const tabs = [
+  { id: 'code',      label: 'Code',      items: code },
+  { id: 'datasets',  label: 'Datasets',  items: datasets },
+  { id: 'protocols', label: 'Protocols', items: protocols },
+  { id: 'more',      label: 'More',      items: more },
+];
 ---
 
 <BaseLayout title="Resources" description="Datasets, code, protocols, and tools from the Laboratory of Oral Mucosal Immunity.">
@@ -82,85 +89,85 @@ const more = [
       <p>Datasets, code, protocols, and tools from our lab and beyond.</p>
     </div>
 
-    <!-- Code -->
     <section class="section section--sm">
-      <h2 class="resource-section-heading">Code</h2>
-      <ul role="list" class="resource-grid">
-        {code.map(item => (
-          <li>
-            <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
-              <div class="resource-card-image">
-                <img src={item.image} alt={item.name} loading="lazy" width="400" height="120" />
-              </div>
-              <div class="resource-card-body">
-                <span class="resource-card-name">{item.name}</span>
-                <span class="resource-card-desc">{item.description}</span>
-              </div>
-            </a>
-          </li>
+      <!-- Tab bar -->
+      <div class="resource-tabs" role="tablist" aria-label="Resource categories">
+        {tabs.map((tab, i) => (
+          <button
+            role="tab"
+            class="resource-tab"
+            data-tab={tab.id}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-controls={`panel-${tab.id}`}
+            id={`tab-${tab.id}`}
+          >
+            {tab.label}
+            <span class="resource-tab-count">{tab.items.length}</span>
+          </button>
         ))}
-      </ul>
-    </section>
+      </div>
 
-    <!-- Datasets -->
-    <section class="section section--sm">
-      <h2 class="resource-section-heading">Datasets</h2>
-      <ul role="list" class="resource-grid">
-        {datasets.map(item => (
-          <li>
-            <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
-              <div class="resource-card-image">
-                <img src={item.image} alt={item.name} loading="lazy" width="400" height="160" />
-              </div>
-              <div class="resource-card-body">
-                <span class="resource-card-name">{item.name}</span>
-                <span class="resource-card-desc">{item.description}</span>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <!-- Tab panels -->
+      {tabs.map((tab, i) => (
+        <div
+          role="tabpanel"
+          id={`panel-${tab.id}`}
+          aria-labelledby={`tab-${tab.id}`}
+          class="resource-panel"
+          data-panel={tab.id}
+          hidden={i !== 0}
+        >
+          <ul role="list" class="resource-grid">
+            {tab.items.map(item => (
+              <li>
+                <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
+                  <div class="resource-card-image">
+                    <img src={item.image} alt={item.name} loading="lazy" width="400" height="160" />
+                  </div>
+                  <div class="resource-card-body">
+                    <span class="resource-card-name">{item.name}</span>
+                    <span class="resource-card-desc">{item.description}</span>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </section>
-
-    <!-- Protocols -->
-    <section class="section section--sm">
-      <h2 class="resource-section-heading">Protocols</h2>
-      <ul role="list" class="resource-grid">
-        {protocols.map(item => (
-          <li>
-            <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
-              <div class="resource-card-image">
-                <img src={item.image} alt={item.name} loading="lazy" width="400" height="160" />
-              </div>
-              <div class="resource-card-body">
-                <span class="resource-card-name">{item.name}</span>
-                <span class="resource-card-desc">{item.description}</span>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-    <!-- More -->
-    <section class="section section--sm">
-      <h2 class="resource-section-heading">More</h2>
-      <ul role="list" class="resource-grid">
-        {more.map(item => (
-          <li>
-            <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
-              <div class="resource-card-image">
-                <img src={item.image} alt={item.name} loading="lazy" width="400" height="160" />
-              </div>
-              <div class="resource-card-body">
-                <span class="resource-card-name">{item.name}</span>
-                <span class="resource-card-desc">{item.description}</span>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-
   </div>
 </BaseLayout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+  const panels = document.querySelectorAll<HTMLElement>('[role="tabpanel"]');
+
+  function activate(tab: HTMLButtonElement) {
+    tabs.forEach(t => {
+      t.setAttribute('aria-selected', 'false');
+    });
+    panels.forEach(p => {
+      p.hidden = true;
+    });
+    tab.setAttribute('aria-selected', 'true');
+    const target = document.getElementById(`panel-${tab.dataset.tab}`);
+    if (target) target.hidden = false;
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activate(tab));
+    tab.addEventListener('keydown', (e: KeyboardEvent) => {
+      const list = Array.from(tabs);
+      const idx = list.indexOf(tab);
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        activate(list[(idx + 1) % list.length]);
+        list[(idx + 1) % list.length].focus();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        activate(list[(idx - 1 + list.length) % list.length]);
+        list[(idx - 1 + list.length) % list.length].focus();
+      }
+    });
+  });
+</script>
