@@ -1,15 +1,166 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import '@/styles/pages/resources.css';
+
+const code = [
+  {
+    name: 'Oral Atlas (2021)',
+    description: 'Code used to analyze datasets and generate figures from Williams et al., 2021',
+    link: 'https://github.com/williamsdrake/oralAtlas',
+    image: 'https://githubcard.com/williamsdrake/oralAtlas.svg?d=YFhHtS-j',
+  },
+  {
+    name: 'Kim et al. (2024)',
+    description: 'Code used to analyze CZI datasets and generate figures in Kim et al., 2024',
+    link: 'https://github.com/williamsdrake/epithelial-IL23',
+    image: 'https://githubcard.com/williamsdrake/epithelial-IL23.svg?d=jWxn7Ohm',
+  },
+  {
+    name: 'Theofilou et al. (2026)',
+    description: 'Code used to analyze datasets and generate figures in Theofilou et al., 2026',
+    link: 'https://github.com/dwilliamsLab/gingiva-2025',
+    image: 'https://githubcard.com/dwilliamsLab/gingiva-2025.svg?d=ixCYYYdZ',
+  },
+];
+
+const datasets = [
+  {
+    name: 'Oral Atlas (2021)',
+    description: 'An interactive data viewer for datasets from Williams et al., 2021',
+    link: 'https://oral.cellatlas.io/',
+    image: '/images/resource/atlas.jpg',
+  },
+  {
+    name: 'Theofilou et al. (2026)',
+    description: 'Raw and processed data from Theofilou et al., 2026',
+    link: 'https://dataverse.harvard.edu/dataverse/gingiva2025',
+    image: '/images/resource/dataverse.png',
+  },
+];
+
+const protocols = [
+  {
+    name: 'Oral mucosa dissociation',
+    description: 'A detailed method to dissociate oral mucosal tissues into single cell suspensions',
+    link: 'https://doi.org/10.1016/j.xpro.2021.100908',
+    image: '/images/resource/dissociation.jpg',
+  },
+];
+
+const more = [
+  {
+    name: 'R for Data Science',
+    description: 'Useful introduction to R programming language for scientists.',
+    link: 'https://r4ds.had.co.nz/index.html',
+    image: '/images/resource/r.jpg',
+  },
+  {
+    name: 'Adobe Illustrator Guide',
+    description: 'Fantastic guide to using Adobe Illustrator for scientific work from Raj Lab',
+    link: 'http://rajlaboratory.blogspot.com/2019/08/i-adobe-illustrator-for-scientific.html',
+    image: '/images/resource/ai.jpg',
+  },
+  {
+    name: 'Academic CV',
+    description: 'A read-only version of my academic CV made in LaTeX from the Awesome-CV template. Download to create your own.',
+    link: 'https://www.overleaf.com/read/gptprjgkgzvq',
+    image: '/images/resource/overleaf.jpg',
+  },
+  {
+    name: 'Lab website template',
+    description: 'An incredible template from Greene Lab used to make this website. Fork it on GitHub for your own use!',
+    link: 'https://github.com/greenelab/lab-website-template',
+    image: 'https://githubcard.com/greenelab/lab-website-template.svg?d=_CbCZW1b',
+  },
+];
 ---
 
-<BaseLayout title="Resources" description="Resources from the Laboratory of Oral Mucosal Immunity.">
+<BaseLayout title="Resources" description="Datasets, code, protocols, and tools from the Laboratory of Oral Mucosal Immunity.">
   <div class="container">
-    <div class="page-header">
+    <div class="page-header page-header--narrow">
       <h1>Resources</h1>
+      <p>Datasets, code, protocols, and tools from our lab and beyond.</p>
     </div>
+
+    <!-- Code -->
     <section class="section section--sm">
-      {/* Resource list from _data/resources.yaml will go here */}
-      <p style="color: var(--color-text-muted);">Resources coming soon.</p>
+      <h2 class="resource-section-heading">Code</h2>
+      <ul role="list" class="resource-grid">
+        {code.map(item => (
+          <li>
+            <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
+              <div class="resource-card-image">
+                <img src={item.image} alt={item.name} loading="lazy" width="400" height="120" />
+              </div>
+              <div class="resource-card-body">
+                <span class="resource-card-name">{item.name}</span>
+                <span class="resource-card-desc">{item.description}</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
     </section>
+
+    <!-- Datasets -->
+    <section class="section section--sm">
+      <h2 class="resource-section-heading">Datasets</h2>
+      <ul role="list" class="resource-grid">
+        {datasets.map(item => (
+          <li>
+            <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
+              <div class="resource-card-image">
+                <img src={item.image} alt={item.name} loading="lazy" width="400" height="160" />
+              </div>
+              <div class="resource-card-body">
+                <span class="resource-card-name">{item.name}</span>
+                <span class="resource-card-desc">{item.description}</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Protocols -->
+    <section class="section section--sm">
+      <h2 class="resource-section-heading">Protocols</h2>
+      <ul role="list" class="resource-grid">
+        {protocols.map(item => (
+          <li>
+            <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
+              <div class="resource-card-image">
+                <img src={item.image} alt={item.name} loading="lazy" width="400" height="160" />
+              </div>
+              <div class="resource-card-body">
+                <span class="resource-card-name">{item.name}</span>
+                <span class="resource-card-desc">{item.description}</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- More -->
+    <section class="section section--sm">
+      <h2 class="resource-section-heading">More</h2>
+      <ul role="list" class="resource-grid">
+        {more.map(item => (
+          <li>
+            <a href={item.link} class="resource-card" target="_blank" rel="noopener noreferrer">
+              <div class="resource-card-image">
+                <img src={item.image} alt={item.name} loading="lazy" width="400" height="160" />
+              </div>
+              <div class="resource-card-body">
+                <span class="resource-card-name">{item.name}</span>
+                <span class="resource-card-desc">{item.description}</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
   </div>
 </BaseLayout>
