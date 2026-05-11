@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import '@/styles/pages/home.css';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 const posts = (await getCollection('posts'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <BaseLayout
@@ -36,31 +35,108 @@ const posts = (await getCollection('posts'))
         <p style="color: var(--color-text-muted)">No posts yet.</p>
       ) : (
         <ul role="list" class="post-list">
-          {posts.map(post => (
-            <li class="post-item">
-              <a href={`/news/${post.id}`} class="post-card-link">
-                {post.data.image && (
-                  <div class="post-card-thumb">
-                    <img
-                      src={'/' + post.data.image}
-                      alt={post.data.title}
-                      width="80"
-                      height="80"
-                      loading="lazy"
-                    />
+          {posts.map(async (post) => {
+            const { Content } = await render(post);
+            const prettyDate = post.data.date.toLocaleDateString('en-US', {
+              year: 'numeric', month: 'long', day: 'numeric'
+            });
+            return (
+              <li>
+                <button
+                  class="post-card"
+                  type="button"
+                  aria-haspopup="dialog"
+                >
+                  {post.data.image && (
+                    <div class="post-card-thumb">
+                      <img
+                        src={'/' + post.data.image}
+                        alt={post.data.title}
+                        width="64"
+                        height="64"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div class="post-card-body">
+                    <span class="post-title">{post.data.title}</span>
+                    <time class="post-date" datetime={post.data.date.toISOString()}>
+                      {prettyDate}
+                    </time>
                   </div>
-                )}
-                <div class="post-card-body">
-                  <span class="post-title">{post.data.title}</span>
-                  <time class="post-date" datetime={post.data.date.toISOString()}>
-                    {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </time>
-                </div>
-              </a>
-            </li>
-          ))}
+                </button>
+
+                <dialog class="post-dialog" aria-labelledby={'post-title-' + post.id}>
+                  <div class="post-dialog-card">
+                    <button
+                      class="post-dialog-close"
+                      type="button"
+                      data-dialog-close
+                      aria-label={'Close post: ' + post.data.title}
+                    >
+                      ×
+                    </button>
+
+                    {post.data.image && (
+                      <div class="post-dialog-image">
+                        <img
+                          src={'/' + post.data.image}
+                          alt={post.data.title}
+                          width="480"
+                          height="320"
+                          loading="eager"
+                        />
+                      </div>
+                    )}
+
+                    <h2 id={'post-title-' + post.id} class="post-dialog-title">
+                      {post.data.title}
+                    </h2>
+                    <time class="post-dialog-date" datetime={post.data.date.toISOString()}>
+                      {prettyDate}
+                    </time>
+
+                    <div class="post-dialog-body prose">
+                      <Content />
+                    </div>
+                  </div>
+                </dialog>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>
   </section>
+
+  <script is:inline>
+    const postCards = document.querySelectorAll('.post-card');
+    const postDialogs = document.querySelectorAll('.post-dialog');
+
+    postCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const parent = card.closest('li');
+        const dialog = parent?.querySelector('.post-dialog');
+        if (dialog && typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        }
+      });
+    });
+
+    postDialogs.forEach((dialog) => {
+      const closeButton = dialog.querySelector('[data-dialog-close]');
+      closeButton?.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => {
+        const card = dialog.querySelector('.post-dialog-card');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const clickedInside =
+          event.clientX >= rect.left &&
+          event.clientX <= rect.right &&
+          event.clientY >= rect.top &&
+          event.clientY <= rect.bottom;
+        if (!clickedInside) dialog.close();
+      });
+    });
+  </script>
 </BaseLayout>
