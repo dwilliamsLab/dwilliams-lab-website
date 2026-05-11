@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import '@/styles/pages/news.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -22,19 +23,27 @@ const prettyDate = post.data.date.toLocaleDateString('en-US', {
 
 <BaseLayout title={post.data.title} description={post.data.title}>
   <div class="container">
-    <div class="page-header">
-      <h1>{post.data.title}</h1>
-      <p>{prettyDate}</p>
-    </div>
+    <div class="news-post section section--sm">
+      <a href="/" class="news-back">&larr; Lab News</a>
 
-    <article class="prose section section--sm">
-      <Content />
-    </article>
+      {post.data.image && (
+        <div class="news-image">
+          <img
+            src={'/' + post.data.image}
+            alt={post.data.title}
+            width="480"
+            height="320"
+            loading="eager"
+          />
+        </div>
+      )}
 
-    <div style="margin-top: var(--space-8)">
-      <a href="/" style="color: var(--color-primary); font-size: var(--text-sm);">
-        &larr; Back to home
-      </a>
+      <h1 class="news-title">{post.data.title}</h1>
+      <time class="news-date" datetime={post.data.date.toISOString()}>{prettyDate}</time>
+
+      <div class="news-body prose">
+        <Content />
+      </div>
     </div>
   </div>
 </BaseLayout>
