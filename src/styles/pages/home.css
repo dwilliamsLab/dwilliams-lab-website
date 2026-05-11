@@ -57,8 +57,8 @@
 
 .post-card-thumb {
   flex-shrink: 0;
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-surface-offset);
@@ -151,14 +151,18 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-surface-offset);
+  /* Let the image set its own height — no forced crop */
+  display: flex;
+  justify-content: center;
 }
 
 .post-dialog-image img {
+  /* Preserve natural aspect ratio; cap width to dialog width */
   width: 100%;
+  max-width: 480px;
   height: auto;
-  max-height: 280px;
-  object-fit: cover;
   display: block;
+  border-radius: var(--radius-lg);
 }
 
 .post-dialog-title {
