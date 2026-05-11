@@ -7,18 +7,6 @@ const highlighted = citations
   .filter((item) => item.highlight === 'y')
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-const stageLabels = {
-  phd: 'PhD work',
-  pd: 'Postdoctoral work',
-  faculty: 'Faculty work',
-};
-
-const projectLabels = {
-  atlas: 'Oral atlas',
-  hostmicro: 'Host–microbiome',
-  collab: 'Collaboration',
-};
-
 const formatDate = (dateString) => {
   if (!dateString) return null;
   const date = new Date(dateString);
@@ -59,7 +47,7 @@ const formatAuthorsWithHighlight = (authors) => {
     <div class="page-header page-header--narrow">
       <h1>Publications</h1>
       <p>
-        Selected publications from work leading up to and informing our lab’s research
+        Selected publications from work leading up to and informing our lab's research
         program. This list highlights papers that shaped our focus on barrier immunity,
         host–microbiome interactions, and systems approaches.
       </p>
@@ -74,8 +62,6 @@ const formatAuthorsWithHighlight = (authors) => {
       ) : (
         <ul role="list" class="pub-list">
           {highlighted.map((pub) => {
-            const stageLabel = pub.stage ? stageLabels[pub.stage] ?? pub.stage : null;
-            const projectLabel = pub.project ? projectLabels[pub.project] ?? pub.project : null;
             const prettyDate = formatDate(pub.date);
             const doiText = extractDoiFromId(pub.id);
 
@@ -130,11 +116,6 @@ const formatAuthorsWithHighlight = (authors) => {
                               data-style="small_circle"
                             ></span>
                           </div>
-                        </div>
-
-                        <div class="pub-tags">
-                          {stageLabel && <span class="pub-tag">{stageLabel}</span>}
-                          {projectLabel && <span class="pub-tag pub-tag--muted">{projectLabel}</span>}
                         </div>
                       </div>
                     </div>
