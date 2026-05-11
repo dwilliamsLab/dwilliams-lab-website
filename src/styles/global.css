@@ -52,17 +52,24 @@
   --content-wide:    1200px;
 
   /* Light mode surfaces & text */
-  --color-bg:             #f8f8f6;
-  --color-surface:        #ffffff;
-  --color-surface-2:      #f4f4f2;
-  --color-border:         rgba(40, 37, 29, 0.1);
-  --color-divider:        rgba(40, 37, 29, 0.07);
-  --color-text:           #1a1a2e;
-  --color-text-muted:     #5a5a72;
-  --color-text-faint:     #9a9aaa;
-  --color-primary:        #01696f;
-  --color-primary-hover:  #0c4e54;
-  --color-primary-active: #0f3638;
+  --color-bg:                #f8f8f6;
+  --color-surface:           #ffffff;
+  --color-surface-2:         #f4f4f2;
+  --color-surface-offset:    #eeede9;
+  --color-border:            rgba(40, 37, 29, 0.1);
+  --color-divider:           rgba(40, 37, 29, 0.07);
+  --color-text:              #1a1a2e;
+  --color-text-muted:        #5a5a72;
+  --color-text-faint:        #9a9aaa;
+  --color-text-inverse:      #ffffff;
+  --color-primary:           #01696f;
+  --color-primary-hover:     #0c4e54;
+  --color-primary-active:    #0f3638;
+  --color-primary-highlight: #d0e4e3;
+
+  /* Accent (warm terracotta — used for publication links) */
+  --color-accent:       #c97463;
+  --color-accent-hover: #b86150;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(26, 26, 46, 0.06);
@@ -295,7 +302,7 @@ button { cursor: pointer; background: none; border: none; }
 .footer-links a:hover { color: var(--color-primary); }
 
 /* ============================================================
-   Page container utility
+   Layout utilities
    ============================================================ */
 .container {
   max-width: var(--content-default);
@@ -313,9 +320,6 @@ button { cursor: pointer; background: none; border: none; }
   padding-inline: var(--space-6);
 }
 
-/* ============================================================
-   Section spacing
-   ============================================================ */
 .section {
   padding-block: clamp(var(--space-12), 8vw, var(--space-24));
 }
@@ -323,9 +327,6 @@ button { cursor: pointer; background: none; border: none; }
   padding-block: clamp(var(--space-8), 4vw, var(--space-16));
 }
 
-/* ============================================================
-   Page header
-   ============================================================ */
 .page-header {
   padding-block: clamp(var(--space-12), 6vw, var(--space-20));
   border-bottom: 1px solid var(--color-divider);
@@ -339,3 +340,80 @@ button { cursor: pointer; background: none; border: none; }
   font-size: var(--text-lg);
   color: var(--color-text-muted);
 }
+.page-header--narrow {
+  max-width: 42rem;
+}
+
+.section-heading {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-8);
+}
+
+/* ============================================================
+   Buttons  (shared across all pages)
+   ============================================================ */
+
+/* Solid primary — used on home hero, CTAs */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-text-inverse);
+}
+
+/* Outlined / ghost — used on team member links, publication buttons, etc. */
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+.btn-outline:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: transparent;
+}
+
+/* ============================================================
+   Pill / tag  (shared across pages)
+   ============================================================ */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+.pill-primary {
+  background: var(--color-primary-highlight);
+  color: var(--color-text);
+}
+.pill-muted {
+  background: var(--color-surface-offset);
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   Prose  (member bios, research text)
+   ============================================================ */
+.prose p {
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+.prose p:last-child { margin-bottom: 0; }
