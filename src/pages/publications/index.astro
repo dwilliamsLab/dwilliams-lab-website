@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import '@/styles/pages/publications.css';
 import citations from '@/data/citations.yaml';
 
 const highlighted = citations
@@ -35,26 +36,24 @@ const extractDoiFromId = (id) => {
 
 const formatAuthorsWithHighlight = (authors) => {
   if (!authors || authors.length === 0) return '';
-
   const focusNames = [
     'Drake Williams',
     'Drake W. Williams',
     'Drake Winslow Williams',
     'D.W. Williams',
   ];
-
-  const formatted = authors.map((name) => {
-    const isFocus = focusNames.some((focus) => name.includes(focus));
-    return isFocus ? `<strong>${name}</strong>` : name;
-  });
-
-  return formatted.join(', ');
+  return authors
+    .map((name) => {
+      const isFocus = focusNames.some((focus) => name.includes(focus));
+      return isFocus ? '<strong>' + name + '</strong>' : name;
+    })
+    .join(', ');
 };
 ---
 
 <BaseLayout
   title="Publications"
-  description="Selected publications that inform the lab’s research direction."
+  description="Selected publications that inform the lab's research direction."
 >
   <div class="container">
     <div class="page-header page-header--narrow">
@@ -66,7 +65,7 @@ const formatAuthorsWithHighlight = (authors) => {
       </p>
     </div>
 
-    <section class="publications-list section section--sm">
+    <section class="section section--sm">
       {highlighted.length === 0 ? (
         <p class="pub-empty">
           Selected publications will appear here. In the meantime, see Google Scholar
@@ -76,25 +75,23 @@ const formatAuthorsWithHighlight = (authors) => {
         <ul role="list" class="pub-list">
           {highlighted.map((pub) => {
             const stageLabel = pub.stage ? stageLabels[pub.stage] ?? pub.stage : null;
-            const projectLabel = pub.project
-              ? projectLabels[pub.project] ?? pub.project
-              : null;
+            const projectLabel = pub.project ? projectLabels[pub.project] ?? pub.project : null;
             const prettyDate = formatDate(pub.date);
             const doiText = extractDoiFromId(pub.id);
 
-return (
-  <li class="pub-item">
-  <article class="pub-row">
+            return (
+              <li class="pub-item">
+                <article class="pub-row">
                   <div class="pub-main">
                     <div class="pub-header">
                       {pub.image && (
                         <div class="pub-icon">
-  <img
-    src={'/' + pub.image}
-    alt={pub.publisher ? pub.publisher + ' logo' : 'Journal logo'}
-    loading="lazy"
-  ></img>
-</div>
+                          <img
+                            src={'/' + pub.image}
+                            alt={pub.publisher ? pub.publisher + ' logo' : 'Journal logo'}
+                            loading="lazy"
+                          />
+                        </div>
                       )}
 
                       <div class="pub-content">
@@ -107,12 +104,12 @@ return (
                           {pub.title}
                         </a>
 
-                        <p class="pub-authors" set:html={formatAuthorsWithHighlight(pub.authors)} />
+                        <div class="pub-authors" set:html={formatAuthorsWithHighlight(pub.authors)}></div>
 
                         <p class="pub-meta">
                           {pub.publisher}
-                          {prettyDate && ` · ${prettyDate}`}
-                          {doiText && ` · doi:${doiText}`}
+                          {prettyDate && ' · ' + prettyDate}
+                          {doiText && ' · doi:' + doiText}
                         </p>
 
                         <div class="pub-metrics" aria-label="Article metrics">
@@ -125,7 +122,6 @@ return (
                               data-doi={doiText}
                             ></span>
                           </div>
-
                           <div class="pub-metric">
                             <span class="pub-metric-label">Citations</span>
                             <span
@@ -138,28 +134,23 @@ return (
 
                         <div class="pub-tags">
                           {stageLabel && <span class="pub-tag">{stageLabel}</span>}
-                          {projectLabel && (
-                            <span class="pub-tag pub-tag--muted">
-                              {projectLabel}
-                            </span>
-                          )}
+                          {projectLabel && <span class="pub-tag pub-tag--muted">{projectLabel}</span>}
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div class="pub-actions">
-                    {pub.buttons &&
-                      pub.buttons.map((button) => (
-                        <a
-                          href={button.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="pub-button"
-                        >
-                          {button.text}
-                        </a>
-                      ))}
+                    {pub.buttons && pub.buttons.map((button) => (
+                      <a
+                        href={button.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="pub-button"
+                      >
+                        {button.text}
+                      </a>
+                    ))}
                   </div>
                 </article>
               </li>
@@ -169,243 +160,13 @@ return (
       )}
     </section>
 
-    <section class="publications-footer section section--sm">
+    <section class="section section--sm">
       <p>
         For a complete publication record, see{' '}
-        <a
-          href="https://scholar.google.com/"
-          target="_blank"
-          rel="noopener noreferre
-        >
-          Google Scholar
-        </a>{' '}
-        or{' '}
-        <a
-          href="https://orcid.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ORCID
-        </a>.
+        <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        {' '}or{' '}
+        <a href="https://orcid.org/" target="_blank" rel="noopener noreferrer">ORCID</a>.
       </p>
     </section>
   </div>
 </BaseLayout>
-
-<style>
-  .page-header--narrow {
-    max-width: 42rem;
-  }
-
-  .pub-empty {
-    color: var(--color-text-muted);
-  }
-
-  .pub-list {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid var(--color-divider);
-  }
-
-  .pub-item {
-    border-bottom: 1px solid var(--color-divider);
-  }
-
-  .pub-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-3);
-    padding: var(--space-8) 0;
-  }
-
-  .pub-main {
-    min-width: 0;
-  }
-
-  .pub-header {
-    display: grid;
-    grid-template-columns: 8rem minmax(0, 1fr);
-    gap: var(--space-6);
-    align-items: flex-start;
-  }
-
-  .pub-icon {
-    width: 8rem;
-    aspect-ratio: 1 / 1;
-    border-radius: 0;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .pub-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-  }
-
-  .pub-content {
-    min-width: 0;
-  }
-
-  .pub-title-link {
-    display: inline;
-    margin-bottom: 0;
-    font-size: var(--text-base);
-    font-weight: 500;
-    line-height: 1.45;
-    color: #c97463;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.12em;
-  }
-
-  .pub-title-link:hover {
-    color: #b86150;
-  }
-
-  .pub-authors {
-    margin: var(--space-3) 0 var(--space-2) 0;
-    font-size: var(--text-base);
-    line-height: 1.55;
-    color: var(--color-text);
-    max-width: 82ch;
-  }
-
-  .pub-authors strong {
-    font-weight: 700;
-  }
-
-  .pub-meta {
-    margin: 0 0 var(--space-3) 0;
-    font-size: var(--text-base);
-    color: var(--color-text);
-  }
-
-  .pub-metrics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-top: var(--space-2);
-    margin-bottom: var(--space-3);
-  }
-
-  .pub-metric {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    min-height: 2.25rem;
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: var(--color-surface-offset);
-  }
-
-  .pub-metric-label {
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
-    white-space: nowrap;
-  }
-
-  .pub-metric .altmetric-embed,
-  .pub-metric .dimensions-badge {
-    display: inline-flex;
-    align-items: center;
-    min-width: 3rem;
-    min-height: 1.5rem;
-  }
-
-  .pub-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-  }
-
-  .pub-tag {
-    font-size: var(--text-xs);
-    color: var(--color-text);
-    background: var(--color-primary-highlight);
-    border-radius: var(--radius-full);
-    padding: 0.35rem 0.7rem;
-  }
-
-  .pub-tag--muted {
-    background: var(--color-surface-offset);
-    color: var(--color-text-muted);
-  }
-
-  .pub-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
-    margin-left: calc(8rem + var(--space-6));
-    margin-top: var(--space-2);
-  }
-
-  .pub-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    font-size: var(--text-base);
-    text-decoration: none;
-    white-space: nowrap;
-    color: #c97463;
-    background: transparent;
-  }
-
-  .pub-button:hover {
-    background: transparent;
-    color: #b86150;
-    text-decoration: underline;
-  }
-
-  @media (max-width: 900px) {
-    .pub-header {
-      grid-template-columns: 5.5rem minmax(0, 1fr);
-      gap: var(--space-4);
-    }
-
-    .pub-icon {
-      width: 5.5rem;
-    }
-
-    .pub-actions {
-      margin-left: calc(5.5rem + var(--space-4));
-      gap: var(--space-3);
-    }
-  }
-
-  @media (max-width: 700px) {
-    .pub-row {
-      padding: var(--space-5) 0;
-    }
-
-    .pub-header {
-      grid-template-columns: 1fr;
-      gap: var(--space-3);
-    }
-
-    .pub-icon {
-      width: 6rem;
-    }
-
-    .pub-actions {
-      margin-left: 0;
-      margin-top: var(--space-3);
-    }
-
-    .pub-authors,
-    .pub-meta,
-    .pub-button,
-    .pub-title-link {
-      font-size: var(--text-sm);
-    }
-  }
-</style>
