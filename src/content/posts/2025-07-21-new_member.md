@@ -1,5 +1,5 @@
 ---
-title: New member — Kevin Cunningham
+title: New member - Kevin Cunningham
 date: 2025-07-21
 image: images/people/kevin.jpeg
 ---

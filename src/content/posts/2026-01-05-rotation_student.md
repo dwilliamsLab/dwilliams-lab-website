@@ -1,5 +1,5 @@
 ---
-title: Rotation student — Melanie Barksdale
+title: Rotation student - Melanie Barksdale
 date: 2026-01-05
 image: images/people/melanie.jpeg
 ---

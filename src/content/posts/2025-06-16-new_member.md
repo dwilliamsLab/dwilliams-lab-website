@@ -1,5 +1,5 @@
 ---
-title: New member — Shashwata Biswas
+title: New member - Shashwata Biswas
 date: 2025-06-16
 image: images/people/shashwata.jpg
 ---

@@ -1,5 +1,5 @@
 ---
-title: New member — Melanie Barksdale
+title: New member - Melanie Barksdale
 date: 2026-02-27
 image: images/people/melanie.jpeg
 ---

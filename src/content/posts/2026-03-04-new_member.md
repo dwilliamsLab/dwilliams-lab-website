@@ -1,5 +1,5 @@
 ---
-title: New member — Bria Mills
+title: New member - Bria Mills
 date: 2026-03-04
 image: images/people/bria.jpg
 ---
