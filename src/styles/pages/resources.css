@@ -1,6 +1,6 @@
 /* ── Resources page ────────────────────────────────────── */
 
-/* ── Tab bar ──────────────────────────────────────────────── */
+/* ── Tab bar ──────────────────────────────────────────── */
 
 .resource-tabs {
   display: flex;
@@ -62,7 +62,7 @@
   color: var(--color-primary);
 }
 
-/* ── Shared card grid ─────────────────────────────────────── */
+/* ── Shared card grid ─────────────────────────────────── */
 
 .resource-grid {
   display: grid;
@@ -89,7 +89,7 @@
   box-shadow: var(--shadow-md);
 }
 
-/* ── Image cards (datasets, protocols, more) ────────────── */
+/* ── Image cards (datasets, protocols) ──────────────────── */
 
 .resource-card-image {
   width: 100%;
@@ -136,7 +136,7 @@
   max-width: unset;
 }
 
-/* ── Repo cards (code) ────────────────────────────────────── */
+/* ── Repo cards (code) ────────────────────────────────── */
 
 .resource-card--repo {
   background: var(--color-surface);
@@ -200,4 +200,106 @@
   border-radius: var(--radius-full);
   background: var(--color-primary);
   flex-shrink: 0;
+}
+
+/* ── Internal panel ───────────────────────────────────── */
+
+.member-notice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-offset);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.member-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: var(--content-default);
+}
+
+.member-link {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--color-text);
+  transition:
+    border-color var(--transition-interactive),
+    box-shadow var(--transition-interactive);
+}
+
+.member-link:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.member-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-offset);
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.member-link-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.member-link-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.member-link-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  max-width: unset;
+}
+
+.member-link-service {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  white-space: nowrap;
+  padding-right: var(--space-2);
+}
+
+.member-link-arrow {
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+  transition: color var(--transition-interactive), transform var(--transition-interactive);
+}
+
+.member-link:hover .member-link-arrow {
+  color: var(--color-primary);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 600px) {
+  .member-link {
+    grid-template-columns: 2.5rem 1fr auto;
+  }
+  .member-link-service {
+    display: none;
+  }
 }
