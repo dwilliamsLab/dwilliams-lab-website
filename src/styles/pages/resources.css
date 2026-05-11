@@ -1,6 +1,6 @@
 /* ── Resources page ────────────────────────────────────── */
 
-/* ── Tab bar ──────────────────────────────────────────── */
+/* ── Tab bar ──────────────────────────────────────────────── */
 
 .resource-tabs {
   display: flex;
@@ -62,12 +62,12 @@
   color: var(--color-primary);
 }
 
-/* ── Cards ─────────────────────────────────────────────── */
+/* ── Shared card grid ─────────────────────────────────────── */
 
 .resource-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-5);
 }
 
 .resource-card {
@@ -89,9 +89,11 @@
   box-shadow: var(--shadow-md);
 }
 
+/* ── Image cards (datasets, protocols, more) ────────────── */
+
 .resource-card-image {
   width: 100%;
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--color-surface-offset);
   flex-shrink: 0;
@@ -106,7 +108,7 @@
 }
 
 .resource-card:hover .resource-card-image img {
-  opacity: 0.9;
+  opacity: 0.88;
 }
 
 .resource-card-body {
@@ -128,4 +130,70 @@
   color: var(--color-text-muted);
   line-height: 1.5;
   max-width: unset;
+}
+
+/* ── Repo cards (code) ────────────────────────────────────── */
+
+.resource-card--repo {
+  background: var(--color-surface);
+}
+
+.repo-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-4) var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.repo-icon {
+  flex-shrink: 0;
+  color: var(--color-text-faint);
+}
+
+.repo-slug {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono, monospace);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repo-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4) var(--space-4);
+  flex: 1;
+}
+
+.repo-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--color-divider);
+  margin-top: auto;
+}
+
+.repo-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.repo-stat--date {
+  margin-left: auto;
+}
+
+.repo-lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  flex-shrink: 0;
 }
