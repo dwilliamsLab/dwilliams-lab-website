@@ -1,48 +1,159 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import MemberCard from '@/components/MemberCard.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 const allMembers = await getCollection('members');
 
-const roleOrder = ['pi', 'postdoc', 'phd', 'ms', 'undergrad', 'staff'];
-const currentMembers = allMembers
-  .filter(m => m.data.group !== 'alumni')
-  .sort((a, b) => roleOrder.indexOf(a.data.role) - roleOrder.indexOf(b.data.role));
+const roleOrder = ['pi', 'lab-manager', 'manager', 'postdoc', 'phd', 'ms', 'undergrad', 'staff'];
 
-const alumni = allMembers.filter(m => m.data.group === 'alumni');
+const currentMembers = allMembers
+  .filter((m) => (m.data.group ?? 'current') !== 'alumni')
+  .filter((m) => m.data.hidden !== true)
+  .sort((a, b) => {
+    const aIndex = roleOrder.indexOf(a.data.role);
+    const bIndex = roleOrder.indexOf(b.data.role);
+    return (aIndex === -1 ? 999 : aIndex) - (bIndex === -1 ? 999 : bIndex);
+  });
+
+const alumni = allMembers
+  .filter((m) => (m.data.group ?? 'current') === 'alumni')
+  .filter((m) => m.data.hidden !== true);
 ---
 
 <BaseLayout title="Team" description="Meet the members of the Laboratory of Oral Mucosal Immunity.">
   <div class="container">
     <div class="page-header">
       <h1>Team</h1>
+      <p>Click a member to view their bio, links, and profile details.</p>
     </div>
 
     <section class="section section--sm">
       <ul role="list" class="member-grid">
-        {currentMembers.map(member => (
-          <li>
-            <MemberCard
-              name={member.data.name}
-              image={member.data.image}
-              description={member.data.description}
-              role={member.data.role}
-              links={member.data.links}
-              slug={member.slug}
-            />
-          </li>
-        ))}
-      </ul>
+  {currentMembers.map(async (member) => {
+    const { Content } = await render(member);
+
+    return (
+      <li>
+        <button
+          class="member-card"
+          type="button"
+          aria-haspopup="dialog"
+        >
+          <div class="member-avatar">
+            {member.data.image ? (
+              <img
+                src={`/${member.data.image}`}
+                alt={member.data.name}
+                width="240"
+                height="240"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div class="member-avatar-placeholder" aria-hidden="true"></div>
+            )}
+          </div>
+
+          <div class="member-info">
+            <h2 class="member-name">{member.data.name}</h2>
+            <p class="member-role">{member.data.description}</p>
+          </div>
+        </button>
+
+        <dialog class="member-dialog" aria-labelledby={`title-${member.slug}`}>
+          <div class="member-dialog-card">
+            <button
+              class="member-dialog-close"
+              type="button"
+              data-dialog-close
+              aria-label={`Close profile for ${member.data.name}`}
+            >
+              ×
+            </button>
+
+            <div class="member-dialog-layout">
+              <div class="member-dialog-media">
+                {member.data.image ? (
+                  <img
+                    src={`/${member.data.image}`}
+                    alt={member.data.name}
+                    width="320"
+                    height="320"
+                    loading="eager"
+                  />
+                ) : (
+                  <div class="member-avatar-placeholder member-avatar-placeholder--large" aria-hidden="true"></div>
+                )}
+              </div>
+
+              <div class="member-dialog-body">
+                <h2 id={`title-${member.slug}`} class="member-dialog-name">{member.data.name}</h2>
+                <p class="member-dialog-role">{member.data.description}</p>
+
+                {(member.data.links || member.data.cta) && (
+  <div class="member-links">
+    {member.data.links?.email && (
+      <a href={`mailto:${member.data.links.email}`} class="member-link">Email</a>
+    )}
+    {member.data.links?.orcid && (
+      <a
+        href={`https://orcid.org/${member.data.links.orcid}`}
+        class="member-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ORCID
+      </a>
+    )}
+    {member.data.links?.['google-scholar'] && (
+      <a
+        href={`https://scholar.google.com/citations?user=${member.data.links['google-scholar']}`}
+        class="member-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Scholar
+      </a>
+    )}
+    {member.data.links?.github && (
+      <a
+        href={`https://github.com/${member.data.links.github}`}
+        class="member-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+    )}
+
+    {member.data.cta && (
+      <a href={member.data.cta.href} class="member-link member-link--cta">
+        {member.data.cta.text}
+      </a>
+    )}
+  </div>
+)}
+
+                <div class="member-bio prose">
+                  <Content />
+                </div>
+              </div>
+            </div>
+          </div>
+        </dialog>
+      </li>
+    );
+  })}
+</ul>
     </section>
 
     {alumni.length > 0 && (
       <section class="section section--sm">
         <h2 class="alumni-heading">Alumni</h2>
         <ul role="list" class="alumni-list">
-          {alumni.map(member => (
+          {alumni.map((member) => (
             <li class="alumni-item">
-              <a href={`/team/${member.slug}`}>{member.data.name}</a>
+              <span>{member.data.name}</span>
               <span class="alumni-role">{member.data.description}</span>
             </li>
           ))}
@@ -50,13 +161,206 @@ const alumni = allMembers.filter(m => m.data.group === 'alumni');
       </section>
     )}
   </div>
+
+  <script is:inline>
+    const memberCards = document.querySelectorAll('.member-card');
+    const dialogs = document.querySelectorAll('.member-dialog');
+
+    memberCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const parent = card.closest('li');
+        const dialog = parent?.querySelector('.member-dialog');
+        if (dialog && typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        }
+      });
+    });
+
+    dialogs.forEach((dialog) => {
+      const closeButton = dialog.querySelector('[data-dialog-close]');
+
+      closeButton?.addEventListener('click', () => {
+        dialog.close();
+      });
+
+      dialog.addEventListener('click', (event) => {
+        const card = dialog.querySelector('.member-dialog-card');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const clickedInside =
+          event.clientX >= rect.left &&
+          event.clientX <= rect.right &&
+          event.clientY >= rect.top &&
+          event.clientY <= rect.bottom;
+
+        if (!clickedInside) {
+          dialog.close();
+        }
+      });
+    });
+  </script>
 </BaseLayout>
 
 <style>
   .member-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
     gap: var(--space-10);
+  }
+
+  .member-card {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    cursor: pointer;
+  }
+
+  .member-avatar {
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface-2);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .member-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--color-surface-2);
+  }
+
+  .member-avatar-placeholder--large {
+    min-height: 320px;
+    border-radius: var(--radius-lg);
+  }
+
+  .member-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .member-name {
+    font-size: var(--text-base);
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+
+  .member-role {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .member-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: min(960px, calc(100vw - 2rem));
+    width: 100%;
+    max-height: calc(100vh - 2rem);
+    overflow: visible;
+  }
+
+  .member-dialog::backdrop {
+    background: rgba(15, 18, 28, 0.55);
+    backdrop-filter: blur(6px);
+  }
+
+  .member-dialog-card {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-8);
+    border: 1px solid var(--color-border);
+  }
+
+  .member-dialog-close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--color-text-muted);
+  }
+
+  .member-dialog-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .member-dialog-media img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .member-dialog-name {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .member-dialog-role {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-base);
+  }
+
+  .member-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .member-link {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--radius-full);
+  }
+
+  .member-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  
+  .member-link--cta {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    border-color: var(--color-primary);
+  }
+
+  .member-link--cta:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-text-inverse);
+  }
+
+  .member-bio.prose p {
+    margin-bottom: var(--space-4);
+    color: var(--color-text);
   }
 
   .alumni-heading {
@@ -69,16 +373,32 @@ const alumni = allMembers.filter(m => m.data.group === 'alumni');
     flex-direction: column;
     gap: var(--space-2);
   }
+
   .alumni-item {
     display: flex;
     gap: var(--space-3);
     align-items: baseline;
-    font-size: var(--text-sm);
     padding-block: var(--space-2);
     border-bottom: 1px solid var(--color-divider);
+    font-size: var(--text-sm);
   }
+
   .alumni-role {
     color: var(--color-text-muted);
     font-size: var(--text-xs);
+  }
+
+  @media (max-width: 800px) {
+    .member-dialog-card {
+      padding: var(--space-6);
+    }
+
+    .member-dialog-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .member-dialog-media {
+      max-width: 260px;
+    }
   }
 </style>

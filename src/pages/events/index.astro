@@ -1,15 +1,495 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import events from '@/data/events.yaml';
+
+const sortedEvents = [...events].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+const featuredEvent = sortedEvents[0];
+const remainingEvents = sortedEvents.slice(1);
+
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 ---
 
-<BaseLayout title="Events" description="Upcoming events from the Laboratory of Oral Mucosal Immunity.">
+<BaseLayout title="Events" description="Snapshots from conferences, retreats, and lab gatherings.">
   <div class="container">
-    <div class="page-header">
+    <div class="page-header page-header--narrow">
       <h1>Events</h1>
+      <p>Snapshots from conferences, retreats, celebrations, and everyday lab life.</p>
     </div>
-    <section class="section section--sm">
-      {/* Event list from _data/events.yaml will go here */}
-      <p style="color: var(--color-text-muted);">No upcoming events.</p>
-    </section>
+
+    {featuredEvent && (
+      <section class="events-feature">
+        <button type="button" class="featured-event-card" aria-haspopup="dialog">
+          <div class="featured-event-media">
+            <img
+              src={featuredEvent.cover}
+              alt={featuredEvent.title}
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+
+          <div class="featured-event-body">
+            <p class="featured-event-kicker">Latest event</p>
+            <h2 class="featured-event-title">{featuredEvent.title}</h2>
+            <p class="featured-event-meta">
+              {formatDate(featuredEvent.date)}{featuredEvent.location ? ` · ${featuredEvent.location}` : ''}
+            </p>
+            {featuredEvent.caption && (
+              <p class="featured-event-caption">{featuredEvent.caption}</p>
+            )}
+          </div>
+        </button>
+
+        <dialog class="event-dialog" aria-labelledby={`title-${featuredEvent.slug}`}>
+          <div class="event-dialog-card">
+            <button
+              class="event-dialog-close"
+              type="button"
+              data-dialog-close
+              aria-label={`Close gallery for ${featuredEvent.title}`}
+            >
+              ×
+            </button>
+
+            <div class="event-dialog-header">
+              <h2 id={`title-${featuredEvent.slug}`} class="event-dialog-title">{featuredEvent.title}</h2>
+              <p class="event-dialog-submeta">
+                {formatDate(featuredEvent.date)}{featuredEvent.location ? ` · ${featuredEvent.location}` : ''}
+              </p>
+              {featuredEvent.caption && <p class="event-dialog-caption">{featuredEvent.caption}</p>}
+            </div>
+
+            <div class="event-gallery event-gallery--single">
+              {(featuredEvent.photos ?? [featuredEvent.cover]).map((photo, index) => (
+                <figure class="event-gallery-item">
+                  <img
+                    src={photo}
+                    alt={`${featuredEvent.title} photo ${index + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              ))}
+            </div>
+          </div>
+        </dialog>
+      </section>
+    )}
+
+    {remainingEvents.length > 0 && (
+      <section class="events-archive section section--sm">
+        <div class="archive-header">
+          <h2>Archive</h2>
+          <p>Past and future moments from the lab.</p>
+        </div>
+
+        <ul role="list" class="archive-list">
+          {remainingEvents.map((event) => (
+            <li class="archive-item">
+              <button type="button" class="archive-button" aria-haspopup="dialog">
+                <div>
+                  <h3 class="archive-title">{event.title}</h3>
+                  <p class="archive-meta">
+                    {formatDate(event.date)}{event.location ? ` · ${event.location}` : ''}
+                  </p>
+                </div>
+                <span class="archive-view">View</span>
+              </button>
+
+              <dialog class="event-dialog" aria-labelledby={`title-${event.slug}`}>
+                <div class="event-dialog-card">
+                  <button
+                    class="event-dialog-close"
+                    type="button"
+                    data-dialog-close
+                    aria-label={`Close gallery for ${event.title}`}
+                  >
+                    ×
+                  </button>
+
+                  <div class="event-dialog-header">
+                    <h2 id={`title-${event.slug}`} class="event-dialog-title">{event.title}</h2>
+                    <p class="event-dialog-submeta">
+                      {formatDate(event.date)}{event.location ? ` · ${event.location}` : ''}
+                    </p>
+                    {event.caption && <p class="event-dialog-caption">{event.caption}</p>}
+                  </div>
+
+                  <div class="event-gallery">
+                    {(event.photos ?? [event.cover]).map((photo, index) => (
+                      <figure class="event-gallery-item">
+                        <img
+                          src={photo}
+                          alt={`${event.title} photo ${index + 1}`}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </figure>
+                    ))}
+                  </div>
+                </div>
+              </dialog>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
   </div>
+
+  <script is:inline>
+    const openButtons = document.querySelectorAll('.featured-event-card, .archive-button');
+    const dialogs = document.querySelectorAll('.event-dialog');
+
+    openButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const parent = button.parentElement;
+        const dialog = parent ? parent.querySelector('.event-dialog') : null;
+        if (dialog && typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        }
+      });
+    });
+
+    dialogs.forEach((dialog) => {
+      const closeButton = dialog.querySelector('[data-dialog-close]');
+
+      if (closeButton) {
+        closeButton.addEventListener('click', () => {
+          dialog.close();
+        });
+      }
+
+      dialog.addEventListener('click', (event) => {
+        const card = dialog.querySelector('.event-dialog-card');
+        if (!card) return;
+
+        const rect = card.getBoundingClientRect();
+        const clickedInside =
+          event.clientX >= rect.left &&
+          event.clientX <= rect.right &&
+          event.clientY >= rect.top &&
+          event.clientY <= rect.bottom;
+
+        if (!clickedInside) {
+          dialog.close();
+        }
+      });
+    });
+  </script>
 </BaseLayout>
+
+<style>
+  .page-header--narrow {
+    max-width: 42rem;
+  }
+
+  .events-feature {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-20);
+    position: relative;
+  }
+
+  .featured-event-card {
+    width: 100%;
+    text-align: left;
+    display: block;
+    position: relative;
+  }
+
+  .featured-event-media {
+    width: min(82%, 980px);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--color-surface-2);
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 16 / 10;
+  }
+
+  .featured-event-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .featured-event-body {
+    position: relative;
+    margin-top: calc(var(--space-12) * -1);
+    margin-left: auto;
+    width: min(420px, calc(100% - 2rem));
+    background: color-mix(in oklab, var(--color-surface) 92%, white 8%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    z-index: 2;
+  }
+
+  .featured-event-kicker {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .featured-event-title {
+    font-size: var(--text-2xl);
+    line-height: 1.02;
+    margin: 0;
+    max-width: 10ch;
+  }
+
+  .featured-event-meta {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .featured-event-caption {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin: var(--space-2) 0 0 0;
+    max-width: 34ch;
+    color: var(--color-text);
+  }
+
+  .archive-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-4);
+    align-items: end;
+    margin-bottom: var(--space-8);
+  }
+
+  .archive-header h2 {
+    font-size: var(--text-xl);
+    margin: 0;
+  }
+
+  .archive-header p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 28ch;
+    text-align: right;
+  }
+
+  .archive-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .archive-item {
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .archive-button {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-4);
+    align-items: center;
+    text-align: left;
+    padding: var(--space-6) 0;
+    transition:
+      transform var(--transition-interactive),
+      color var(--transition-interactive);
+  }
+
+  .archive-button:hover {
+    transform: translateX(4px);
+  }
+
+  .archive-button:hover .archive-title {
+    color: var(--color-primary);
+  }
+
+  .archive-button:hover .archive-view {
+    transform: translateX(4px);
+    color: var(--color-primary);
+  }
+
+  .archive-title {
+    font-size: clamp(1.1rem, 1rem + 0.6vw, 1.5rem);
+    line-height: 1.15;
+    margin: 0 0 var(--space-1) 0;
+    transition: color var(--transition-interactive);
+  }
+
+  .archive-meta {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .archive-view {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    transition:
+      transform var(--transition-interactive),
+      color var(--transition-interactive);
+  }
+
+  .archive-view::after {
+    content: " ↗";
+  }
+
+  /* — Cinematic full-screen dialog — */
+
+  .event-dialog {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    border: none;
+    padding: 0;
+    background: transparent;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .event-dialog::backdrop {
+    background: rgba(10, 10, 12, 0.92);
+    backdrop-filter: blur(12px);
+  }
+
+  .event-dialog-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 100dvh;
+    background: transparent;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding: var(--space-8) var(--space-12);
+    overflow-y: auto;
+  }
+
+  .event-dialog-close {
+    position: fixed;
+    top: var(--space-6);
+    right: var(--space-6);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    font-size: 1.75rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 10;
+    transition: background var(--transition-interactive), color var(--transition-interactive);
+  }
+
+  .event-dialog-close:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+  }
+
+  .event-dialog-header {
+    padding-right: var(--space-16);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: var(--space-6);
+  }
+
+  .event-dialog-title {
+    font-size: var(--text-2xl);
+    color: white;
+    margin-bottom: var(--space-2);
+  }
+
+  .event-dialog-submeta {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: var(--space-2);
+  }
+
+  .event-dialog-caption {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 60ch;
+    line-height: 1.6;
+  }
+
+  .event-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+    align-content: start;
+  }
+
+  .event-gallery--single {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+  }
+
+  .event-gallery-item {
+    margin: 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .event-gallery-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  @media (max-width: 900px) {
+    .featured-event-media {
+      width: 100%;
+    }
+
+    .featured-event-body {
+      margin-top: var(--space-4);
+      width: 100%;
+      margin-left: 0;
+      padding: var(--space-5);
+    }
+
+    .featured-event-title {
+      font-size: var(--text-xl);
+      max-width: none;
+    }
+
+    .archive-header {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .archive-header p {
+      text-align: left;
+    }
+
+    .event-dialog-card {
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .event-dialog-close {
+      top: var(--space-4);
+      right: var(--space-4);
+    }
+
+    .event-gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
