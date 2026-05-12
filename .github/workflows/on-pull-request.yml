@@ -19,4 +19,4 @@ jobs:
 
   build-preview:
     needs: update-citations
-    uses: ./.github/workflows/build-preview.yaml
+    uses: ./.github/workflows/astro-build-preview.yaml
