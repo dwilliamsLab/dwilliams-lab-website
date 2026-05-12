@@ -1,0 +1,117 @@
+---
+/**
+ * MemberCard.astro
+ * Renders a single team member card.
+ */
+interface Props {
+  name: string;
+  image?: string;
+  description: string; // role title
+  role: string;
+  links?: {
+    email?: string;
+    orcid?: string;
+    'google-scholar'?: string;
+    github?: string;
+  };
+  slug: string;
+}
+
+const { name, image, description, links, slug } = Astro.props;
+---
+
+<article class="member-card">
+  <a href={`/team/${slug}`} class="member-card-link" tabindex="-1" aria-hidden="true">
+    <div class="member-avatar">
+      {image
+        ? <img src={`/${image}`} alt={name} width="200" height="200" loading="lazy" decoding="async" />
+        : <div class="member-avatar-placeholder" aria-hidden="true"></div>
+      }
+    </div>
+  </a>
+  <div class="member-info">
+    <h3 class="member-name">
+      <a href={`/team/${slug}`}>{name}</a>
+    </h3>
+    <p class="member-role">{description}</p>
+    {links && (
+      <div class="member-links">
+        {links.email && (
+          <a href={`mailto:${links.email}`} aria-label={`Email ${name}`} class="member-link">Email</a>
+        )}
+        {links.orcid && (
+          <a href={`https://orcid.org/${links.orcid}`} aria-label={`ORCID for ${name}`} class="member-link" target="_blank" rel="noopener noreferrer">ORCID</a>
+        )}
+        {links['google-scholar'] && (
+          <a href={`https://scholar.google.com/citations?user=${links['google-scholar']}`} aria-label={`Google Scholar for ${name}`} class="member-link" target="_blank" rel="noopener noreferrer">Scholar</a>
+        )}
+        {links.github && (
+          <a href={`https://github.com/${links.github}`} aria-label={`GitHub for ${name}`} class="member-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        )}
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  .member-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .member-card-link { display: block; }
+
+  .member-avatar {
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-surface-2);
+  }
+  .member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .member-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--color-surface-2);
+  }
+
+  .member-name {
+    font-size: var(--text-base);
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+  .member-name a {
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  .member-name a:hover { color: var(--color-primary); }
+
+  .member-role {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .member-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-1);
+  }
+  .member-link {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    padding: 2px var(--space-2);
+    border-radius: var(--radius-full);
+    transition: color var(--transition), border-color var(--transition);
+  }
+  .member-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+</style>

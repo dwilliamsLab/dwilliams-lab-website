@@ -1,0 +1,195 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import '@/styles/pages/team.css';
+import { getCollection, render } from 'astro:content';
+
+const allMembers = await getCollection('members');
+
+const roleOrder = ['pi', 'lab-manager', 'manager', 'postdoc', 'phd', 'ms', 'undergrad', 'staff'];
+
+const currentMembers = allMembers
+  .filter((m) => (m.data.group ?? 'current') !== 'alumni')
+  .filter((m) => m.data.hidden !== true)
+  .sort((a, b) => {
+    const aIndex = roleOrder.indexOf(a.data.role);
+    const bIndex = roleOrder.indexOf(b.data.role);
+    return (aIndex === -1 ? 999 : aIndex) - (bIndex === -1 ? 999 : bIndex);
+  });
+
+const alumni = allMembers
+  .filter((m) => (m.data.group ?? 'current') === 'alumni')
+  .filter((m) => m.data.hidden !== true);
+---
+
+<BaseLayout title="Team" description="Meet the members of the Laboratory of Oral Mucosal Immunity.">
+  <div class="container">
+    <div class="page-header">
+      <h1>Team</h1>
+      <p>Click a member to view their bio, links, and profile details.</p>
+    </div>
+
+    <section class="section section--sm">
+      <ul role="list" class="member-grid">
+        {currentMembers.map(async (member) => {
+          const { Content } = await render(member);
+
+          return (
+            <li>
+              <button
+                class="member-card"
+                type="button"
+                aria-haspopup="dialog"
+              >
+                <div class="member-avatar">
+                  {member.data.image ? (
+                    <img
+                      src={'/' + member.data.image}
+                      alt={member.data.name}
+                      width="240"
+                      height="240"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div class="member-avatar-placeholder" aria-hidden="true"></div>
+                  )}
+                </div>
+
+                <div class="member-info">
+                  <h2 class="member-name">{member.data.name}</h2>
+                  <p class="member-role">{member.data.description}</p>
+                </div>
+              </button>
+
+              <dialog class="member-dialog" aria-labelledby={'title-' + member.slug}>
+                <div class="member-dialog-card">
+                  <button
+                    class="member-dialog-close"
+                    type="button"
+                    data-dialog-close
+                    aria-label={'Close profile for ' + member.data.name}
+                  >
+                    ×
+                  </button>
+
+                  <div class="member-dialog-layout">
+                    <div class="member-dialog-media">
+                      {member.data.image ? (
+                        <img
+                          src={'/' + member.data.image}
+                          alt={member.data.name}
+                          width="320"
+                          height="320"
+                          loading="eager"
+                        />
+                      ) : (
+                        <div class="member-avatar-placeholder member-avatar-placeholder--large" aria-hidden="true"></div>
+                      )}
+                    </div>
+
+                    <div class="member-dialog-body">
+                      <h2 id={'title-' + member.slug} class="member-dialog-name">{member.data.name}</h2>
+                      <p class="member-dialog-role">{member.data.description}</p>
+
+                      {(member.data.links || member.data.cta) && (
+                        <div class="member-links">
+                          {member.data.links?.email && (
+                            <a href={'mailto:' + member.data.links.email} class="member-link">Email</a>
+                          )}
+                          {member.data.links?.orcid && (
+                            <a
+                              href={'https://orcid.org/' + member.data.links.orcid}
+                              class="member-link"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              ORCID
+                            </a>
+                          )}
+                          {member.data.links?.['google-scholar'] && (
+                            <a
+                              href={'https://scholar.google.com/citations?user=' + member.data.links['google-scholar']}
+                              class="member-link"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              Scholar
+                            </a>
+                          )}
+                          {member.data.links?.github && (
+                            <a
+                              href={'https://github.com/' + member.data.links.github}
+                              class="member-link"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              GitHub
+                            </a>
+                          )}
+                          {member.data.cta && (
+                            <a href={member.data.cta.href} class="member-link member-link--cta">
+                              {member.data.cta.text}
+                            </a>
+                          )}
+                        </div>
+                      )}
+
+                      <div class="member-bio prose">
+                        <Content />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </dialog>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+
+    {alumni.length > 0 && (
+      <section class="section section--sm">
+        <h2 class="alumni-heading">Alumni</h2>
+        <ul role="list" class="alumni-list">
+          {alumni.map((member) => (
+            <li class="alumni-item">
+              <span>{member.data.name}</span>
+              <span class="alumni-role">{member.data.description}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+
+  <script is:inline>
+    const memberCards = document.querySelectorAll('.member-card');
+    const dialogs = document.querySelectorAll('.member-dialog');
+
+    memberCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const parent = card.closest('li');
+        const dialog = parent?.querySelector('.member-dialog');
+        if (dialog && typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        }
+      });
+    });
+
+    dialogs.forEach((dialog) => {
+      const closeButton = dialog.querySelector('[data-dialog-close]');
+      closeButton?.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (event) => {
+        const card = dialog.querySelector('.member-dialog-card');
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const clickedInside =
+          event.clientX >= rect.left &&
+          event.clientX <= rect.right &&
+          event.clientY >= rect.top &&
+          event.clientY <= rect.bottom;
+        if (!clickedInside) dialog.close();
+      });
+    });
+  </script>
+</BaseLayout>

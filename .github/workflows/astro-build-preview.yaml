@@ -1,0 +1,56 @@
+name: astro-build-preview
+run-name: build Astro preview
+
+on:
+  push:
+    branches:
+      - astro-rewrite
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Build preview
+        run: npm run build
+        env:
+          # Build into a preview subfolder so it doesn't overwrite live site
+          ASTRO_BASE: /preview/astro
+
+      - name: Deploy preview
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          target-folder: preview/astro
+          force: false
+
+      - name: Comment preview URL on PR
+        if: github.event_name == 'pull_request'
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+             **Astro preview deployed:** https://williams.science/preview/astro/
+          comment_tag: astro-preview
