@@ -9,7 +9,7 @@ on:
         type: boolean
     outputs:
       changed:
-        value: ${{ jobs.update-cations.outputs.changed }}
+        value: ${{ jobs.update-citations.outputs.changed }}
 
   # run if user manually requests it
   workflow_dispatch:
