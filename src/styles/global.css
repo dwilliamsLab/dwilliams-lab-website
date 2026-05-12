@@ -417,3 +417,10 @@ button { cursor: pointer; background: none; border: none; }
   color: var(--color-text);
 }
 .prose p:last-child { margin-bottom: 0; }
+
+/* ============================================================
+   AI note banner
+   ============================================================ */
+.ai-note {
+  text-align: center;
+}
