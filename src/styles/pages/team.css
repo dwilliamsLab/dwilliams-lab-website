@@ -1,0 +1,177 @@
+/* ── Team page ─────────────────────────────────────────────── */
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+  gap: var(--space-10);
+}
+
+.member-card {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+
+.member-avatar {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface-2);
+  box-shadow: var(--shadow-sm);
+}
+.member-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-surface-2);
+}
+.member-avatar-placeholder--large {
+  min-height: 320px;
+  border-radius: var(--radius-lg);
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.member-name {
+  font-size: var(--text-base);
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+.member-role {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Dialog */
+.member-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: min(960px, calc(100vw - 2rem));
+  width: 100%;
+  max-height: calc(100vh - 2rem);
+  overflow: visible;
+}
+.member-dialog::backdrop {
+  background: rgba(15, 18, 28, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.member-dialog-card {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-8);
+  border: 1px solid var(--color-border);
+}
+
+.member-dialog-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--color-text-muted);
+}
+
+.member-dialog-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+.member-dialog-media img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+.member-dialog-name {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
+}
+.member-dialog-role {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+  font-size: var(--text-base);
+}
+
+/* Member links — use shared .btn-outline pill style */
+.member-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+.member-link {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-full);
+  transition: color var(--transition), border-color var(--transition);
+}
+.member-link:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.member-link--cta {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary);
+}
+.member-link--cta:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-text-inverse);
+}
+
+/* Alumni */
+.alumni-heading {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-6);
+}
+.alumni-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.alumni-item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+  font-size: var(--text-sm);
+}
+.alumni-role {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 800px) {
+  .member-dialog-card { padding: var(--space-6); }
+  .member-dialog-layout { grid-template-columns: 1fr; }
+  .member-dialog-media { max-width: 260px; }
+}

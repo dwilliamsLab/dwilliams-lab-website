@@ -1,0 +1,153 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import '@/styles/pages/publications.css';
+import citations from '@/data/citations.yaml';
+
+const highlighted = citations
+  .filter((item) => item.highlight === 'y')
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const formatDate = (dateString) => {
+  if (!dateString) return null;
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
+};
+
+const extractDoiFromId = (id) => {
+  if (!id) return null;
+  return id.startsWith('doi:') ? id.replace('doi:', '') : id;
+};
+
+const formatAuthorsWithHighlight = (authors) => {
+  if (!authors || authors.length === 0) return '';
+  const focusNames = [
+    'Drake Williams',
+    'Drake W. Williams',
+    'Drake Winslow Williams',
+    'D.W. Williams',
+  ];
+  return authors
+    .map((name) => {
+      const isFocus = focusNames.some((focus) => name.includes(focus));
+      return isFocus ? '<strong>' + name + '</strong>' : name;
+    })
+    .join(', ');
+};
+---
+
+<BaseLayout
+  title="Publications"
+  description="Selected publications that inform the lab's research direction."
+>
+  <div class="container">
+    <div class="page-header page-header--narrow">
+      <h1>Publications</h1>
+      <p>
+        Selected publications from work leading up to and informing our lab's research
+        program. This list highlights papers that shaped our focus on barrier immunity,
+        host–microbiome interactions, and systems approaches.
+      </p>
+    </div>
+
+    <section class="section section--sm">
+      {highlighted.length === 0 ? (
+        <p class="pub-empty">
+          Selected publications will appear here. In the meantime, see Google Scholar
+          for a complete list.
+        </p>
+      ) : (
+        <ul role="list" class="pub-list">
+          {highlighted.map((pub) => {
+            const prettyDate = formatDate(pub.date);
+            const doiText = extractDoiFromId(pub.id);
+
+            return (
+              <li class="pub-item">
+                <article class="pub-row">
+                  <div class="pub-main">
+                    <div class="pub-header">
+                      {pub.image && (
+                        <div class="pub-icon">
+                          <img
+                            src={'/' + pub.image}
+                            alt={pub.publisher ? pub.publisher + ' logo' : 'Journal logo'}
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
+
+                      <div class="pub-content">
+                        <a
+                          class="pub-title-link"
+                          href={pub.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {pub.title}
+                        </a>
+
+                        <div class="pub-authors" set:html={formatAuthorsWithHighlight(pub.authors)}></div>
+
+                        <p class="pub-meta">
+                          {pub.publisher}
+                          {prettyDate && ' · ' + prettyDate}
+                          {doiText && ' · doi:' + doiText}
+                        </p>
+
+                        <div class="pub-metrics" aria-label="Article metrics">
+                          <div class="pub-metric">
+                            <span class="pub-metric-label">Attention</span>
+                            <span
+                              class="altmetric-embed"
+                              data-badge-type="donut"
+                              data-badge-popover="right"
+                              data-doi={doiText}
+                            ></span>
+                          </div>
+                          <div class="pub-metric">
+                            <span class="pub-metric-label">Citations</span>
+                            <span
+                              class="dimensions-badge __dimensions_badge_embed__"
+                              data-doi={doiText}
+                              data-style="small_circle"
+                            ></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pub-actions">
+                    {pub.buttons && pub.buttons.map((button) => (
+                      <a
+                        href={button.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="pub-button"
+                      >
+                        {button.text}
+                      </a>
+                    ))}
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
+
+    <section class="section section--sm">
+      <p>
+        For a complete publication record, see{' '}
+        <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        {' '}or{' '}
+        <a href="https://orcid.org/" target="_blank" rel="noopener noreferrer">ORCID</a>.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

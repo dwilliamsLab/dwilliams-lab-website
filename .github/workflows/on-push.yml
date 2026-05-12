@@ -21,4 +21,4 @@ jobs:
 
   build-site:
     needs: update-citations
-    uses: ./.github/workflows/build-site.yaml
+    uses: ./.github/workflows/astro-build-site.yaml
