@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;">
+  <g transform="matrix(1,0,0,1,150,0)">
+    <!-- Arc 1 -->
+    <g transform="matrix(1.71104,1.03826,-0.777585,1.28144,-2.337378,3.09829)">
+      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#9CA3AF;stroke-width:3px;"/>
+      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#0F766E;stroke-width:3px;"/>
+    </g>
+
+    <!-- Arc 2 -->
+    <g transform="matrix(-0.032809,-2.00114,1.49871,-0.024571,24.905522,207.66547)">
+      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#9CA3AF;stroke-width:3px;"/>
+      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#0F766E;stroke-width:3px;"/>
+    </g>
+
+    <!-- Arc 3 -->
+    <g transform="matrix(-1.77502,0.924632,-0.692483,-1.32936,178.834322,86.08597)">
+      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#9CA3AF;stroke-width:3px;"/>
+      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#0F766E;stroke-width:3px;"/>
+    </g>
+
+    <!-- Center cell ring and nucleus -->
+    <g transform="matrix(1.68102,1.0836,-1.0836,1.68102,37.062222,-41.69653)">
+      <circle cx="50" cy="50" r="20" style="fill:none;stroke:#0F766E;stroke-width:3px;stroke-linecap:butt;"/>
+    </g>
+    <g transform="matrix(1.35217,0.871619,-0.871619,1.35217,49.556122,-3.189419)">
+      <circle cx="50" cy="50" r="10" style="fill:#0F766E;"/>
+    </g>
+
+    <!-- n1 -->
+    <g transform="matrix(1.68102,1.0836,-1.0836,1.68102,16.339322,-83.37683)">
+      <circle cx="70" cy="28" r="7" style="fill:none;stroke:#0F766E;stroke-width:8px;stroke-linecap:butt;" vector-effect="non-scaling-stroke"/>
+      <circle cx="70" cy="28" r="3" style="fill:#0F766E;"/>
+    </g>
+
+    <!-- n2 -->
+    <g transform="matrix(0.840509,0.541798,-0.541798,0.840509,52.916922,-40.27693)">
+      <g transform="matrix(2,0,0,2,0,10)">
+        <circle cx="72" cy="68" r="7" style="fill:none;stroke:#0F766E;stroke-width:8px;stroke-linecap:butt;" vector-effect="non-scaling-stroke"/>
+        <circle cx="72" cy="68" r="3" style="fill:#0F766E;"/>
+      </g>
+    </g>
+
+    <!-- n3 -->
+    <g transform="matrix(1.68102,1.0836,-1.0836,1.68102,2.318922,-26.96443)">
+      <circle cx="30" cy="52" r="7" style="fill:none;stroke:#0F766E;stroke-width:8px;stroke-linecap:butt;" vector-effect="non-scaling-stroke"/>
+      <circle cx="30" cy="52" r="3" style="fill:#0F766E;"/>
+    </g>
+  </g>
+</svg>
