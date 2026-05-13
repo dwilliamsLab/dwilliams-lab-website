@@ -1,7 +1,8 @@
 
 # LOMI Website
 
-Visit **[williams.science](https://williams.science)** 🚀
+Visit **[williams.science](https://williams.science)** 
 
-_Built with [Lab Website Template](https://greene-lab.gitbook.io/lab-website-template-docs)_
+_Inspired by [Lab Website Template](https://greene-lab.gitbook.io/lab-website-template-docs)_
 
+Built with Astro 🚀🚀
