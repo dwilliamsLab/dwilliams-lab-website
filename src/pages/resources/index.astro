@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import '@/styles/pages/resources.css';
+import githubColors from '@/data/github-colors.json';
 
 // ── GitHub repos: fetched at build time ─────────────────────────────
 interface GhRepo {
@@ -65,6 +66,12 @@ function formatDate(iso: string) {
 
 function formatNum(n: number) {
   return n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(n);
+}
+
+function languageColor(lang: string | null | undefined): string | null {
+  if (!lang) return null;
+  const entry = (githubColors as Record<string, { color: string | null }>)[lang];
+  return entry?.color ?? null;
 }
 
 // ── Static resources ─────────────────────────────────────────────────
@@ -191,7 +198,15 @@ const tabs = [
                   <div class="repo-card-footer">
                     {item.stats.language && (
                       <span class="repo-stat">
-                        <span class="repo-lang-dot" aria-hidden="true"></span>
+                        <span
+                          class="repo-lang-dot"
+                          aria-hidden="true"
+                          style={
+                            languageColor(item.stats.language)
+                              ? { backgroundColor: languageColor(item.stats.language)! }
+                              : undefined
+                          }
+                        ></span>
                         {item.stats.language}
                       </span>
                     )}
