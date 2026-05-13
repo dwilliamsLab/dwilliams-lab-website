@@ -1,50 +1,142 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="64" height="64" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;">
-  <g transform="matrix(1,0,0,1,150,0)">
-    <!-- Arc 1 -->
-    <g transform="matrix(1.71104,1.03826,-0.777585,1.28144,-2.337378,3.09829)">
-      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#9CA3AF;stroke-width:3px;"/>
-      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#0F766E;stroke-width:3px;"/>
-    </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 200 200" version="1.1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xml:space="preserve" xmlns:serif="http://www.serif.com/"
+     style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;">
+  <defs>
+    <style type="text/css"><![CDATA[
+      /* Total cycle: 5s; sequence: n1 (static teal), arc2, n2, arc1, n3, arc3, center */
 
-    <!-- Arc 2 -->
-    <g transform="matrix(-0.032809,-2.00114,1.49871,-0.024571,24.905522,207.66547)">
-      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#9CA3AF;stroke-width:3px;"/>
-      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#0F766E;stroke-width:3px;"/>
-    </g>
+      /* n2 ring + fill: fade right after arc2 (0–18%) */
+      #n2-ring circle { animation: n2Stroke 5s ease-in-out infinite; }
+      #n2-fill circle { animation: n2Fill   5s ease-in-out infinite; }
+      @keyframes n2Stroke {
+        0%      { stroke: rgb(156,163,175); }
+        18%     { stroke: rgb(156,163,175); }
+        28%     { stroke: rgb(15,118,110); }
+        100%    { stroke: rgb(15,118,110); }
+      }
+      @keyframes n2Fill {
+        0%      { fill: rgb(156,163,175); }
+        18%     { fill: rgb(156,163,175); }
+        28%     { fill: rgb(15,118,110); }
+        100%    { fill: rgb(15,118,110); }
+      }
 
-    <!-- Arc 3 -->
-    <g transform="matrix(-1.77502,0.924632,-0.692483,-1.32936,178.834322,86.08597)">
-      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#9CA3AF;stroke-width:3px;"/>
-      <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64" style="fill:none;stroke:#0F766E;stroke-width:3px;"/>
-    </g>
+      /* n3 ring + fill: fade after arc1 (26–44%) */
+      #n3-ring circle { animation: n3Stroke 5s ease-in-out infinite; }
+      #n3-fill circle { animation: n3Fill   5s ease-in-out infinite; }
+      @keyframes n3Stroke {
+        0%      { stroke: rgb(156,163,175); }
+        44%     { stroke: rgb(156,163,175); }
+        52%     { stroke: rgb(15,118,110); }
+        100%    { stroke: rgb(15,118,110); }
+      }
+      @keyframes n3Fill {
+        0%      { fill: rgb(156,163,175); }
+        44%     { fill: rgb(156,163,175); }
+        52%     { fill: rgb(15,118,110); }
+        100%    { fill: rgb(15,118,110); }
+      }
 
-    <!-- Center cell ring and nucleus -->
-    <g transform="matrix(1.68102,1.0836,-1.0836,1.68102,37.062222,-41.69653)">
-      <circle cx="50" cy="50" r="20" style="fill:none;stroke:#0F766E;stroke-width:3px;stroke-linecap:butt;"/>
-    </g>
-    <g transform="matrix(1.35217,0.871619,-0.871619,1.35217,49.556122,-3.189419)">
-      <circle cx="50" cy="50" r="10" style="fill:#0F766E;"/>
-    </g>
+      /* center ring + fill: fade after arc3 (52–70%) */
+      #center-ring circle { animation: centerStroke 5s ease-in-out infinite; }
+      #center-fill circle { animation: centerFill   5s ease-in-out infinite; }
+      @keyframes centerStroke {
+        0%      { stroke: rgb(156,163,175); }
+        70%     { stroke: rgb(156,163,175); }
+        90%     { stroke: rgb(15,118,110); }
+        100%    { stroke: rgb(15,118,110); }
+      }
+      @keyframes centerFill {
+        0%      { fill: rgb(156,163,175); }
+        70%     { fill: rgb(156,163,175); }
+        90%     { fill: rgb(15,118,110); }
+        100%    { fill: rgb(15,118,110); }
+      }
+    ]]></style>
+  </defs>
 
-    <!-- n1 -->
-    <g transform="matrix(1.68102,1.0836,-1.0836,1.68102,16.339322,-83.37683)">
-      <circle cx="70" cy="28" r="7" style="fill:none;stroke:#0F766E;stroke-width:8px;stroke-linecap:butt;" vector-effect="non-scaling-stroke"/>
-      <circle cx="70" cy="28" r="3" style="fill:#0F766E;"/>
-    </g>
+  <!-- Arc 1 grey base (top-right segment) -->
+  <g id="arc2-base" transform="matrix(1.71104,1.03826,-0.777585,1.28144,26.7063,6.29982)">
+    <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64"
+          style="fill:none;fill-rule:nonzero;stroke:rgb(156,163,175);stroke-width:3px;"/>
+  </g>
+  <!-- Arc 1 teal overlay (SECOND line animation: 26–44%) -->
+  <g transform="matrix(1.71104,1.03826,-0.777585,1.28144,26.7063,6.29982)">
+    <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64"
+          style="fill:none;fill-rule:nonzero;stroke:rgb(15,118,110);stroke-width:3px;stroke-dasharray:70,70;stroke-dashoffset:70;">
+      <animate attributeName="stroke-dashoffset"
+               values="70;70;0;0;0"
+               keyTimes="0;0.26;0.44;0.44;1"
+               dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
 
-    <!-- n2 -->
-    <g transform="matrix(0.840509,0.541798,-0.541798,0.840509,52.916922,-40.27693)">
-      <g transform="matrix(2,0,0,2,0,10)">
-        <circle cx="72" cy="68" r="7" style="fill:none;stroke:#0F766E;stroke-width:8px;stroke-linecap:butt;" vector-effect="non-scaling-stroke"/>
-        <circle cx="72" cy="68" r="3" style="fill:#0F766E;"/>
-      </g>
-    </g>
+  <!-- Arc 2 grey base (bottom segment) -->
+  <g id="arc2-base1" serif:id="arc2-base" transform="matrix(-0.0328087,-2.00114,1.49871,-0.0245714,53.9492,210.867)">
+    <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64"
+          style="fill:none;fill-rule:nonzero;stroke:rgb(156,163,175);stroke-width:3px;"/>
+  </g>
+  <!-- Arc 2 teal overlay (FIRST line animation: 0–18%) -->
+  <g transform="matrix(-0.0328087,-2.00114,1.49871,-0.0245714,53.9492,210.867)">
+    <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64"
+          style="fill:none;fill-rule:nonzero;stroke:rgb(15,118,110);stroke-width:3px;stroke-dasharray:70,70;stroke-dashoffset:70;">
+      <animate attributeName="stroke-dashoffset"
+               values="70;70;0;0;0"
+               keyTimes="0;0;0.18;0.18;1"
+               dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
 
-    <!-- n3 -->
-    <g transform="matrix(1.68102,1.0836,-1.0836,1.68102,2.318922,-26.96443)">
-      <circle cx="30" cy="52" r="7" style="fill:none;stroke:#0F766E;stroke-width:8px;stroke-linecap:butt;" vector-effect="non-scaling-stroke"/>
-      <circle cx="30" cy="52" r="3" style="fill:#0F766E;"/>
+  <!-- Arc 3 grey base (left-to-center segment) -->
+  <g id="arc2-base2" serif:id="arc2-base" transform="matrix(-1.77502,0.924632,-0.692483,-1.32936,207.878,89.2875)">
+    <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64"
+          style="fill:none;fill-rule:nonzero;stroke:rgb(156,163,175);stroke-width:3px;"/>
+  </g>
+  <!-- Arc 3 teal overlay (THIRD line animation: 52–70%) -->
+  <g transform="matrix(-1.77502,0.924632,-0.692483,-1.32936,207.878,89.2875)">
+    <path d="M72,68C66.949,72.263 60.549,74.603 53.94,74.603C45.397,74.603 37.308,70.694 32,64"
+          style="fill:none;fill-rule:nonzero;stroke:rgb(15,118,110);stroke-width:3px;stroke-dasharray:70,70;stroke-dashoffset:70;">
+      <animate attributeName="stroke-dashoffset"
+               values="70;70;0;0;0"
+               keyTimes="0;0.52;0.70;0.70;1"
+               dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Center cell ring and nucleus -->
+  <g id="center-ring" transform="matrix(1.68102,1.0836,-1.0836,1.68102,66.1059,-38.495)">
+    <circle cx="50" cy="50" r="20" style="fill:none;stroke:rgb(156,163,175);stroke-width:3px;stroke-linecap:butt;"/>
+  </g>
+  <g id="center-fill" transform="matrix(1.35217,0.871619,-0.871619,1.35217,78.5998,0.0121109)">
+    <circle cx="50" cy="50" r="10" style="fill:rgb(156,163,175);"/>
+  </g>
+
+  <!-- n1 (top node) — always teal -->
+  <g id="n1-ring" transform="matrix(1.68102,1.0836,-1.0836,1.68102,45.383,-80.1753)">
+    <circle cx="70" cy="28" r="7" style="fill:none;stroke:rgb(15,118,110);stroke-width:3px;stroke-linecap:butt;"/>
+  </g>
+  <g id="n1-fill" transform="matrix(1.68102,1.0836,-1.0836,1.68102,45.383,-80.1753)">
+    <circle cx="70" cy="28" r="3" style="fill:rgb(15,118,110);"/>
+  </g>
+
+  <!-- n2 (second node) -->
+  <g transform="matrix(0.840509,0.541798,-0.541798,0.840509,81.9606,-37.0754)">
+    <g id="n2-ring" transform="matrix(2,0,0,2,0,10)">
+      <circle cx="72" cy="68" r="7" style="fill:none;stroke:rgb(156,163,175);stroke-width:3px;stroke-linecap:butt;"/>
     </g>
+    <g id="n2-fill" transform="matrix(2,0,0,2,0,10)">
+      <circle cx="72" cy="68" r="3" style="fill:rgb(156,163,175);"/>
+    </g>
+  </g>
+
+  <!-- n3 (third node) -->
+  <g id="n3-ring" transform="matrix(1.68102,1.0836,-1.0836,1.68102,31.3626,-23.7629)">
+    <circle cx="30" cy="52" r="7" style="fill:none;stroke:rgb(156,163,175);stroke-width:3px;stroke-linecap:butt;"/>
+  </g>
+  <g id="n3-fill" transform="matrix(1.68102,1.0836,-1.0836,1.68102,31.3626,-23.7629)">
+    <circle cx="30" cy="52" r="3" style="fill:rgb(156,163,175);"/>
   </g>
 </svg>
