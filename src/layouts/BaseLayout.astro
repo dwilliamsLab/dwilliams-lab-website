@@ -87,16 +87,24 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
         position: fixed;
         inset: 0;
         z-index: 9999;
-        background: #ffffff;
+        background-color: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: opacity 0.6s ease;
+        transition:
+          opacity 1.2s ease,
+          backdrop-filter 1.2s ease,
+          background-color 1.2s ease;
       }
 
       #splash.hidden {
         opacity: 0;
         pointer-events: none;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        background-color: rgba(255, 255, 255, 0);
       }
 
       #splash-logo {
@@ -411,7 +419,7 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
           return;
         }
 
-        const ANIM_DURATION = 6500; // 5s icon + 1s letters + buffer
+        const ANIM_DURATION = 6200; // start fade-out slightly before animation fully completes
 
         setTimeout(() => {
           splash.classList.add('hidden');
