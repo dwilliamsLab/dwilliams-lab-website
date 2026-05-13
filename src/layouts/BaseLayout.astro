@@ -4,15 +4,19 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
   title = 'Laboratory of Oral Mucosal Immunity',
   description = 'Website for the Laboratory of Oral Mucosal Immunity at the University of Minnesota',
+  ogImage = '/images/share.png',
 } = Astro.props;
 
 const siteName = 'Laboratory of Oral Mucosal Immunity';
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const canonicalURL = new URL(Astro.url.pathname, 'https://williams.science').toString();
+const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
 ---
 
 <!doctype html>
@@ -23,6 +27,26 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{fullTitle}</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+
+    <!-- Twitter/X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Fonts: Instrument Serif (display) + Work Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
