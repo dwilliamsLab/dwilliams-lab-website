@@ -10,7 +10,7 @@
   font-family: var(--font-display);
   font-weight: 400;
   font-style: italic;
-  max-width: 16ch;
+  max-width: 22ch;
   margin-bottom: var(--space-6);
   line-height: 1.2;
 }
