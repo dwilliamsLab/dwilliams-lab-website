@@ -48,6 +48,18 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VETJQ1T7RM">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VETJQ1T7RM');
+    </script>
+
     <!-- Fonts: Instrument Serif (display) + Work Sans (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
