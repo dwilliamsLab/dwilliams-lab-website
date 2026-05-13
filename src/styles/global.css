@@ -254,13 +254,13 @@ button { cursor: pointer; background: none; border: none; }
 .mobile-nav {
   position: fixed;
   top: 72px; /* approximate header height; adjust if header height changes */
-  left: 0;
+  right: 0;
   width: min(260px, 80vw);
   max-height: calc(100vh - 72px);
   overflow-y: auto;
 
   background: var(--color-surface);
-  border-right: 1px solid var(--color-divider);
+  border-left: 1px solid var(--color-divider);
   box-shadow: var(--shadow-md);
   padding: var(--space-4) var(--space-6);
   z-index: 95; /* below sticky header (100), above content */
