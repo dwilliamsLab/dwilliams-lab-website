@@ -81,6 +81,19 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
       charset="utf-8"
     ></script>
 
+    <!-- Prevent splash flash after first view -->
+    <script>
+      (function () {
+        try {
+          if (window.sessionStorage && window.sessionStorage.getItem('lomiSplashShown') === '1') {
+            document.documentElement.classList.add('lomi-no-splash');
+          }
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
+
     <!-- Splash overlay styles + header logo overrides -->
     <style>
       #splash {
@@ -105,6 +118,11 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
         backdrop-filter: blur(0px);
         -webkit-backdrop-filter: blur(0px);
         background-color: rgba(255, 255, 255, 0);
+      }
+
+      /* If splash already shown in this session, never display it */
+      .lomi-no-splash #splash {
+        display: none !important;
       }
 
       #splash-logo {
