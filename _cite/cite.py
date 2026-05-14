@@ -16,8 +16,8 @@ load_dotenv()
 # error flag
 error = False
 
-# output citations file
-output_file = "_data/citations.yaml"
+# output citations file (Astro imports this)
+output_file = "src/data/citations.yaml"
 
 
 log()
