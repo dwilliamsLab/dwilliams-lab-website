@@ -37,14 +37,14 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
           ref: ${{ github.head_ref || github.ref }}
 
-      # Detect whether citation inputs changed (_cite/** and sources.yaml)
+      # Detect whether citation inputs changed (_cite/** and src/data/sources.yaml)
       - name: Detect citation input changes
         id: changed_inputs
         uses: tj-actions/changed-files@v47
         with:
           files: |
             _cite/**
-            sources.yaml
+            src/data/sources.yaml
 
       - name: Setup Python
         if: steps.changed_inputs.outputs.any_changed == 'true' || github.event_name == 'workflow_dispatch'
@@ -74,7 +74,7 @@ jobs:
         uses: tj-actions/verify-changed-files@v18
         with:
           files: |
-            _data/citations.yaml
+            src/data/citations.yaml
 
       - name: Commit updated citations to branch
         if: |
