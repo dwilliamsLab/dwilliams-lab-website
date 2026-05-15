@@ -197,7 +197,7 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
     opacity="0"
   >
     Welcome to
-    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.70;0.90;1" dur="7s" repeatCount="1" fill="freeze"/>
+    <animate id="splash-final-animate" attributeName="opacity" values="0;0;1;1" keyTimes="0;0.70;0.90;1" dur="7s" repeatCount="1" fill="freeze"/>
   </text>
 
   <!-- Icon group -->
@@ -548,15 +548,33 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
           return;
         }
 
-        // Animation fully visible at 6.3s, dwell 1.5s, then 1.2s CSS fade = ~9s total
-        const ANIM_DURATION = 7800;
+        sessionStorage.setItem('lomiSplashShown', '1');
 
-        setTimeout(() => {
+        // Find the last <animate> in the splash SVG (the "Welcome to" opacity animate).
+        // We listen for its endEvent so the hide timer starts only after the SVG
+        // has actually finished animating — not from when the script runs.
+        // This fixes the mobile race where the browser delays painting/animating
+        // the SVG but the old fixed setTimeout had already started counting down.
+        const finalAnimate = document.getElementById('splash-final-animate');
+
+        function hideSplash() {
           splash.classList.add('hidden');
           splash.addEventListener('transitionend', () => splash.remove(), { once: true });
-        }, ANIM_DURATION);
+        }
 
-        sessionStorage.setItem('lomiSplashShown', '1');
+        if (finalAnimate) {
+          // Dwell 1.5s after animation ends, then fade out
+          finalAnimate.addEventListener('endEvent', () => {
+            setTimeout(hideSplash, 1500);
+          }, { once: true });
+
+          // Safety fallback: if endEvent never fires (e.g. SVG animations blocked),
+          // hide after a generous maximum of 12s from page load.
+          setTimeout(hideSplash, 12000);
+        } else {
+          // No animate element found — fall back to original timing
+          setTimeout(hideSplash, 7800);
+        }
       })();
     </script>
   </body>
