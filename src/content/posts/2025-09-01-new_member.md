@@ -1,5 +1,5 @@
 ---
-title: New member — Justin Lehtinen
+title: New member - Justin Lehtinen
 date: 2025-09-01
 image: images/people/justin.jpg
 ---
