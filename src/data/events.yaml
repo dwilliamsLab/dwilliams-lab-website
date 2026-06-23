@@ -1,11 +1,11 @@
-- slug: thanksgiving-2025
-  title: Labsgiving 2025
-  date: 2025-11-27
-  location: Wayzata, MN
-  cover: /images/events/tg2025/cover.jpg
-  caption: The lab celebrates Thanksgiving together.
+- slug: summer-celebration-2026
+  title: Lab Summer Celebration 2026
+  date: 2026-06-17
+  location: Minneapolis, MN
+  cover: /images/events/sc2026/cover.jpg
+  caption: The lab welcomes MNCORE summer student Kyla and 1 year since our inagural member, Shashwata joined the lab.
   photos:
-    - /images/events/tg2025/cover.jpg
+    - /images/events/sc2026/cover.jpg
     
 - slug: thanksgiving-2025
   title: Labsgiving 2025
