@@ -43,6 +43,13 @@ function formatBadgeDate(date) {
   return ' - ' + new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
 }
 
+function getOrderedBadges(member) {
+  const badges = member.data.badges ?? [];
+  return badgeOrder
+    .map((type) => badges.find((b) => b.type === type))
+    .filter(Boolean);
+}
+
 const currentMembers = allMembers
   .filter((m) => (m.data.group ?? 'current') !== 'alumni')
   .filter((m) => m.data.hidden !== true)
@@ -70,10 +77,7 @@ const alumni = allMembers
         {currentMembers.map(async (member) => {
           const { Content } = await render(member);
           const tenure = getTenureLabel(member.data.startDate);
-          const badges = member.data.badges ?? [];
-          const orderedBadges = badgeOrder
-            .map((type) => badges.find((b) => b.type === type))
-            .filter(Boolean);
+          const orderedBadges = getOrderedBadges(member);
           const hasBadges = tenure !== null || orderedBadges.length > 0;
 
           return (
@@ -232,33 +236,44 @@ const alumni = allMembers
       <section class="section section--sm">
         <h2 class="alumni-heading">Alumni</h2>
         <ul role="list" class="alumni-grid">
-          {alumni.map((member) => (
-            <li class="alumni-card">
-              <div class="alumni-avatar">
-                {member.data.image ? (
-                  <img
-                    src={'/' + member.data.image}
-                    alt={member.data.name}
-                    width="180"
-                    height="180"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <div class="member-avatar-placeholder" aria-hidden="true"></div>
-                )}
-              </div>
-              <div class="alumni-info">
-                <h3 class="alumni-name">{member.data.name}</h3>
-                {member.data.roleAtLomi && (
-                  <p class="alumni-role-at-lomi">{member.data.roleAtLomi}</p>
-                )}
-                {member.data.lastKnownPosition && (
-                  <p class="alumni-last-known">Now: {member.data.lastKnownPosition}</p>
-                )}
-              </div>
-            </li>
-          ))}
+          {alumni.map((member) => {
+            const alumniBadges = getOrderedBadges(member);
+
+            return (
+              <li class="alumni-card">
+                <div class="alumni-avatar">
+                  {member.data.image ? (
+                    <img
+                      src={'/' + member.data.image}
+                      alt={member.data.name}
+                      width="180"
+                      height="180"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div class="member-avatar-placeholder" aria-hidden="true"></div>
+                  )}
+                </div>
+                <div class="alumni-info">
+                  <h3 class="alumni-name">{member.data.name}</h3>
+                  {member.data.roleAtLomi && (
+                    <p class="alumni-role-at-lomi">{member.data.roleAtLomi}</p>
+                  )}
+                  {member.data.lastKnownPosition && (
+                    <p class="alumni-last-known">Now: {member.data.lastKnownPosition}</p>
+                  )}
+                  {alumniBadges.length > 0 && (
+                    <ul class="alumni-accomplishments" role="list">
+                      {alumniBadges.map((badge) => (
+                        <li>{badge.label}{formatBadgeDate(badge.date)}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </section>
     )}

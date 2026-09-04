@@ -334,6 +334,28 @@
   font-style: italic;
 }
 
+.alumni-accomplishments {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.alumni-accomplishments li {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  padding-left: var(--space-3);
+  position: relative;
+}
+.alumni-accomplishments li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
 @media (max-width: 800px) {
   .member-dialog-card { padding: var(--space-6); }
   .member-dialog-layout { grid-template-columns: 1fr; }
