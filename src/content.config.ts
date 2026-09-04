@@ -23,6 +23,9 @@ const members = defineCollection({
       text: z.string(),
       href: z.string(),
     }).optional(),
+    roleAtLomi: z.string().optional(),
+    lastKnownPosition: z.string().optional(),
+    departureDate: z.coerce.date().optional(),
   }),
 });
 
@@ -31,7 +34,6 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    author: z.string().optional(),
     image: z.string().optional(),
     tags: z.array(z.string()).optional(),
     excerpt: z.string().optional(),

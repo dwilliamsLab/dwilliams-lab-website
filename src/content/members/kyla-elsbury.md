@@ -3,7 +3,10 @@ name: Kyla Elsbury
 image: images/people/kyla.png
 description: MNCORE Summer Student
 role: undergrad
-group: current
+group: alumni
+roleAtLomi: MNCORE Summer Student
+lastKnownPosition: St. Olaf College
+departureDate: 2026-08-06
 aliases:
   - Kyla Elsbury
 links:
