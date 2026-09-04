@@ -74,6 +74,16 @@ function getOrderedBadges(member) {
     .filter(Boolean);
 }
 
+// Alumni accomplishments: strip dates (less important once someone's departed)
+// and drop milestone badges unless they specifically mention a defense --
+// a PhD student who graduated obviously passed quals/rotations along the way,
+// so only the defense itself is worth highlighting.
+function getAlumniAccomplishments(member) {
+  return getOrderedBadges(member).filter(
+    (badge) => badge.type !== 'milestone' || badge.label.toLowerCase().includes('defense')
+  );
+}
+
 const currentMembers = allMembers
   .filter((m) => (m.data.group ?? 'current') !== 'alumni')
   .filter((m) => m.data.hidden !== true)
@@ -261,7 +271,7 @@ const alumni = allMembers
         <h2 class="alumni-heading">Alumni</h2>
         <ul role="list" class="alumni-grid">
           {alumni.map((member) => {
-            const alumniBadges = getOrderedBadges(member);
+            const alumniBadges = getAlumniAccomplishments(member);
             const alumniTenureText = getAlumniTenureText(member.data.startDate, member.data.departureDate);
 
             return (
@@ -298,7 +308,7 @@ const alumni = allMembers
                       <p class="alumni-accomplishments-heading">Major achievements</p>
                       <ul class="alumni-accomplishments" role="list">
                         {alumniBadges.map((badge) => (
-                          <li>{badge.label}{formatBadgeDate(badge.date)}</li>
+                          <li>{badge.label}</li>
                         ))}
                       </ul>
                     </div>
