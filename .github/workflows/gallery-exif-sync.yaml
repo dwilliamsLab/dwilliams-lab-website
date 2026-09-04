@@ -25,13 +25,19 @@ jobs:
           cache: 'npm'
 
       - name: Install packages
-        run: npm ci
+        run: npm install
 
       - name: Sync EXIF date/location into gallery.yaml
         run: node scripts/sync-gallery-exif.mjs
 
-      - name: Commit updated gallery.yaml
+      - name: Commit updated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet src/data/gallery.yaml || (git add src/data/gallery.yaml && git commit -m "chore: auto-fill gallery photo date/location from EXIF [skip ci]" && git push)
+          git add src/data/gallery.yaml package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto-fill gallery photo date/location from EXIF [skip ci]"
+            git push
+          else
+            echo "No changes to commit."
+          fi
