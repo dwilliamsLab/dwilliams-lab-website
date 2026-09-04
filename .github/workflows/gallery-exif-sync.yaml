@@ -1,0 +1,37 @@
+name: gallery-exif-sync
+run-name: Sync gallery photo dates/locations from EXIF
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'public/images/gallery/**'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Sync EXIF date/location into gallery.yaml
+        run: node scripts/sync-gallery-exif.mjs
+
+      - name: Commit updated gallery.yaml
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet src/data/gallery.yaml || (git add src/data/gallery.yaml && git commit -m "chore: auto-fill gallery photo date/location from EXIF [skip ci]" && git push)

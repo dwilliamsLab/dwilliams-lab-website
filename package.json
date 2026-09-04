@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gallery:sync": "node scripts/sync-gallery-exif.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.4",
@@ -16,6 +17,8 @@
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
-    "typescript": "^5.5.0"
+    "exifr": "^7.1.3",
+    "typescript": "^5.5.0",
+    "yaml": "^2.5.1"
   }
 }
