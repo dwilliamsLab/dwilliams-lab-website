@@ -1,0 +1,63 @@
+# Photo groupings for the "Life in the Lab" section on the homepage.
+# Each entry becomes one GalleryRow (an interactive accordion strip).
+# Add real photos to /public/images/gallery/ and update the `image` paths
+# below to match — the filenames here are placeholders.
+#
+# To add a brand new themed row (e.g. a conference, a new event), just
+# append another entry to this list; no code changes needed.
+
+- heading: Around the lab
+  sub: Lab meetings, bench work, and the day-to-day.
+  items:
+    - image: images/gallery/lab-meeting-1.jpg
+      alt: Lab members gathered for a weekly lab meeting
+      title: Weekly lab meeting
+      subtitle: Spring 2026
+    - image: images/gallery/bench-1.jpg
+      alt: Lab member processing tissue samples at the bench
+      title: Processing tissue samples
+      subtitle: Williams Lab
+    - image: images/gallery/microscopy-1.jpg
+      alt: Lab member at the confocal microscope
+      title: Confocal imaging session
+      subtitle: Core facility
+    - image: images/gallery/lab-outing-1.jpg
+      alt: Lab members at an outing
+      title: End-of-summer lab outing
+      subtitle: '2026'
+
+- heading: Presentations
+  sub: Talks, posters, and presentations from the team.
+  items:
+    - image: images/gallery/kyla-presentation-1.jpg
+      alt: Kyla presenting her poster at the LSSURP symposium
+      title: Kyla presenting her summer research
+      subtitle: LSSURP Symposium
+    - image: images/gallery/kyla-presentation-2.jpg
+      alt: Kyla fielding questions from judges
+      title: Fielding questions from judges
+      subtitle: LSSURP Symposium
+    - image: images/gallery/conference-poster-1.jpg
+      alt: Lab member presenting a poster at a conference
+      title: Poster session
+      subtitle: Regional immunology meeting
+    - image: images/gallery/invited-talk-1.jpg
+      alt: Dr. Williams giving an invited talk
+      title: Invited talk
+      subtitle: Dr. Williams
+
+- heading: Group outings
+  sub: Lunches, retreats, and time together outside the lab.
+  items:
+    - image: images/gallery/lunch-1.jpg
+      alt: Lab members at a group lunch
+      title: Lab lunch
+      subtitle: '2026'
+    - image: images/gallery/retreat-1.jpg
+      alt: Lab members at an annual retreat
+      title: Annual lab retreat
+      subtitle: '2026'
+    - image: images/gallery/dinner-1.jpg
+      alt: Lab members at a celebratory dinner
+      title: Post-conference dinner
+      subtitle: '2026'

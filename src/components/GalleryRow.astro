@@ -1,0 +1,202 @@
+---
+/**
+ * GalleryRow.astro
+ * A single themed "gallery row": kicker + heading + a compact interactive
+ * accordion of photos. Drop as many rows as you want on a page — each is
+ * independent, so new photo categories (conferences, outings, etc.) can be
+ * added later without needing to touch existing rows.
+ */
+interface GalleryItem {
+  image: string;
+  alt: string;
+  title: string;
+  subtitle?: string;
+}
+
+interface Props {
+  kicker?: string;
+  heading: string;
+  sub?: string;
+  items: GalleryItem[];
+  link?: { href: string; text: string };
+}
+
+const { kicker, heading, sub, items, link } = Astro.props;
+---
+
+<section class="gallery-row">
+  <div class="gallery-row-header">
+    <div>
+      {kicker && <span class="gallery-kicker">{kicker}</span>}
+      <h3 class="gallery-row-heading">{heading}</h3>
+    </div>
+    {sub && <p class="gallery-row-sub">{sub}</p>}
+  </div>
+
+  <div class="accordion">
+    {items.map((item) => (
+      <div class="accordion-panel">
+        <img src={'/' + item.image} alt={item.alt} loading="lazy" decoding="async" />
+        <span class="accordion-spine">{item.title}</span>
+        <div class="accordion-caption">
+          <span class="accordion-caption-title">{item.title}</span>
+          {item.subtitle && <span class="accordion-caption-sub">{item.subtitle}</span>}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {link && (
+    <div class="gallery-row-footer">
+      <a href={link.href} class="gallery-link">{link.text}</a>
+    </div>
+  )}
+</section>
+
+<style>
+  .gallery-row { padding-block: clamp(var(--space-10), 6vw, var(--space-16)); }
+  .gallery-row + .gallery-row { border-top: 1px solid var(--color-divider); }
+
+  .gallery-row-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+  }
+  .gallery-kicker {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+  .gallery-row-heading {
+    font-size: var(--text-xl);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+  .gallery-row-sub {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    max-width: 42ch;
+  }
+
+  /* Interactive accordion — panels sit compact side by side; hovering one
+     expands it while the rest compress into a slim vertical caption strip. */
+  .accordion {
+    display: flex;
+    gap: var(--space-2);
+    height: 300px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .accordion-panel {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--color-surface-2);
+    transition: flex-grow 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .accordion:has(.accordion-panel:hover) .accordion-panel { flex: 1; }
+  .accordion:has(.accordion-panel:hover) .accordion-panel:hover { flex: 5; }
+
+  .accordion-panel img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .accordion-panel:not(:hover) img { filter: saturate(0.85); }
+  .accordion:has(.accordion-panel:hover) .accordion-panel:not(:hover) img {
+    filter: saturate(0.4) brightness(0.75);
+  }
+
+  .accordion-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,12,20,0.72) 0%, rgba(10,12,20,0.02) 45%, rgba(10,12,20,0.2) 100%);
+  }
+
+  .accordion-caption {
+    position: absolute;
+    left: var(--space-4);
+    bottom: var(--space-4);
+    right: var(--space-4);
+    color: #fff;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+  .accordion-caption-title {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity var(--transition), transform var(--transition);
+    transition-delay: 100ms;
+  }
+  .accordion-caption-sub {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity var(--transition), transform var(--transition);
+  }
+  .accordion-panel:hover .accordion-caption-title,
+  .accordion-panel:hover .accordion-caption-sub {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .accordion-spine {
+    position: absolute;
+    bottom: var(--space-4);
+    left: var(--space-4);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: #fff;
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity var(--transition);
+    z-index: 2;
+  }
+  .accordion:has(.accordion-panel:hover) .accordion-panel:not(:hover) .accordion-spine {
+    opacity: 0.85;
+  }
+
+  .gallery-row-footer { margin-top: var(--space-5); }
+  .gallery-link {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .gallery-link:hover { color: var(--color-primary-hover); }
+  .gallery-link::after { content: ' →'; }
+
+  @media (max-width: 900px) {
+    .accordion { height: auto; flex-direction: column; }
+    .accordion-panel { height: 72px; flex: none !important; }
+    .accordion:has(.accordion-panel:hover) .accordion-panel:hover { height: 260px; }
+    .accordion-spine { display: none; }
+  }
+</style>
