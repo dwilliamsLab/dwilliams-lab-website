@@ -18,7 +18,8 @@ const currentMembers = allMembers
 
 const alumni = allMembers
   .filter((m) => (m.data.group ?? 'current') === 'alumni')
-  .filter((m) => m.data.hidden !== true);
+  .filter((m) => m.data.hidden !== true)
+  .sort((a, b) => new Date(b.data.departureDate ?? 0) - new Date(a.data.departureDate ?? 0));
 ---
 
 <BaseLayout title="Team" description="Meet the members of the Laboratory of Oral Mucosal Immunity.">
@@ -150,11 +151,32 @@ const alumni = allMembers
     {alumni.length > 0 && (
       <section class="section section--sm">
         <h2 class="alumni-heading">Alumni</h2>
-        <ul role="list" class="alumni-list">
+        <ul role="list" class="alumni-grid">
           {alumni.map((member) => (
-            <li class="alumni-item">
-              <span>{member.data.name}</span>
-              <span class="alumni-role">{member.data.description}</span>
+            <li class="alumni-card">
+              <div class="alumni-avatar">
+                {member.data.image ? (
+                  <img
+                    src={'/' + member.data.image}
+                    alt={member.data.name}
+                    width="180"
+                    height="180"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div class="member-avatar-placeholder" aria-hidden="true"></div>
+                )}
+              </div>
+              <div class="alumni-info">
+                <h3 class="alumni-name">{member.data.name}</h3>
+                {member.data.roleAtLomi && (
+                  <p class="alumni-role-at-lomi">{member.data.roleAtLomi}</p>
+                )}
+                {member.data.lastKnownPosition && (
+                  <p class="alumni-last-known">Now: {member.data.lastKnownPosition}</p>
+                )}
+              </div>
             </li>
           ))}
         </ul>
