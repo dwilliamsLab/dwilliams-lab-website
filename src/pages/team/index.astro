@@ -1,11 +1,29 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import BadgeIcon from '@/components/BadgeIcon.astro';
 import '@/styles/pages/team.css';
 import { getCollection, render } from 'astro:content';
 
 const allMembers = await getCollection('members');
 
 const roleOrder = ['pi', 'lab-manager', 'manager', 'postdoc', 'phd', 'ms', 'undergrad', 'staff'];
+const badgeOrder = ['award', 'fellowship', 'publication', 'conference', 'milestone'];
+
+function getTenureYears(startDate) {
+  if (!startDate) return null;
+  const start = new Date(startDate);
+  const now = new Date();
+  let years = now.getFullYear() - start.getFullYear();
+  const anniversary = new Date(start);
+  anniversary.setFullYear(start.getFullYear() + years);
+  if (anniversary > now) years -= 1;
+  return years >= 1 ? years : null;
+}
+
+function formatBadgeDate(date) {
+  if (!date) return '';
+  return ' — ' + new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+}
 
 const currentMembers = allMembers
   .filter((m) => (m.data.group ?? 'current') !== 'alumni')
@@ -33,6 +51,12 @@ const alumni = allMembers
       <ul role="list" class="member-grid">
         {currentMembers.map(async (member) => {
           const { Content } = await render(member);
+          const tenureYears = getTenureYears(member.data.startDate);
+          const badges = member.data.badges ?? [];
+          const orderedBadges = badgeOrder
+            .map((type) => badges.find((b) => b.type === type))
+            .filter(Boolean);
+          const hasBadges = tenureYears !== null || orderedBadges.length > 0;
 
           return (
             <li>
@@ -53,6 +77,25 @@ const alumni = allMembers
                     />
                   ) : (
                     <div class="member-avatar-placeholder" aria-hidden="true"></div>
+                  )}
+
+                  {hasBadges && (
+                    <div class="member-badges">
+                      {tenureYears !== null && (
+                        <div class="badge-circle badge-tenure">
+                          {tenureYears}
+                          <span class="badge-tooltip">
+                            {tenureYears} {tenureYears === 1 ? 'year' : 'years'} in the lab
+                          </span>
+                        </div>
+                      )}
+                      {orderedBadges.map((badge) => (
+                        <div class="badge-circle">
+                          <BadgeIcon type={badge.type} />
+                          <span class="badge-tooltip">{badge.label}{formatBadgeDate(badge.date)}</span>
+                        </div>
+                      ))}
+                    </div>
                   )}
                 </div>
 
@@ -213,5 +256,27 @@ const alumni = allMembers
         if (!clickedInside) dialog.close();
       });
     });
+
+    function positionBadgeTooltips() {
+      document.querySelectorAll('.member-avatar').forEach((avatar) => {
+        const avatarRect = avatar.getBoundingClientRect();
+        avatar.style.setProperty('--avatar-size', avatarRect.width + 'px');
+        avatar.querySelectorAll('.badge-circle').forEach((badge) => {
+          const tooltip = badge.querySelector('.badge-tooltip');
+          if (!tooltip) return;
+          tooltip.classList.remove('flip-up');
+          const badgeRect = badge.getBoundingClientRect();
+          const tooltipHeight = tooltip.getBoundingClientRect().height;
+          const spaceBelow = avatarRect.bottom - badgeRect.top;
+          const spaceAbove = badgeRect.bottom - avatarRect.top;
+          if (tooltipHeight > spaceBelow && spaceAbove >= tooltipHeight) {
+            tooltip.classList.add('flip-up');
+          }
+        });
+      });
+    }
+    document.addEventListener('DOMContentLoaded', positionBadgeTooltips);
+    window.addEventListener('resize', positionBadgeTooltips);
+    positionBadgeTooltips();
   </script>
 </BaseLayout>

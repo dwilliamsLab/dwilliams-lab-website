@@ -16,11 +16,15 @@
 }
 
 .member-avatar {
+  position: relative;
   aspect-ratio: 1;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-surface-2);
   box-shadow: var(--shadow-sm);
+  --badge-inset: 8px;
+  --badge-size: 26px;
+  --badge-gap: 6px;
 }
 .member-avatar img {
   width: 100%;
@@ -51,6 +55,78 @@
 .member-role {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+}
+
+/* Badges — overlaid top-right, flowing down, evenly spread across photo height */
+.member-badges {
+  position: absolute;
+  top: var(--badge-inset);
+  bottom: var(--badge-inset);
+  right: var(--badge-inset);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 5;
+}
+
+.badge-circle {
+  width: var(--badge-size);
+  height: var(--badge-size);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  position: relative;
+  cursor: default;
+  flex-shrink: 0;
+}
+.badge-circle svg {
+  width: calc(var(--badge-size) * 0.7);
+  height: calc(var(--badge-size) * 0.7);
+  stroke: var(--color-primary);
+  display: block;
+}
+.badge-tenure {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.badge-tooltip {
+  position: absolute;
+  top: 0;
+  right: calc(100% + var(--badge-gap));
+  box-sizing: border-box;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: left;
+  white-space: normal;
+  max-width: calc(var(--avatar-size, 240px) - (var(--badge-inset) * 2) - var(--badge-size) - var(--badge-gap));
+  width: max-content;
+  padding: 6px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.06s linear;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+  z-index: 10;
+}
+.badge-tooltip.flip-up {
+  top: auto;
+  bottom: 0;
+}
+
+.badge-circle:hover .badge-tooltip {
+  opacity: 1;
 }
 
 /* Dialog */

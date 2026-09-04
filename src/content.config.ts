@@ -27,6 +27,11 @@ const members = defineCollection({
     lastKnownPosition: z.string().optional(),
     departureDate: z.coerce.date().optional(),
     startDate: z.coerce.date().optional(),
+    badges: z.array(z.object({
+      type: z.enum(['award', 'fellowship', 'publication', 'conference', 'milestone']),
+      label: z.string(),
+      date: z.coerce.date().optional(),
+    })).optional(),
   }),
 });
 
