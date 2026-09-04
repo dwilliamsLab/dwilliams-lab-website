@@ -26,6 +26,7 @@ const members = defineCollection({
     roleAtLomi: z.string().optional(),
     lastKnownPosition: z.string().optional(),
     departureDate: z.coerce.date().optional(),
+    startDate: z.coerce.date().optional(),
   }),
 });
 
