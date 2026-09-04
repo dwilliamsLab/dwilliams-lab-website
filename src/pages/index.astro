@@ -2,8 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import '@/styles/pages/home.css';
 import { getCollection, render } from 'astro:content';
-import GalleryRow from '@/components/GalleryRow.astro';
-import galleryRows from '@/data/gallery.yaml';
+import GalleryAccordion from '@/components/GalleryAccordion.astro';
+import galleryCategories from '@/data/gallery.yaml';
 
 const posts = (await getCollection('posts'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -26,6 +26,14 @@ const posts = (await getCollection('posts'))
         wound healing, and whole‑body physiology at this interface.
       </p>
       <a href="/research" class="btn btn-primary">Read more about our research</a>
+    </div>
+  </section>
+
+  <!-- Life in the Lab -->
+  <section class="section section--sm">
+    <div class="container">
+      <h2 class="section-heading">Life in the Lab</h2>
+      <GalleryAccordion categories={galleryCategories} />
     </div>
   </section>
 
@@ -108,16 +116,6 @@ const posts = (await getCollection('posts'))
           })}
         </ul>
       )}
-    </div>
-  </section>
-
-  <!-- Life in the Lab -->
-  <section class="section section--sm">
-    <div class="container">
-      <h2 class="section-heading">Life in the Lab</h2>
-      {galleryRows.map((row) => (
-        <GalleryRow heading={row.heading} sub={row.sub} items={row.items} />
-      ))}
     </div>
   </section>
 
