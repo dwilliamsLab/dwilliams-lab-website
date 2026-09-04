@@ -145,6 +145,27 @@ const alumni = allMembers
                       ) : (
                         <div class="member-avatar-placeholder member-avatar-placeholder--large" aria-hidden="true"></div>
                       )}
+
+                      {hasBadges && (
+                        <ul class="dialog-badge-list" role="list">
+                          {tenure !== null && (
+                            <li class="dialog-badge-item">
+                              <span class="dialog-badge-icon dialog-badge-icon--tenure">
+                                {tenure.value}{tenure.unit}
+                              </span>
+                              <span class="dialog-badge-text">{tenure.text}</span>
+                            </li>
+                          )}
+                          {orderedBadges.map((badge) => (
+                            <li class="dialog-badge-item">
+                              <span class="dialog-badge-icon">
+                                <BadgeIcon type={badge.type} />
+                              </span>
+                              <span class="dialog-badge-text">{badge.label}{formatBadgeDate(badge.date)}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
 
                     <div class="member-dialog-body">
