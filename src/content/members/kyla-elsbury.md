@@ -6,7 +6,12 @@ role: undergrad
 group: alumni
 roleAtLomi: MNCORE Summer Student
 lastKnownPosition: St. Olaf College
+startDate: 2026-06-03
 departureDate: 2026-08-06
+badges:
+  - type: conference
+    label: LSSURP poster session
+    date: 2026-08-06
 aliases:
   - Kyla Elsbury
 links:
