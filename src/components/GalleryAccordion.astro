@@ -2,9 +2,11 @@
 /**
  * GalleryAccordion.astro
  * A single accordion with one panel per photo category (e.g. "Around the
- * lab", "Presentations", "Group outings"). Hovering a panel expands it;
- * clicking it opens a lightbox scoped to ONLY that category's photos, in
- * a horizontally scrolling filmstrip with who/where/when captions.
+ * lab", "Presentations", "Group outings"). Category labels are visible on
+ * the vertical spine at all times; hovering a panel expands it and swaps
+ * the spine label for the full caption; clicking opens a lightbox scoped
+ * to ONLY that category's photos, in a horizontally scrolling filmstrip
+ * with who/where/when captions.
  *
  * Add a new category by appending an entry to src/data/gallery.yaml --
  * it'll automatically show up as a new panel here.
@@ -181,6 +183,10 @@ function metaLine(item: GalleryItem) {
     transform: translateY(0);
   }
 
+  /* Vertical category label -- visible on every collapsed panel by
+     default (not just on hover), so you always know what each panel
+     is before interacting with it. Hidden on the actively hovered
+     panel since the full caption above takes over there instead. */
   .accordion-spine {
     position: absolute;
     bottom: var(--space-5);
@@ -192,12 +198,12 @@ function metaLine(item: GalleryItem) {
     font-style: italic;
     font-size: var(--text-base);
     letter-spacing: 0.02em;
-    opacity: 0;
+    opacity: 0.9;
     transition: opacity var(--transition);
     z-index: 2;
   }
-  .accordion:has(.accordion-panel:hover) .accordion-panel:not(:hover) .accordion-spine {
-    opacity: 0.9;
+  .accordion-panel:hover .accordion-spine {
+    opacity: 0;
   }
 
   @media (max-width: 900px) {
