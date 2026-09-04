@@ -281,7 +281,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  max-width: 640px;
+  max-width: 720px;
 }
 
 .alumni-card {
@@ -314,10 +314,21 @@
   filter: grayscale(40%);
 }
 
+.alumni-body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-6);
+  flex: 1;
+  flex-wrap: wrap;
+}
+
 .alumni-info {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
+  flex: 1 1 180px;
+  min-width: 160px;
 }
 .alumni-name {
   font-size: var(--text-base);
@@ -328,19 +339,40 @@
   font-size: var(--text-sm);
   color: var(--color-text-muted);
 }
+.alumni-tenure {
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  font-weight: 500;
+}
 .alumni-last-known {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
   font-style: italic;
 }
 
+/* Accomplishments render as their own column beside the info column,
+   so a long list of badges grows sideways rather than stretching the row taller. */
+.alumni-accomplishments-col {
+  flex: 1 1 200px;
+  min-width: 180px;
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--color-divider);
+}
+.alumni-accomplishments-heading {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0 0 var(--space-1);
+}
 .alumni-accomplishments {
   list-style: none;
-  margin: var(--space-2) 0 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 .alumni-accomplishments li {
   font-size: var(--text-xs);
@@ -360,4 +392,6 @@
   .member-dialog-card { padding: var(--space-6); }
   .member-dialog-layout { grid-template-columns: 1fr; }
   .member-dialog-media { max-width: 260px; }
+  .alumni-body { flex-direction: column; gap: var(--space-3); }
+  .alumni-accomplishments-col { border-left: none; padding-left: 0; }
 }

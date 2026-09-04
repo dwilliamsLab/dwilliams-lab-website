@@ -38,6 +38,30 @@ function getTenureLabel(startDate) {
   };
 }
 
+function getAlumniTenureText(startDate, departureDate) {
+  if (!startDate || !departureDate) return null;
+  const start = new Date(startDate);
+  const end = new Date(departureDate);
+
+  let years = end.getFullYear() - start.getFullYear();
+  const anniversary = new Date(start);
+  anniversary.setFullYear(start.getFullYear() + years);
+  if (anniversary > end) years -= 1;
+
+  if (years >= 1) {
+    return `${years} ${years === 1 ? 'year' : 'years'} in the lab`;
+  }
+
+  let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+  if (end.getDate() < start.getDate()) months -= 1;
+
+  if (months < 1) {
+    return 'Less than a month in the lab';
+  }
+
+  return `${months} ${months === 1 ? 'month' : 'months'} in the lab`;
+}
+
 function formatBadgeDate(date) {
   if (!date) return '';
   return ' - ' + new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
@@ -238,6 +262,7 @@ const alumni = allMembers
         <ul role="list" class="alumni-grid">
           {alumni.map((member) => {
             const alumniBadges = getOrderedBadges(member);
+            const alumniTenureText = getAlumniTenureText(member.data.startDate, member.data.departureDate);
 
             return (
               <li class="alumni-card">
@@ -255,20 +280,28 @@ const alumni = allMembers
                     <div class="member-avatar-placeholder" aria-hidden="true"></div>
                   )}
                 </div>
-                <div class="alumni-info">
-                  <h3 class="alumni-name">{member.data.name}</h3>
-                  {member.data.roleAtLomi && (
-                    <p class="alumni-role-at-lomi">{member.data.roleAtLomi}</p>
-                  )}
-                  {member.data.lastKnownPosition && (
-                    <p class="alumni-last-known">Next stop: {member.data.lastKnownPosition}</p>
-                  )}
+                <div class="alumni-body">
+                  <div class="alumni-info">
+                    <h3 class="alumni-name">{member.data.name}</h3>
+                    {member.data.roleAtLomi && (
+                      <p class="alumni-role-at-lomi">{member.data.roleAtLomi}</p>
+                    )}
+                    {alumniTenureText && (
+                      <p class="alumni-tenure">{alumniTenureText}</p>
+                    )}
+                    {member.data.lastKnownPosition && (
+                      <p class="alumni-last-known">Next stop: {member.data.lastKnownPosition}</p>
+                    )}
+                  </div>
                   {alumniBadges.length > 0 && (
-                    <ul class="alumni-accomplishments" role="list">
-                      {alumniBadges.map((badge) => (
-                        <li>{badge.label}{formatBadgeDate(badge.date)}</li>
-                      ))}
-                    </ul>
+                    <div class="alumni-accomplishments-col">
+                      <p class="alumni-accomplishments-heading">Major achievements</p>
+                      <ul class="alumni-accomplishments" role="list">
+                        {alumniBadges.map((badge) => (
+                          <li>{badge.label}{formatBadgeDate(badge.date)}</li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
                 </div>
               </li>
