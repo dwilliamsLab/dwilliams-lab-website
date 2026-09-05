@@ -14,10 +14,11 @@ const posts = (await getCollection('posts'))
   description="We investigate how local tissue organization and microbial exposure shape adaptive immunity, wound healing, and whole-body physiology at the oral barrier."
 >
   <!-- Hero + Life in the Lab share the main column; Lab News sits beside
-       both as a sidebar that spans their full combined height on desktop,
-       scrolling internally so a growing post list never adds page height.
-       On mobile this collapses to one column, with news below, as before. -->
-  <div class="container">
+       both as a sticky, height-capped sidebar on desktop, scrolling
+       internally so a growing post list never adds page height or spills
+       past the bottom of the main column. On mobile this collapses to one
+       column, with news below, as before. -->
+  <div class="container--wide">
     <div class="home-split">
       <div class="home-main">
         <section class="hero">

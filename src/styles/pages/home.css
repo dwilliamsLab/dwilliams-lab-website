@@ -24,9 +24,11 @@
 
 /* -- Homepage split: Hero + Life in the Lab (main) + Lab News (sidebar) --
    Stacked on mobile (news sits below, normal page scroll). On desktop,
-   news sits beside the main column and stretches to match its full
-   height, scrolling internally so a growing post list never adds height
-   to the page itself. */
+   news becomes a sticky, height-capped sidebar next to the main column,
+   scrolling internally so a growing post list never spills past the
+   bottom of the page or grows the page itself. Wrapped in the wider
+   container so the main column keeps roughly its original width instead
+   of shrinking to make room for the sidebar. */
 .home-split {
   display: grid;
   grid-template-columns: 1fr;
@@ -43,14 +45,17 @@
 
 @media (min-width: 900px) {
   .home-split {
-    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
-    align-items: stretch;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    align-items: start;
+    gap: var(--space-16);
   }
 
   .home-news {
+    position: sticky;
+    top: 96px;
+    max-height: calc(100vh - 96px - var(--space-8));
     display: flex;
     flex-direction: column;
-    min-height: 0;
   }
 
   .home-news .post-list {
@@ -61,7 +66,9 @@
   }
 }
 
-/* -- Post list -- */
+/* -- Post list --
+   Slightly smaller thumbnails/text here than a typical list, since this
+   now lives in a narrower sidebar rather than a full-width section. */
 
 .post-list {
   display: flex;
@@ -73,8 +80,8 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: var(--space-4);
-  padding-block: var(--space-4);
+  gap: var(--space-3);
+  padding-block: var(--space-3);
   border-bottom: 1px solid var(--color-divider);
   text-align: left;
   background: none;
@@ -96,8 +103,8 @@
 
 .post-card-thumb {
   flex-shrink: 0;
-  width: 96px;
-  height: 96px;
+  width: 64px;
+  height: 64px;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--color-surface-offset);
@@ -120,12 +127,12 @@
 
 .post-title {
   font-weight: 500;
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   line-height: 1.4;
 }
 
 .post-date {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: var(--color-text-muted);
 }
 
