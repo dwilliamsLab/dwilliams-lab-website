@@ -57,7 +57,7 @@
   --color-surface-2:         #f4f4f2;
   --color-surface-offset:    #eeede9;
   --color-border:            rgba(40, 37, 29, 0.1);
-  --color-divider:           rgba(40, 37, 29, 0.07);
+  --color-divider:            rgba(40, 37, 29, 0.07);
   --color-text:              #1a1a2e;
   --color-text-muted:        #5a5a72;
   --color-text-faint:        #9a9aaa;
@@ -283,6 +283,16 @@ button { cursor: pointer; background: none; border: none; }
 @media (max-width: 1040px) {
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
+}
+
+/* ============================================================
+   Hidden nav items
+   Pages that still exist and are reachable by direct URL, but are
+   intentionally not linked from the navigation right now.
+   ============================================================ */
+.nav-links a[href="/events"],
+.mobile-nav a[href="/events"] {
+  display: none;
 }
 
 /* ============================================================
