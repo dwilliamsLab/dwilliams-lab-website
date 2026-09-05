@@ -9,22 +9,22 @@
 - heading: Around the lab
   sub: Lab meetings, bench work, and the day-to-day.
   items:
-    - image: images/gallery/lab-meeting-1.jpg
+    - image: images/gallery/atl4.jpg
       alt: Lab members gathered for a weekly lab meeting
       title: Weekly lab meeting
-      subtitle: Spring 2026
-    - image: images/gallery/bench-1.jpg
-      alt: Lab member processing tissue samples at the bench
+      subtitle: 
+    - image: images/gallery/atl1.jpg
+      alt: Lab member Melanie processing samples at the bench
       title: Processing tissue samples
-      subtitle: Williams Lab
-    - image: images/gallery/microscopy-1.jpg
-      alt: Lab member at the confocal microscope
-      title: Confocal imaging session
-      subtitle: Core facility
-    - image: images/gallery/lab-outing-1.jpg
-      alt: Lab members at an outing
-      title: End-of-summer lab outing
-      subtitle: '2026'
+      subtitle: 
+    - image: images/gallery/atl2.jpg
+      alt: Lab members Justin and Bria at the microscope
+      title: Imaging session
+      subtitle: 
+    - image: images/gallery/atl3.jpg
+      alt: Lab members working at the bench
+      title: Working at the bench
+      subtitle: 
 
 - heading: Presentations
   sub: Talks, posters, and presentations from the team.
