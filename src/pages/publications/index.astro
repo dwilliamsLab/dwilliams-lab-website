@@ -29,6 +29,42 @@ function formatAuthorsWithHighlight(authors) {
     })
     .join(', ');
 }
+
+async function fetchAttentionScore(doi) {
+  if (!doi) return null;
+  try {
+    const res = await fetch(`https://api.altmetric.com/v1/doi/${doi}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return typeof data.score === 'number' ? Math.round(data.score) : null;
+  } catch {
+    return null;
+  }
+}
+
+async function fetchCitationCount(doi) {
+  if (!doi) return null;
+  try {
+    const res = await fetch(`https://api.openalex.org/works/https://doi.org/${doi}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return typeof data.cited_by_count === 'number' ? data.cited_by_count : null;
+  } catch {
+    return null;
+  }
+}
+
+const metricsById = {};
+await Promise.all(
+  highlighted.map(async (pub) => {
+    const doiText = extractDoiFromId(pub.id);
+    const [attention, citationCount] = await Promise.all([
+      fetchAttentionScore(doiText),
+      fetchCitationCount(doiText),
+    ]);
+    metricsById[pub.id] = { attention, citationCount };
+  })
+);
 ---
 
 <BaseLayout title="Publications" description="Selected publications that inform the lab's research direction.">
@@ -53,6 +89,7 @@ function formatAuthorsWithHighlight(authors) {
             const prettyDate = formatDate(pub.date);
             const doiText = extractDoiFromId(pub.id);
             const summary = pubSummaries[pub.id];
+            const metrics = metricsById[pub.id] || {};
             return (
               <li class="pub-item">
                 <article class="pub-row">
@@ -82,24 +119,18 @@ function formatAuthorsWithHighlight(authors) {
                     </div>
                   </div>
                   <div class="pub-actions" aria-label="Article metrics and links">
-                    <span class="pub-metric">
-                      <span class="pub-metric-label">Attention</span>
-                      <span
-                        class="altmetric-embed"
-                        data-badge-type="1"
-                        data-badge-popover="right"
-                        data-hide-no-mentions="false"
-                        data-doi={doiText}
-                      ></span>
-                    </span>
-                    <span class="pub-metric">
-                      <span class="pub-metric-label">Citations</span>
-                      <span
-                        class="dimensions-badge __dimensions_badge_embed__"
-                        data-doi={doiText}
-                        data-style="small_circle"
-                      ></span>
-                    </span>
+                    {metrics.attention != null && (
+                      <span class="pub-metric">
+                        <span class="pub-metric-label">Attention</span>
+                        <span class="pub-metric-value">{metrics.attention}</span>
+                      </span>
+                    )}
+                    {metrics.citationCount != null && (
+                      <span class="pub-metric">
+                        <span class="pub-metric-label">Citations</span>
+                        <span class="pub-metric-value pub-metric-value--citations">{metrics.citationCount}</span>
+                      </span>
+                    )}
                     {pub.buttons &&
                       pub.buttons.map((button) => (
                         <a href={button.link} target="_blank" rel="noopener noreferrer" class="pub-button">
