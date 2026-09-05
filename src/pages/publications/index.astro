@@ -30,6 +30,22 @@ function formatAuthorsWithHighlight(authors) {
     .join(', ');
 }
 
+function ordinalSuffix(n) {
+  const rounded = Math.round(n);
+  const mod100 = rounded % 100;
+  if (mod100 >= 11 && mod100 <= 13) return `${rounded}th`;
+  switch (rounded % 10) {
+    case 1:
+      return `${rounded}st`;
+    case 2:
+      return `${rounded}nd`;
+    case 3:
+      return `${rounded}rd`;
+    default:
+      return `${rounded}th`;
+  }
+}
+
 async function fetchOpenAlexMetrics(doi) {
   const empty = { count: null, fwci: null, percentile: null, url: null };
   if (!doi) return empty;
@@ -127,7 +143,7 @@ await Promise.all(
                     {metrics.percentile != null && metrics.url && (
                       <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
                         <span class="pub-metric-label">Percentile</span>
-                        <span class="pub-metric-value">{Math.round(metrics.percentile)}th pct</span>
+                        <span class="pub-metric-value">{ordinalSuffix(metrics.percentile)} pct</span>
                       </a>
                     )}
                     {pub.buttons &&
