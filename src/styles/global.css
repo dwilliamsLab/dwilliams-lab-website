@@ -290,8 +290,8 @@ button { cursor: pointer; background: none; border: none; }
    Pages that still exist and are reachable by direct URL, but are
    intentionally not linked from the navigation right now.
    ============================================================ */
-.nav-links a[href="/events"],
-.mobile-nav a[href="/events"] {
+.nav-links li:has(a[href="/events"]),
+.mobile-nav li:has(a[href="/events"]) {
   display: none;
 }
 
