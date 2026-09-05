@@ -90,8 +90,11 @@
 
 /* OpenAlex-sourced metric pills — Citations, FWCI, Percentile — deliberately
    more prominent than the plain action-link pills: thicker teal border +
-   tinted background + bold teal value, so they read as data highlights. */
+   tinted background + bold teal value, so they read as data highlights.
+   Each carries an instant CSS tooltip (matching the team page's badge
+   tooltip pattern) explaining what the metric means. */
 .pub-metric {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -120,6 +123,35 @@
 .pub-metric-value {
   font-weight: 700;
   color: var(--color-primary);
+}
+
+.pub-metric-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  white-space: normal;
+  width: max-content;
+  max-width: 220px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.06s linear;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.22);
+  z-index: 10;
+}
+
+.pub-metric:hover .pub-metric-tooltip {
+  opacity: 1;
 }
 
 /* Tags */

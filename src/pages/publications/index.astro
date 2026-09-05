@@ -132,18 +132,29 @@ await Promise.all(
                       <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
                         <span class="pub-metric-label">Citations</span>
                         <span class="pub-metric-value">{metrics.count}</span>
+                        <span class="pub-metric-tooltip">
+                          Total number of times this paper has been cited, based on OpenAlex data.
+                        </span>
                       </a>
                     )}
                     {metrics.fwci != null && metrics.url && (
                       <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
                         <span class="pub-metric-label">FWCI</span>
                         <span class="pub-metric-value">{metrics.fwci.toFixed(1)}</span>
+                        <span class="pub-metric-tooltip">
+                          Field-Weighted Citation Impact: 1.0 = average for this field and publication year;
+                          higher means above-average impact.
+                        </span>
                       </a>
                     )}
                     {metrics.percentile != null && metrics.url && (
                       <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
                         <span class="pub-metric-label">Percentile</span>
                         <span class="pub-metric-value">{ordinalSuffix(metrics.percentile)} pct</span>
+                        <span class="pub-metric-tooltip">
+                          This paper's citation count percentile compared to similar papers of the same field,
+                          type, and publication year.
+                        </span>
                       </a>
                     )}
                     {pub.buttons &&
