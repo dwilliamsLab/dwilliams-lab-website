@@ -93,82 +93,104 @@ await Promise.all(
           Selected publications will appear here. In the meantime, see Google Scholar for a complete list.
         </p>
       ) : (
-        <ul role="list" class="pub-list">
-          {highlighted.map((pub) => {
-            const prettyDate = formatDate(pub.date);
-            const doiText = extractDoiFromId(pub.id);
-            const summary = pubSummaries[pub.id];
-            const metrics = metricsById[pub.id] || {};
-            return (
-              <li class="pub-item">
-                <article class="pub-row">
-                  <div class="pub-main">
-                    <div class="pub-header">
-                      {pub.image && (
-                        <div class="pub-icon">
-                          <img
-                            src={`/${pub.image}`}
-                            alt={pub.publisher ? `${pub.publisher} logo` : 'Journal logo'}
-                            loading="lazy"
-                          />
+        <>
+          <div class="pub-controls">
+            <input
+              type="search"
+              id="pub-search"
+              class="pub-search-input"
+              placeholder="Search by title or author…"
+              aria-label="Search publications by title or author"
+            />
+            <select id="pub-sort" class="pub-sort-select" aria-label="Sort publications">
+              <option value="date-desc">Newest first</option>
+              <option value="citations-desc">Most cited</option>
+            </select>
+          </div>
+          <p id="pub-no-results" class="pub-empty" hidden>No publications match your search.</p>
+          <ul role="list" class="pub-list">
+            {highlighted.map((pub) => {
+              const prettyDate = formatDate(pub.date);
+              const doiText = extractDoiFromId(pub.id);
+              const summary = pubSummaries[pub.id];
+              const metrics = metricsById[pub.id] || {};
+              const searchable = `${pub.title} ${(pub.authors || []).join(' ')}`.toLowerCase();
+              return (
+                <li
+                  class="pub-item"
+                  data-date={pub.date || ''}
+                  data-citations={metrics.count ?? -1}
+                  data-search={searchable}
+                >
+                  <article class="pub-row">
+                    <div class="pub-main">
+                      <div class="pub-header">
+                        {pub.image && (
+                          <div class="pub-icon">
+                            <img
+                              src={`/${pub.image}`}
+                              alt={pub.publisher ? `${pub.publisher} logo` : 'Journal logo'}
+                              loading="lazy"
+                            />
+                          </div>
+                        )}
+                        <div class="pub-content">
+                          <a class="pub-title-link" href={pub.link} target="_blank" rel="noopener noreferrer">
+                            {pub.title}
+                          </a>
+                          <div class="pub-authors" set:html={formatAuthorsWithHighlight(pub.authors)} />
+                          <p class="pub-meta">
+                            {pub.publisher}
+                            {prettyDate ? ` · ${prettyDate}` : ''}
+                            {doiText ? ` · doi:${doiText}` : ''}
+                          </p>
+                          {summary && <p class="pub-summary">{summary}</p>}
                         </div>
-                      )}
-                      <div class="pub-content">
-                        <a class="pub-title-link" href={pub.link} target="_blank" rel="noopener noreferrer">
-                          {pub.title}
-                        </a>
-                        <div class="pub-authors" set:html={formatAuthorsWithHighlight(pub.authors)} />
-                        <p class="pub-meta">
-                          {pub.publisher}
-                          {prettyDate ? ` · ${prettyDate}` : ''}
-                          {doiText ? ` · doi:${doiText}` : ''}
-                        </p>
-                        {summary && <p class="pub-summary">{summary}</p>}
                       </div>
                     </div>
-                  </div>
-                  <div class="pub-actions" aria-label="Article metrics and links">
-                    {metrics.count != null && metrics.url && (
-                      <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
-                        <span class="pub-metric-label">Citations</span>
-                        <span class="pub-metric-value">{metrics.count}</span>
-                        <span class="pub-metric-tooltip">
-                          Total number of times this paper has been cited, based on OpenAlex data.
-                        </span>
-                      </a>
-                    )}
-                    {metrics.fwci != null && metrics.url && (
-                      <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
-                        <span class="pub-metric-label">FWCI</span>
-                        <span class="pub-metric-value">{metrics.fwci.toFixed(1)}</span>
-                        <span class="pub-metric-tooltip">
-                          Field-Weighted Citation Impact: 1.0 = average for this field and publication year;
-                          higher means above-average impact.
-                        </span>
-                      </a>
-                    )}
-                    {metrics.percentile != null && metrics.url && (
-                      <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
-                        <span class="pub-metric-label">Percentile</span>
-                        <span class="pub-metric-value">{ordinalSuffix(metrics.percentile)} pct</span>
-                        <span class="pub-metric-tooltip">
-                          This paper's citation count percentile compared to similar papers of the same field,
-                          type, and publication year.
-                        </span>
-                      </a>
-                    )}
-                    {pub.buttons &&
-                      pub.buttons.map((button) => (
-                        <a href={button.link} target="_blank" rel="noopener noreferrer" class="pub-button">
-                          {button.text}
+                    <div class="pub-actions" aria-label="Article metrics and links">
+                      {metrics.count != null && metrics.url && (
+                        <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
+                          <span class="pub-metric-label">Citations</span>
+                          <span class="pub-metric-value">{metrics.count}</span>
+                          <span class="pub-metric-tooltip">
+                            Total number of times this paper has been cited, based on OpenAlex data.
+                          </span>
                         </a>
-                      ))}
-                  </div>
-                </article>
-              </li>
-            );
-          })}
-        </ul>
+                      )}
+                      {metrics.fwci != null && metrics.url && (
+                        <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
+                          <span class="pub-metric-label">FWCI</span>
+                          <span class="pub-metric-value">{metrics.fwci.toFixed(1)}</span>
+                          <span class="pub-metric-tooltip">
+                            Field-Weighted Citation Impact: 1.0 = average for this field and publication year;
+                            higher means above-average impact.
+                          </span>
+                        </a>
+                      )}
+                      {metrics.percentile != null && metrics.url && (
+                        <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
+                          <span class="pub-metric-label">Percentile</span>
+                          <span class="pub-metric-value">{ordinalSuffix(metrics.percentile)} pct</span>
+                          <span class="pub-metric-tooltip">
+                            This paper's citation count percentile compared to similar papers of the same field,
+                            type, and publication year.
+                          </span>
+                        </a>
+                      )}
+                      {pub.buttons &&
+                        pub.buttons.map((button) => (
+                          <a href={button.link} target="_blank" rel="noopener noreferrer" class="pub-button">
+                            {button.text}
+                          </a>
+                        ))}
+                    </div>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        </>
       )}
     </section>
 
@@ -186,3 +208,44 @@ await Promise.all(
     </section>
   </div>
 </BaseLayout>
+
+<script>
+  const searchInput = document.getElementById('pub-search');
+  const sortSelect = document.getElementById('pub-sort');
+  const list = document.querySelector('.pub-list');
+  const noResults = document.getElementById('pub-no-results');
+
+  function applyFilterSort() {
+    if (!list) return;
+    const items = Array.from(list.querySelectorAll('.pub-item'));
+    const query = (searchInput && searchInput.value ? searchInput.value : '').toLowerCase().trim();
+
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const searchable = item.getAttribute('data-search') || '';
+      const matches = query.length === 0 || searchable.includes(query);
+      item.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+
+    if (noResults) {
+      noResults.hidden = visibleCount !== 0;
+    }
+
+    const sortBy = sortSelect && sortSelect.value ? sortSelect.value : 'date-desc';
+    items.sort((a, b) => {
+      if (sortBy === 'citations-desc') {
+        const bCount = Number(b.getAttribute('data-citations'));
+        const aCount = Number(a.getAttribute('data-citations'));
+        return bCount - aCount;
+      }
+      const bDate = new Date(b.getAttribute('data-date') || 0).getTime();
+      const aDate = new Date(a.getAttribute('data-date') || 0).getTime();
+      return bDate - aDate;
+    });
+    items.forEach((item) => list.appendChild(item));
+  }
+
+  if (searchInput) searchInput.addEventListener('input', applyFilterSort);
+  if (sortSelect) sortSelect.addEventListener('change', applyFilterSort);
+</script>
