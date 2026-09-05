@@ -49,15 +49,11 @@
 - heading: Group outings
   sub: Lunches, retreats, and time together outside the lab.
   items:
-    - image: images/gallery/lunch-1.jpg
-      alt: Lab members at a group lunch
-      title: Lab lunch
-      subtitle: '2026'
-    - image: images/gallery/retreat-1.jpg
-      alt: Lab members at an annual retreat
-      title: Annual lab retreat
-      subtitle: '2026'
-    - image: images/gallery/dinner-1.jpg
-      alt: Lab members at a celebratory dinner
-      title: Post-conference dinner
+    - image: images/gallery/group-outings/tg2025.jpg
+      alt: Lab members at Thanksgiving 2025
+      title: Thanksgiving 2025
+      subtitle: '2025'
+    - image: images/gallery/group-outings/sc2026.jpg
+      alt: Lab members celebrating new grant, MNCORE summer student Kyla, and 1 year since our inagural member, Shashwata joined the lab
+      title: Summer celebration 2026
       subtitle: '2026'
