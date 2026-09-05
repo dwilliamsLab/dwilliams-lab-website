@@ -30,25 +30,10 @@ function formatAuthorsWithHighlight(authors) {
     .join(', ');
 }
 
-async function fetchAttentionScore(doi) {
-  if (!doi) return { score: null, detailsUrl: null };
-  try {
-    const res = await fetch(`https://api.altmetric.com/v1/doi/${doi}`);
-    if (!res.ok) return { score: null, detailsUrl: null };
-    const data = await res.json();
-    return {
-      score: typeof data.score === 'number' ? Math.round(data.score) : null,
-      detailsUrl: data.details_url || null,
-    };
-  } catch {
-    return { score: null, detailsUrl: null };
-  }
-}
-
 async function fetchCitationCount(doi) {
   if (!doi) return { count: null, url: null };
   try {
-    const res = await fetch(`https://api.openalex.org/works/https://doi.org/${doi}`);
+    const res = await fetch(`https://api.openalex.org/works/https://doi.org/${doi}?mailto=drakew@umn.edu`);
     if (!res.ok) return { count: null, url: null };
     const data = await res.json();
     return {
@@ -60,15 +45,11 @@ async function fetchCitationCount(doi) {
   }
 }
 
-const metricsById = {};
+const citationById = {};
 await Promise.all(
   highlighted.map(async (pub) => {
     const doiText = extractDoiFromId(pub.id);
-    const [attention, citation] = await Promise.all([
-      fetchAttentionScore(doiText),
-      fetchCitationCount(doiText),
-    ]);
-    metricsById[pub.id] = { attention, citation };
+    citationById[pub.id] = await fetchCitationCount(doiText);
   })
 );
 ---
@@ -95,7 +76,7 @@ await Promise.all(
             const prettyDate = formatDate(pub.date);
             const doiText = extractDoiFromId(pub.id);
             const summary = pubSummaries[pub.id];
-            const { attention, citation } = metricsById[pub.id] || { attention: {}, citation: {} };
+            const citation = citationById[pub.id] || {};
             return (
               <li class="pub-item">
                 <article class="pub-row">
@@ -125,17 +106,6 @@ await Promise.all(
                     </div>
                   </div>
                   <div class="pub-actions" aria-label="Article metrics and links">
-                    {attention?.score != null && attention?.detailsUrl && (
-                      <a
-                        href={attention.detailsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="pub-metric"
-                      >
-                        <span class="pub-metric-label">Attention</span>
-                        <span class="pub-metric-value">{attention.score}</span>
-                      </a>
-                    )}
                     {citation?.count != null && citation?.url && (
                       <a
                         href={citation.url}
