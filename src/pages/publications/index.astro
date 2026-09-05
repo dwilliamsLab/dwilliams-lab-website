@@ -31,26 +31,32 @@ function formatAuthorsWithHighlight(authors) {
 }
 
 async function fetchAttentionScore(doi) {
-  if (!doi) return null;
+  if (!doi) return { score: null, detailsUrl: null };
   try {
     const res = await fetch(`https://api.altmetric.com/v1/doi/${doi}`);
-    if (!res.ok) return null;
+    if (!res.ok) return { score: null, detailsUrl: null };
     const data = await res.json();
-    return typeof data.score === 'number' ? Math.round(data.score) : null;
+    return {
+      score: typeof data.score === 'number' ? Math.round(data.score) : null,
+      detailsUrl: data.details_url || null,
+    };
   } catch {
-    return null;
+    return { score: null, detailsUrl: null };
   }
 }
 
 async function fetchCitationCount(doi) {
-  if (!doi) return null;
+  if (!doi) return { count: null, url: null };
   try {
     const res = await fetch(`https://api.openalex.org/works/https://doi.org/${doi}`);
-    if (!res.ok) return null;
+    if (!res.ok) return { count: null, url: null };
     const data = await res.json();
-    return typeof data.cited_by_count === 'number' ? data.cited_by_count : null;
+    return {
+      count: typeof data.cited_by_count === 'number' ? data.cited_by_count : null,
+      url: data.id || null,
+    };
   } catch {
-    return null;
+    return { count: null, url: null };
   }
 }
 
@@ -58,11 +64,11 @@ const metricsById = {};
 await Promise.all(
   highlighted.map(async (pub) => {
     const doiText = extractDoiFromId(pub.id);
-    const [attention, citationCount] = await Promise.all([
+    const [attention, citation] = await Promise.all([
       fetchAttentionScore(doiText),
       fetchCitationCount(doiText),
     ]);
-    metricsById[pub.id] = { attention, citationCount };
+    metricsById[pub.id] = { attention, citation };
   })
 );
 ---
@@ -89,7 +95,7 @@ await Promise.all(
             const prettyDate = formatDate(pub.date);
             const doiText = extractDoiFromId(pub.id);
             const summary = pubSummaries[pub.id];
-            const metrics = metricsById[pub.id] || {};
+            const { attention, citation } = metricsById[pub.id] || { attention: {}, citation: {} };
             return (
               <li class="pub-item">
                 <article class="pub-row">
@@ -119,17 +125,27 @@ await Promise.all(
                     </div>
                   </div>
                   <div class="pub-actions" aria-label="Article metrics and links">
-                    {metrics.attention != null && (
-                      <span class="pub-metric">
+                    {attention?.score != null && attention?.detailsUrl && (
+                      <a
+                        href={attention.detailsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="pub-metric"
+                      >
                         <span class="pub-metric-label">Attention</span>
-                        <span class="pub-metric-value">{metrics.attention}</span>
-                      </span>
+                        <span class="pub-metric-value">{attention.score}</span>
+                      </a>
                     )}
-                    {metrics.citationCount != null && (
-                      <span class="pub-metric">
+                    {citation?.count != null && citation?.url && (
+                      <a
+                        href={citation.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="pub-metric"
+                      >
                         <span class="pub-metric-label">Citations</span>
-                        <span class="pub-metric-value pub-metric-value--citations">{metrics.citationCount}</span>
-                      </span>
+                        <span class="pub-metric-value pub-metric-value--citations">{citation.count}</span>
+                      </a>
                     )}
                     {pub.buttons &&
                       pub.buttons.map((button) => (
