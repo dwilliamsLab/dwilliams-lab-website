@@ -88,9 +88,9 @@
   max-width: 72ch;
 }
 
-/* Attention / Citations — deliberately more prominent than the plain
-   action-link pills: thicker teal border + tinted background so they
-   read as data highlights, not just another link. */
+/* OpenAlex-sourced metric pills — Citations, FWCI, Percentile — deliberately
+   more prominent than the plain action-link pills: thicker teal border +
+   tinted background + bold teal value, so they read as data highlights. */
 .pub-metric {
   display: inline-flex;
   align-items: center;
@@ -118,11 +118,6 @@
 }
 
 .pub-metric-value {
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.pub-metric-value--citations {
   font-weight: 700;
   color: var(--color-primary);
 }

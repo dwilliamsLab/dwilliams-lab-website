@@ -30,26 +30,32 @@ function formatAuthorsWithHighlight(authors) {
     .join(', ');
 }
 
-async function fetchCitationCount(doi) {
-  if (!doi) return { count: null, url: null };
+async function fetchOpenAlexMetrics(doi) {
+  const empty = { count: null, fwci: null, percentile: null, url: null };
+  if (!doi) return empty;
   try {
     const res = await fetch(`https://api.openalex.org/works/https://doi.org/${doi}?mailto=drakew@umn.edu`);
-    if (!res.ok) return { count: null, url: null };
+    if (!res.ok) return empty;
     const data = await res.json();
     return {
       count: typeof data.cited_by_count === 'number' ? data.cited_by_count : null,
+      fwci: typeof data.fwci === 'number' ? data.fwci : null,
+      percentile:
+        data.citation_normalized_percentile && typeof data.citation_normalized_percentile.value === 'number'
+          ? data.citation_normalized_percentile.value
+          : null,
       url: data.id || null,
     };
   } catch {
-    return { count: null, url: null };
+    return empty;
   }
 }
 
-const citationById = {};
+const metricsById = {};
 await Promise.all(
   highlighted.map(async (pub) => {
     const doiText = extractDoiFromId(pub.id);
-    citationById[pub.id] = await fetchCitationCount(doiText);
+    metricsById[pub.id] = await fetchOpenAlexMetrics(doiText);
   })
 );
 ---
@@ -76,7 +82,7 @@ await Promise.all(
             const prettyDate = formatDate(pub.date);
             const doiText = extractDoiFromId(pub.id);
             const summary = pubSummaries[pub.id];
-            const citation = citationById[pub.id] || {};
+            const metrics = metricsById[pub.id] || {};
             return (
               <li class="pub-item">
                 <article class="pub-row">
@@ -106,15 +112,22 @@ await Promise.all(
                     </div>
                   </div>
                   <div class="pub-actions" aria-label="Article metrics and links">
-                    {citation?.count != null && citation?.url && (
-                      <a
-                        href={citation.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="pub-metric"
-                      >
+                    {metrics.count != null && metrics.url && (
+                      <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
                         <span class="pub-metric-label">Citations</span>
-                        <span class="pub-metric-value pub-metric-value--citations">{citation.count}</span>
+                        <span class="pub-metric-value">{metrics.count}</span>
+                      </a>
+                    )}
+                    {metrics.fwci != null && metrics.url && (
+                      <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
+                        <span class="pub-metric-label">FWCI</span>
+                        <span class="pub-metric-value">{metrics.fwci.toFixed(1)}</span>
+                      </a>
+                    )}
+                    {metrics.percentile != null && metrics.url && (
+                      <a href={metrics.url} target="_blank" rel="noopener noreferrer" class="pub-metric">
+                        <span class="pub-metric-label">Percentile</span>
+                        <span class="pub-metric-value">{Math.round(metrics.percentile)}th pct</span>
                       </a>
                     )}
                     {pub.buttons &&
