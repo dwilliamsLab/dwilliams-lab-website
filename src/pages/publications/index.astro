@@ -61,7 +61,7 @@ function formatAuthorsWithHighlight(authors) {
                       {pub.image && (
                         <div class="pub-icon">
                           <img
-                            src={pub.image}
+                            src={`/${pub.image}`}
                             alt={pub.publisher ? `${pub.publisher} logo` : 'Journal logo'}
                             loading="lazy"
                           />
@@ -78,26 +78,26 @@ function formatAuthorsWithHighlight(authors) {
                           {doiText ? ` · doi:${doiText}` : ''}
                         </p>
                         {summary && <p class="pub-summary">{summary}</p>}
-                      </div>
-                    </div>
-                    <div class="pub-metrics" aria-label="Article metrics">
-                      <div class="pub-metric">
-                        <span class="pub-metric-label">Attention</span>
-                        <span
-                          class="altmetric-embed"
-                          data-badge-type="donut"
-                          data-badge-popover="right"
-                          data-hide-no-mentions="false"
-                          data-doi={doiText}
-                        ></span>
-                      </div>
-                      <div class="pub-metric">
-                        <span class="pub-metric-label">Citations</span>
-                        <span
-                          class="dimensions-badge dimensions_badge_embed"
-                          data-doi={doiText}
-                          data-style="small_circle"
-                        ></span>
+                        <div class="pub-metrics" aria-label="Article metrics">
+                          <div class="pub-metric">
+                            <span class="pub-metric-label">Attention</span>
+                            <span
+                              class="altmetric-embed"
+                              data-badge-type="donut"
+                              data-badge-popover="right"
+                              data-hide-no-mentions="false"
+                              data-doi={doiText}
+                            ></span>
+                          </div>
+                          <div class="pub-metric">
+                            <span class="pub-metric-label">Citations</span>
+                            <span
+                              class="dimensions-badge __dimensions_badge_embed__"
+                              data-doi={doiText}
+                              data-style="small_circle"
+                            ></span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
