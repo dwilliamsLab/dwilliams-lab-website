@@ -88,25 +88,16 @@
   max-width: 72ch;
 }
 
-/* Metrics row */
-.pub-metrics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-1);
-  margin-bottom: var(--space-2);
-}
-
 .pub-metric {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-2);
-  min-height: 1.75rem;
-  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface-offset);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
 }
 
 .pub-metric-label {
@@ -120,8 +111,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 3rem;
-  min-height: 1.5rem;
+  min-width: 1rem;
+  min-height: 1rem;
 }
 
 /* Tags */
@@ -138,10 +129,11 @@
   color: var(--color-text-muted);
 }
 
-/* Action buttons — rounded pill style matching team links */
+/* Metrics + action buttons — one shared pill row */
 .pub-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-2);
   margin-left: calc(8rem + var(--space-6));
   margin-top: var(--space-3);
