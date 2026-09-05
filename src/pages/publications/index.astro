@@ -1,70 +1,58 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import '@/styles/pages/publications.css';
-import citations from '@/data/citations.yaml';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/pages/publications.css';
+import citations from '../../data/citations.yaml';
+import pubSummaries from '../../data/pub-summaries.yaml';
 
 const highlighted = citations
   .filter((item) => item.highlight === 'y')
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-const formatDate = (dateString) => {
+function formatDate(dateString) {
   if (!dateString) return null;
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  });
-};
+  return date.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
+}
 
-const extractDoiFromId = (id) => {
+function extractDoiFromId(id) {
   if (!id) return null;
   return id.startsWith('doi:') ? id.replace('doi:', '') : id;
-};
+}
 
-const formatAuthorsWithHighlight = (authors) => {
+function formatAuthorsWithHighlight(authors) {
   if (!authors || authors.length === 0) return '';
-  const focusNames = [
-    'Drake Williams',
-    'Drake W. Williams',
-    'Drake Winslow Williams',
-    'D.W. Williams',
-  ];
+  const focusNames = ['Drake Williams', 'Drake W. Williams', 'Drake Winslow Williams', 'D.W. Williams'];
   return authors
     .map((name) => {
       const isFocus = focusNames.some((focus) => name.includes(focus));
-      return isFocus ? '<strong>' + name + '</strong>' : name;
+      return isFocus ? `<strong>${name}</strong>` : name;
     })
     .join(', ');
-};
+}
 ---
 
-<BaseLayout
-  title="Publications"
-  description="Selected publications that inform the lab's research direction."
->
+<BaseLayout title="Publications" description="Selected publications that inform the lab's research direction.">
   <div class="container">
     <div class="page-header page-header--narrow">
       <h1>Publications</h1>
       <p>
-        Selected publications from work leading up to and informing our lab's research
-        program. This list highlights papers that shaped our focus on barrier immunity,
-        host–microbiome interactions, and systems approaches.
+        Selected publications from work leading up to and informing our lab's research program. This list
+        highlights papers that shaped our focus on barrier immunity, host–microbiome interactions, and systems
+        approaches.
       </p>
     </div>
 
     <section class="section section--sm">
       {highlighted.length === 0 ? (
         <p class="pub-empty">
-          Selected publications will appear here. In the meantime, see Google Scholar
-          for a complete list.
+          Selected publications will appear here. In the meantime, see Google Scholar for a complete list.
         </p>
       ) : (
         <ul role="list" class="pub-list">
           {highlighted.map((pub) => {
             const prettyDate = formatDate(pub.date);
             const doiText = extractDoiFromId(pub.id);
-
+            const summary = pubSummaries[pub.id];
             return (
               <li class="pub-item">
                 <article class="pub-row">
@@ -73,66 +61,55 @@ const formatAuthorsWithHighlight = (authors) => {
                       {pub.image && (
                         <div class="pub-icon">
                           <img
-                            src={'/' + pub.image}
-                            alt={pub.publisher ? pub.publisher + ' logo' : 'Journal logo'}
+                            src={pub.image}
+                            alt={pub.publisher ? `${pub.publisher} logo` : 'Journal logo'}
                             loading="lazy"
                           />
                         </div>
                       )}
-
                       <div class="pub-content">
-                        <a
-                          class="pub-title-link"
-                          href={pub.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <a class="pub-title-link" href={pub.link} target="_blank" rel="noopener noreferrer">
                           {pub.title}
                         </a>
-
-                        <div class="pub-authors" set:html={formatAuthorsWithHighlight(pub.authors)}></div>
-
+                        <div class="pub-authors" set:html={formatAuthorsWithHighlight(pub.authors)} />
                         <p class="pub-meta">
                           {pub.publisher}
-                          {prettyDate && ' · ' + prettyDate}
-                          {doiText && ' · doi:' + doiText}
+                          {prettyDate ? ` · ${prettyDate}` : ''}
+                          {doiText ? ` · doi:${doiText}` : ''}
                         </p>
-
-                        <div class="pub-metrics" aria-label="Article metrics">
-                          <div class="pub-metric">
-                            <span class="pub-metric-label">Attention</span>
-                            <span
-                              class="altmetric-embed"
-                              data-badge-type="donut"
-                              data-badge-popover="right"
-                              data-doi={doiText}
-                            ></span>
-                          </div>
-                          <div class="pub-metric">
-                            <span class="pub-metric-label">Citations</span>
-                            <span
-                              class="dimensions-badge __dimensions_badge_embed__"
-                              data-doi={doiText}
-                              data-style="small_circle"
-                            ></span>
-                          </div>
-                        </div>
+                        {summary && <p class="pub-summary">{summary}</p>}
+                      </div>
+                    </div>
+                    <div class="pub-metrics" aria-label="Article metrics">
+                      <div class="pub-metric">
+                        <span class="pub-metric-label">Attention</span>
+                        <span
+                          class="altmetric-embed"
+                          data-badge-type="donut"
+                          data-badge-popover="right"
+                          data-hide-no-mentions="false"
+                          data-doi={doiText}
+                        ></span>
+                      </div>
+                      <div class="pub-metric">
+                        <span class="pub-metric-label">Citations</span>
+                        <span
+                          class="dimensions-badge dimensions_badge_embed"
+                          data-doi={doiText}
+                          data-style="small_circle"
+                        ></span>
                       </div>
                     </div>
                   </div>
-
-                  <div class="pub-actions">
-                    {pub.buttons && pub.buttons.map((button) => (
-                      <a
-                        href={button.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="pub-button"
-                      >
-                        {button.text}
-                      </a>
-                    ))}
-                  </div>
+                  {pub.buttons && (
+                    <div class="pub-actions">
+                      {pub.buttons.map((button) => (
+                        <a href={button.link} target="_blank" rel="noopener noreferrer" class="pub-button">
+                          {button.text}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </article>
               </li>
             );
@@ -144,9 +121,13 @@ const formatAuthorsWithHighlight = (authors) => {
     <section class="section section--sm">
       <p>
         For a complete publication record, see{' '}
-        <a href="https://scholar.google.com/citations?user=6SmnW4IAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        <a href="https://scholar.google.com/citations?user=6SmnW4IAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+          Google Scholar
+        </a>
         {' '}or{' '}
-        <a href="https://orcid.org/0000-0002-7718-2098" target="_blank" rel="noopener noreferrer">ORCID</a>.
+        <a href="https://orcid.org/0000-0002-7718-2098" target="_blank" rel="noopener noreferrer">
+          ORCID
+        </a>.
       </p>
     </section>
   </div>
