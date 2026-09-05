@@ -47,7 +47,7 @@
   .home-split {
     grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
     align-items: start;
-    gap: var(--space-24);
+    gap: clamp(var(--space-24), 8vw, 8rem);
   }
 
   .home-news {
