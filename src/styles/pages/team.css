@@ -1,4 +1,4 @@
-/* ── Team page ─────────────────────────────────────────────── */
+/* ── Team page ──────────────────────────────────────── */
 
 .member-grid {
   display: grid;
@@ -23,7 +23,7 @@
   background: var(--color-surface-2);
   box-shadow: var(--shadow-sm);
   --badge-inset: 8px;
-  --badge-size: 26px;
+  --badge-size: 34px;
   --badge-gap: 6px;
 }
 .member-avatar img {
@@ -86,14 +86,14 @@
   flex-shrink: 0;
 }
 .badge-circle svg {
-  width: calc(var(--badge-size) * 0.7);
-  height: calc(var(--badge-size) * 0.7);
+  width: calc(var(--badge-size) * 0.78);
+  height: calc(var(--badge-size) * 0.78);
   stroke: var(--color-primary);
   display: block;
 }
 .badge-tenure {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--color-primary);
   letter-spacing: -0.2px;
@@ -393,10 +393,6 @@
   .member-dialog-layout { grid-template-columns: 1fr; }
   .member-dialog-media { max-width: 260px; }
 
-  /* Alumni rows collapse to a single stacked column on narrow screens.
-     Keep the avatar pinned to the top next to the name (not vertically
-     centered against the now-taller stacked content), and tighten up
-     the gaps so info/achievements/next-divider don't float apart. */
   .alumni-card {
     align-items: flex-start;
     gap: var(--space-4);
@@ -404,11 +400,17 @@
   }
   .alumni-body {
     flex-direction: column;
-    gap: var(--space-2);
+    gap: 4px;
+  }
+  .alumni-info {
+    gap: 2px;
   }
   .alumni-accomplishments-col {
     border-left: none;
     padding-left: 0;
     margin-top: 0;
+  }
+  .alumni-accomplishments-heading {
+    margin-top: 2px;
   }
 }
