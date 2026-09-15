@@ -29,22 +29,14 @@
 - heading: Presentations
   sub: Talks, posters, and presentations from the team.
   items:
-    - image: images/gallery/kyla-presentation-1.jpg
+    - image: images/gallery/kyla-poster.jpg
       alt: Kyla presenting her poster at the LSSURP symposium
       title: Kyla presenting her summer research
       subtitle: LSSURP Symposium
-    - image: images/gallery/kyla-presentation-2.jpg
-      alt: Kyla fielding questions from judges
+    - image: images/gallery/kyla-talk.jpg
+      alt: Kyla presenting her research results to MNCORE faculty and students
       title: Fielding questions from judges
       subtitle: LSSURP Symposium
-    - image: images/gallery/conference-poster-1.jpg
-      alt: Lab member presenting a poster at a conference
-      title: Poster session
-      subtitle: Regional immunology meeting
-    - image: images/gallery/invited-talk-1.jpg
-      alt: Dr. Williams giving an invited talk
-      title: Invited talk
-      subtitle: Dr. Williams
 
 - heading: Group outings
   sub: Lunches, retreats, and time together outside the lab.
