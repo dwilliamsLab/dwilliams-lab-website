@@ -14,8 +14,12 @@
 .pub-search-input {
   flex: 1 1 260px;
   min-width: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
   padding: var(--space-2) var(--space-3);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
+  line-height: normal;
   color: var(--color-text);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -28,8 +32,12 @@
 }
 
 .pub-sort-select {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
   padding: var(--space-2) var(--space-3);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
+  line-height: normal;
   color: var(--color-text);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -252,5 +260,6 @@
   .pub-button,
   .pub-title-link { font-size: var(--text-sm); }
   .pub-controls { flex-direction: column; }
-  .pub-sort-select { flex: 1 1 auto; }
+  .pub-search-input { width: 100%; }
+  .pub-sort-select { flex: 1 1 auto; width: 100%; }
 }
