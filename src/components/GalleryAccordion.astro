@@ -14,7 +14,7 @@
 interface GalleryItem {
   image: string;
   alt: string;
-  caption: string;
+  caption?: string;
   who?: string;
   where?: string;
   when?: string;
@@ -88,7 +88,7 @@ function metaLine(item: GalleryItem) {
                   <img src={'/' + item.image} alt={item.alt} loading="lazy" decoding="async" />
                 </div>
                 <figcaption>
-                  <span class="lightbox-caption">{item.caption}</span>
+                  <span class="lightbox-caption">{item.caption ?? item.alt}</span>
                   {metaLine(item) && <span class="lightbox-meta">{metaLine(item)}</span>}
                 </figcaption>
               </figure>
@@ -287,15 +287,19 @@ function metaLine(item: GalleryItem) {
     width: min(360px, 78vw);
   }
   .lightbox-image {
-    aspect-ratio: 4 / 5;
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--color-surface-2);
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .lightbox-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
     display: block;
   }
   .lightbox-item figcaption {

@@ -1,4 +1,4 @@
-/* ── Team page ──────────────────────────────────────── */
+/* ── Team page ───────────────────────── */
 
 .member-grid {
   display: grid;
@@ -404,11 +404,13 @@
   }
   .alumni-info {
     gap: 2px;
+    flex: 0 0 auto;
   }
   .alumni-accomplishments-col {
     border-left: none;
     padding-left: 0;
     margin-top: 0;
+    flex: 0 0 auto;
   }
   .alumni-accomplishments-heading {
     margin-top: 2px;
