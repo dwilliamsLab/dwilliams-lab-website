@@ -14,16 +14,19 @@
 .pub-search-input {
   flex: 1 1 260px;
   min-width: 0;
-  -webkit-appearance: none;
-  appearance: none;
-  box-sizing: border-box;
-  height: 44px;
-  padding: 0 var(--space-3);
-  font-size: var(--text-base);
-  line-height: normal;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  box-sizing: border-box !important;
+  height: 44px !important;
+  min-height: 0 !important;
+  max-height: 44px !important;
+  padding: 0 var(--space-3) !important;
+  margin: 0 !important;
+  font-size: var(--text-base) !important;
+  line-height: 44px !important;
   color: var(--color-text);
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border) !important;
   border-radius: var(--radius-md);
 }
 
@@ -262,6 +265,6 @@
   .pub-button,
   .pub-title-link { font-size: var(--text-sm); }
   .pub-controls { flex-direction: column; }
-  .pub-search-input { width: 100%; }
+  .pub-search-input { width: 100% !important; }
   .pub-sort-select { flex: 1 1 auto; width: 100%; }
 }
