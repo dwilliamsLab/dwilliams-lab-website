@@ -473,7 +473,7 @@
   project: null
   buttons:
   - type: pmc
-    link: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC
+    link: https://pmc.ncbi.nlm.nih.gov/articles/PMC12352774/
     text: PMC Full Text
   plugin: sources.py
   file: sources.yaml
