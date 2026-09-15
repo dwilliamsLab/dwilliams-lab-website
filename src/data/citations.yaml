@@ -440,6 +440,9 @@
   stage: pr
   project: atlas
   buttons:
+  - type: pmc
+    link: https://pmc.ncbi.nlm.nih.gov/articles/PMC12956602/
+    text: PMC Full Text
   - type: press
     link: https://www.nature.com/articles/s41590-025-02410-5
     text: Research Briefing
