@@ -1,5 +1,5 @@
 ---
-title: New member - Nejma Muhumed
+title: Nejma Muhumed joins as an undergraduate researcher
 date: 2026-01-06
 image: images/people/nejma.jpeg
 ---

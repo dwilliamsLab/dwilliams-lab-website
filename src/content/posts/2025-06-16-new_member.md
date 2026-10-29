@@ -1,5 +1,5 @@
 ---
-title: New member - Shashwata Biswas
+title: Shashwata Biswas joins as the lab’s first postdoctoral researcher
 date: 2025-06-16
 image: images/people/shashwata.jpg
 ---

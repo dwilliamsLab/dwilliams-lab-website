@@ -1,5 +1,5 @@
 ---
-title: New member - Justin Lehtinen
+title: Justin Lehtinen joins as a co-mentored PhD student
 date: 2025-09-01
 image: images/people/justin.jpg
 ---

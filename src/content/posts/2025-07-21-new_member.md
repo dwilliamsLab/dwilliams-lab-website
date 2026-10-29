@@ -1,5 +1,5 @@
 ---
-title: New member - Kevin Cunningham
+title: Kevin Cunningham joins the lab as a PhD student
 date: 2025-07-21
 image: images/people/kevin.jpeg
 ---

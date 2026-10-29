@@ -1,5 +1,5 @@
 ---
-title: New member - Kyla Elsbury
+title: Kyla Elsbury joins as an MNCORE summer student
 date: 2026-06-03
 image: images/people/kyla.png
 ---

@@ -1,5 +1,5 @@
 ---
-title: Rotation student - Melanie Barksdale
+title: Melanie Barksdale begins her research rotation
 date: 2026-01-05
 image: images/people/melanie.jpeg
 ---

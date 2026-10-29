@@ -1,5 +1,5 @@
 ---
-title: New member - Bria Mills
+title: Bria Mills joins as an undergraduate researcher
 date: 2026-03-04
 image: images/people/bria.jpg
 ---
