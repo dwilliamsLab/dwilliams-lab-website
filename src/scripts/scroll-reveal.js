@@ -40,7 +40,7 @@ function initScrollReveal() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) show(entry.target);
       });
-    }, { root: null, rootMargin: '0px 0px -48px 0px', threshold: 0 });
+    }, { root: null, rootMargin: '0px 0px -120px 0px', threshold: 0 });
 
     const selector = '.post-card, .member-card, .team-card, .publication-item, .resource-card, h1, h2, h3, h4, p, figure, picture, img, li';
     const candidates = Array.from(main.querySelectorAll(selector)).filter((element) => {
@@ -58,7 +58,7 @@ function initScrollReveal() {
 
     targets.forEach((element) => {
       const rect = element.getBoundingClientRect();
-      if (!rect.width || !rect.height || rect.top < window.innerHeight - 48) return;
+      if (!rect.width || !rect.height || rect.top < window.innerHeight - 120) return;
       element.classList.add('lomi-reveal');
       enrolled.add(element);
       pending.add(element);
@@ -73,7 +73,7 @@ function initScrollReveal() {
     requestAnimationFrame(() => {
       if (stopped) return;
       pending.forEach((element) => {
-        if (element.getBoundingClientRect().top >= window.innerHeight - 48) {
+        if (element.getBoundingClientRect().top >= window.innerHeight - 120) {
           element.classList.add('lomi-reveal-pending');
         } else {
           show(element);
