@@ -113,9 +113,9 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
         align-items: center;
         justify-content: center;
         transition:
-          opacity 0.6s ease,
-          backdrop-filter 0.6s ease,
-          background-color 0.6s ease;
+          opacity 1.2s ease,
+          backdrop-filter 1.2s ease,
+          background-color 1.2s ease;
       }
 
       #splash.hidden {
@@ -174,8 +174,8 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
         arc3 draws:      52% -> 70%  (1.56s - 2.10s)
         center lights:   70% -> 90%  (2.10s - 2.70s)
         "Welcome to" + L/MI fade in: 70% -> 90% (2.10s - 2.70s)
-        All fully visible at 2.70s; animation ends at 3s, then dwell 0.4s.
-        Fade begins at ~3.4s and completes at ~4s.
+        All fully visible at 2.70s; animation ends at 3s, then dwell 0.8s.
+        Fade begins at ~3.8s and completes at ~5s.
     -->
     <div id="splash">
       <div id="splash-logo">
@@ -564,9 +564,9 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
         }
 
         if (finalAnimate) {
-          // Dwell 0.4s after animation ends, then fade out over 0.6s
+          // Dwell 0.8s after animation ends, then fade out over 1.2s
           finalAnimate.addEventListener('endEvent', () => {
-            setTimeout(hideSplash, 400);
+            setTimeout(hideSplash, 800);
           }, { once: true });
 
           // Safety fallback: if endEvent never fires (e.g. SVG animations blocked),
@@ -574,7 +574,7 @@ const ogImageURL = new URL(ogImage, 'https://williams.science').toString();
           setTimeout(hideSplash, 6000);
         } else {
           // No animate element found — use the expected animation plus dwell timing
-          setTimeout(hideSplash, 3400);
+          setTimeout(hideSplash, 3800);
         }
       })();
     </script>
