@@ -1,0 +1,32 @@
+/* Retire the fixed gradient, including when JavaScript is disabled. */
+html body::after { display: none !important; }
+html .site-footer {
+  position: static;
+  z-index: auto;
+  background-color: transparent;
+}
+
+/* Content is visible unless the observer has explicitly enrolled it. */
+#main-content .lomi-reveal {
+  transition: opacity 650ms ease;
+}
+#main-content .lomi-reveal.lomi-reveal-pending {
+  opacity: 0;
+}
+#main-content .lomi-reveal:focus-within,
+#main-content .lomi-reveal:focus-visible {
+  opacity: 1;
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
+  #main-content .lomi-reveal {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+@media print {
+  #main-content .lomi-reveal {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
