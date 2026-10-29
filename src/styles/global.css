@@ -450,37 +450,42 @@ button { cursor: pointer; background: none; border: none; }
 }
 
 /* ============================================================
-   Scroll reveal (progressive enhancement, CSS-only)
-   Fades/slides major content blocks in as they scroll into view.
-   Uses the native scroll-driven animations spec, so it costs zero
-   JavaScript and simply does nothing in browsers that don't support
-   it yet -- content is always visible either way, never hidden.
+   Persistent viewport-bottom fade (CSS-only)
+   Content scrolls through a stationary gradient; no section animation.
    ============================================================ */
-@supports (animation-timeline: view()) {
-  @keyframes reveal-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .hero,
-  .page-header,
-  .section {
-    animation: reveal-in linear both;
-    animation-timeline: view();
-    animation-range: entry 25%;
-  }
+body::after {
+  content: '';
+  position: fixed;
+  inset: auto 0 0;
+  height: 120px;
+  z-index: 90;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(248, 248, 246, 0) 0%,
+    rgba(248, 248, 246, 0.12) 25%,
+    rgba(248, 248, 246, 0.45) 55%,
+    rgba(248, 248, 246, 0.82) 80%,
+    var(--color-bg) 100%);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero,
-  .page-header,
-  .section {
-    animation: none !important;
-  }
+/* Keep footer links readable without scroll listeners. */
+.site-footer {
+  position: relative;
+  z-index: 91;
+  background-color: var(--color-bg);
+}
+
+@media (max-width: 640px) {
+  body::after { height: 80px; }
+}
+
+/* Do not wash out keyboard-focused controls. */
+body:has(:focus-visible)::after { display: none; }
+
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
+  body::after { display: none; }
+}
+
+@media print {
+  body::after { display: none; }
 }
