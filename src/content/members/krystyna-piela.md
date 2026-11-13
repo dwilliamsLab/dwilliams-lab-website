@@ -1,5 +1,6 @@
 ---
 name: Krystyna Piela
+image: images/people/krystyna.jpg
 description: Postdoctoral Researcher
 role: postdoc
 group: current
@@ -7,6 +8,7 @@ startDate: 2026-10-26
 aliases:
   - Krystyna Piela
 links:
+  email: kpiela@umn.edu
   orcid: '0000-0001-5925-3246'
   google-scholar: f23mqxoAAAAJ
 ---
