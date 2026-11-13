@@ -3,6 +3,7 @@ name: Krystyna Piela
 description: Postdoctoral Researcher
 role: postdoc
 group: current
+startDate: 2026-10-26
 aliases:
   - Krystyna Piela
 links:
